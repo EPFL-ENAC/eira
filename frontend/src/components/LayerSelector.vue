@@ -129,7 +129,7 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         density="compact"
         :label="item.title"
         :value="item.value"
-      ></v-checkbox>
+      />
     </v-card-text>
   </v-card>
 </template>

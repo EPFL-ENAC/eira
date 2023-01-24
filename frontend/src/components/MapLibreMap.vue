@@ -6,6 +6,7 @@ import {
   GeolocateControl,
   Map,
   NavigationControl,
+  Popup,
   ScaleControl,
   type StyleSpecification,
 } from "maplibre-gl";
@@ -20,6 +21,7 @@ export interface Props {
   maxZoom: number;
   permanentIds: string[];
   filterIds: string[];
+  popupLayerIds: string[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -30,6 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
   maxZoom: undefined,
   permanentIds: () => [],
   filterIds: () => [],
+  popupLayerIds: () => [],
 });
 
 const loading = ref(false);
@@ -49,6 +52,32 @@ onMounted(() => {
 
   map.once("load", () => {
     filterLayer(props.filterIds, props.permanentIds);
+  });
+
+  props.popupLayerIds.forEach((layerId) => {
+    const popup = new Popup({
+      closeButton: false,
+      closeOnClick: false,
+    });
+    map?.on("mouseenter", layerId, function (e) {
+      if (map) {
+        map.getCanvas().style.cursor = "pointer";
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(
+            Object.entries(e.features?.at(0)?.properties ?? {})
+              .map(([key, value]) => `<strong>${key}:</strong> ${value}`)
+              .join("<br>")
+          )
+          .addTo(map);
+      }
+    });
+    map?.on("mouseleave", layerId, function () {
+      if (map) {
+        map.getCanvas().style.cursor = "";
+      }
+      popup.remove();
+    });
   });
 });
 

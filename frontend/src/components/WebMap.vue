@@ -47,6 +47,7 @@ const layerIds = ref<string[]>([
         style-spec="https://raw.githubusercontent.com/EPFL-ENAC/EIRA-data/main/Data_vector_style/style_raster_background.json"
         :permanent-ids="['background', 'natural_earth']"
         :filter-ids="layerIds"
+        :popup-layer-ids="['piezometer_locations']"
       />
     </v-col>
   </v-row>
