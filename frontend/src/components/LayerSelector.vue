@@ -2,15 +2,24 @@
 import type { SelectItemObject } from "@/utils/vuetify";
 import { computed, ref, watch } from "vue";
 
+export interface SelectableItem {
+  title: string;
+  value: string | string[];
+}
+
 export interface Props {
   modelValue: string[];
   separator: string;
-  prefixSeparator: string;
+  itemSeparator: string;
+  prefixes: SelectableItem[];
+  items: SelectableItem[];
 }
 const props = withDefaults(defineProps<Props>(), {
   modelValue: () => [],
   separator: "_",
-  prefixSeparator: ",",
+  itemSeparator: ",",
+  prefixes: () => [],
+  items: () => [],
 });
 const emit = defineEmits<{
   (e: "update:modelValue", value: string[]): void;
@@ -33,17 +42,16 @@ const months: SelectItemObject[] = [
   title: item,
   value: (index + 1).toString(),
 }));
-const layers: SelectItemObject[] = [
-  { title: "Ponding", value: "ponding-raster" },
-  { title: "Piezometer elevation", value: "piezo-elev-raster" },
-  {
-    title: "Piezometer contours",
-    value: ["piezo_contour", "text-piezo_contour"],
-  },
-].map((item) => ({
+const layers: SelectItemObject[] = props.prefixes.map((item) => ({
   title: item.title,
   value: Array.isArray(item.value)
-    ? item.value.join(props.prefixSeparator)
+    ? item.value.join(props.itemSeparator)
+    : item.value,
+}));
+const items: SelectItemObject[] = props.items.map((item) => ({
+  title: item.title,
+  value: Array.isArray(item.value)
+    ? item.value.join(props.itemSeparator)
     : item.value,
 }));
 
@@ -62,18 +70,30 @@ const selectedLayers = ref<string[]>(
     .filter((value) =>
       props.modelValue.some((modelValue) =>
         value
-          .split(props.prefixSeparator)
+          .split(props.itemSeparator)
           .some((v) => modelValue.startsWith(v + props.separator))
+      )
+    )
+);
+const selectedItems = ref<string[]>(
+  items
+    .map((item) => item.value)
+    .filter((value) =>
+      props.modelValue.some((modelValue) =>
+        value.split(props.itemSeparator).includes(modelValue)
       )
     )
 );
 
 const combinedNames = computed<string[]>(() => {
-  return selectedLayers.value
-    .flatMap((layer) => layer.split(props.prefixSeparator))
-    .flatMap((layer) =>
-      selectedMonths.value.map((month) => `${layer}_${month}`)
-    );
+  return [
+    ...selectedLayers.value
+      .flatMap((layer) => layer.split(props.itemSeparator))
+      .flatMap((layer) =>
+        selectedMonths.value.map((month) => `${layer}_${month}`)
+      ),
+    ...selectedItems.value.flatMap((layer) => layer.split(props.itemSeparator)),
+  ];
 });
 
 watch(combinedNames, (names) => emit("update:modelValue", names));
@@ -87,6 +107,7 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         v-model="selectedMonths"
         chips
         closable-chips
+        color="primary"
         label="Select month"
         :items="months"
         multiple
@@ -95,10 +116,20 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         v-model="selectedLayers"
         chips
         closable-chips
+        color="primary"
         label="Select layer"
         :items="layers"
         multiple
       />
+      <v-checkbox
+        v-for="(item, index) in items"
+        :key="index"
+        v-model="selectedItems"
+        color="primary"
+        density="compact"
+        :label="item.title"
+        :value="item.value"
+      ></v-checkbox>
     </v-card-text>
   </v-card>
 </template>

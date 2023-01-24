@@ -13,13 +13,13 @@ import { onMounted, ref, watch } from "vue";
 
 export interface Props {
   styleSpec: string | StyleSpecification;
-  center?: [number, number];
-  zoom?: number;
-  aspectRatio?: number;
-  minZoom?: number;
-  maxZoom?: number;
-  filterPattern?: RegExp;
-  filterIds?: string[];
+  center: [number, number];
+  zoom: number;
+  aspectRatio: number;
+  minZoom: number;
+  maxZoom: number;
+  permanentIds: string[];
+  filterIds: string[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
   aspectRatio: 2,
   minZoom: undefined,
   maxZoom: undefined,
-  filterPattern: undefined,
+  permanentIds: () => [],
   filterIds: () => [],
 });
 
@@ -48,28 +48,26 @@ onMounted(() => {
   map.addControl(new FullscreenControl({}));
 
   map.once("load", () => {
-    filterLayer(props.filterIds, props.filterPattern);
+    filterLayer(props.filterIds, props.permanentIds);
   });
 });
 
 watch(
-  [() => props.filterIds, () => props.filterPattern],
+  [() => props.filterIds, () => props.permanentIds],
   ([filterIds, filterPattern]) => filterLayer(filterIds, filterPattern)
 );
 
-function filterLayer(filterIds: string[], filterPattern?: RegExp) {
-  if (map && filterPattern) {
-    map
-      .getStyle()
-      .layers.filter((layer) => filterPattern.test(layer.id))
-      .forEach((layer) => {
-        map?.setLayoutProperty(
-          layer.id,
-          "visibility",
-          filterIds.includes(layer.id) ? "visible" : "none"
-        );
-      });
-  }
+function filterLayer(filterIds: string[], permanentIds: string[]) {
+  map
+    ?.getStyle()
+    .layers.filter((layer) => !permanentIds.includes(layer.id))
+    .forEach((layer) => {
+      map?.setLayoutProperty(
+        layer.id,
+        "visibility",
+        filterIds.includes(layer.id) ? "visible" : "none"
+      );
+    });
 }
 </script>
 
