@@ -27,7 +27,7 @@ export interface Props {
 const props = withDefaults(defineProps<Props>(), {
   center: () => [0, 0],
   zoom: 10,
-  aspectRatio: 2,
+  aspectRatio: undefined,
   minZoom: undefined,
   maxZoom: undefined,
   permanentIds: () => [],
@@ -102,7 +102,7 @@ function filterLayer(filterIds: string[], permanentIds: string[]) {
 
 <template>
   <v-progress-linear v-if="loading" :active="loading" indeterminate />
-  <v-responsive :aspect-ratio="aspectRatio">
+  <v-responsive :aspect-ratio="aspectRatio" height="100%">
     <div id="maplibre-map" />
   </v-responsive>
 </template>

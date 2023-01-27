@@ -3,7 +3,7 @@ import WebMap from "@/components/WebMap.vue";
 </script>
 
 <template>
-  <v-container fluid>
+  <v-container class="h-100" fluid>
     <WebMap />
   </v-container>
 </template>

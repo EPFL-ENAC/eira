@@ -37,7 +37,7 @@ const layerIds = ref<string[]>([
 </script>
 
 <template>
-  <v-row>
+  <v-row class="h-100">
     <v-col cols="3">
       <LayerSelector v-model="layerIds" :items="items" :prefixes="prefixes" />
     </v-col>
