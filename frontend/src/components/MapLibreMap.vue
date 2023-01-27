@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 
+import MapboxDraw from "@mapbox/mapbox-gl-draw";
+import { area } from "@turf/turf";
 import {
   FullscreenControl,
   GeolocateControl,
@@ -8,32 +11,34 @@ import {
   NavigationControl,
   Popup,
   ScaleControl,
+  type IControl,
   type StyleSpecification,
 } from "maplibre-gl";
 import { onMounted, ref, watch } from "vue";
 
 export interface Props {
   styleSpec: string | StyleSpecification;
-  center: [number, number];
-  zoom: number;
-  aspectRatio: number;
-  minZoom: number;
-  maxZoom: number;
-  permanentIds: string[];
-  filterIds: string[];
-  popupLayerIds: string[];
+  center?: [number, number];
+  zoom?: number;
+  aspectRatio?: number;
+  minZoom?: number;
+  maxZoom?: number;
+  filterIds?: string[];
+  popupLayerIds?: string[];
 }
-
 const props = withDefaults(defineProps<Props>(), {
   center: () => [0, 0],
   zoom: 10,
   aspectRatio: undefined,
   minZoom: undefined,
   maxZoom: undefined,
-  permanentIds: () => [],
-  filterIds: () => [],
+  filterIds: undefined,
   popupLayerIds: () => [],
 });
+
+const emit = defineEmits<{
+  (e: "update:area", value: number): void;
+}>();
 
 const loading = ref(false);
 let map: Map | undefined = undefined;
@@ -49,10 +54,21 @@ onMounted(() => {
   map.addControl(new GeolocateControl({}));
   map.addControl(new ScaleControl({}));
   map.addControl(new FullscreenControl({}));
+  const draw = new MapboxDraw({
+    displayControlsDefault: false,
+    controls: {
+      polygon: true,
+      trash: true,
+    },
+  });
+  map.addControl(draw as unknown as IControl);
 
   map.once("load", () => {
-    filterLayer(props.filterIds, props.permanentIds);
+    filterLayer(props.filterIds);
   });
+  map.on("draw.create", updateArea);
+  map.on("draw.delete", updateArea);
+  map.on("draw.update", updateArea);
 
   props.popupLayerIds.forEach((layerId) => {
     const popup = new Popup({
@@ -79,24 +95,32 @@ onMounted(() => {
       popup.remove();
     });
   });
+
+  function updateArea() {
+    const data = draw.getAll();
+    const selectedArea = area(data);
+    emit("update:area", selectedArea);
+  }
 });
 
 watch(
-  [() => props.filterIds, () => props.permanentIds],
-  ([filterIds, filterPattern]) => filterLayer(filterIds, filterPattern)
+  () => props.filterIds,
+  (filterIds) => filterLayer(filterIds)
 );
 
-function filterLayer(filterIds: string[], permanentIds: string[]) {
-  map
-    ?.getStyle()
-    .layers.filter((layer) => !permanentIds.includes(layer.id))
-    .forEach((layer) => {
-      map?.setLayoutProperty(
-        layer.id,
-        "visibility",
-        filterIds.includes(layer.id) ? "visible" : "none"
-      );
-    });
+function filterLayer(filterIds?: string[]) {
+  if (filterIds) {
+    map
+      ?.getStyle()
+      .layers.filter((layer) => !layer.id.startsWith("gl-draw"))
+      .forEach((layer) => {
+        map?.setLayoutProperty(
+          layer.id,
+          "visibility",
+          filterIds.includes(layer.id) ? "visible" : "none"
+        );
+      });
+  }
 }
 </script>
 

@@ -8,11 +8,11 @@ export interface SelectableItem {
 }
 
 export interface Props {
-  modelValue: string[];
-  separator: string;
-  itemSeparator: string;
-  prefixes: SelectableItem[];
-  items: SelectableItem[];
+  modelValue?: string[];
+  separator?: string;
+  itemSeparator?: string;
+  prefixes?: SelectableItem[];
+  items?: SelectableItem[];
 }
 const props = withDefaults(defineProps<Props>(), {
   modelValue: () => [],
