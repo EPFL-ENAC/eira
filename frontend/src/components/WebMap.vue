@@ -28,12 +28,17 @@ const items: SelectableItem[] = [
     title: "Hillshade",
     value: "hillshade",
   },
+  {
+    title: "test area",
+    value: "test_areas", // TODO remove test data
+  },
 ];
 
 const selectedlayerIds = ref<string[]>([
   "piezometer_locations",
   "data_extent",
   "approximate_development_limit",
+  "test_areas", // TODO remove test data
 ]);
 
 const layerIds = computed<string[]>(() => [
@@ -43,6 +48,7 @@ const layerIds = computed<string[]>(() => [
 ]);
 
 const area = ref(0);
+const totalArea = ref(0);
 </script>
 
 <template>
@@ -53,7 +59,8 @@ const area = ref(0);
         :items="items"
         :prefixes="prefixes"
       />
-      <span>Area : {{ round(area, 2) }} [m²]</span>
+      <div>Area : {{ round(area, 2) }} [m²]</div>
+      <div>Total area : {{ round(totalArea, 2) }} [m²]</div>
     </v-col>
     <v-col>
       <MapLibreMap
@@ -61,7 +68,10 @@ const area = ref(0);
         style-spec="https://raw.githubusercontent.com/EPFL-ENAC/EIRA-data/main/Data_vector_style/style_raster_background.json"
         :filter-ids="layerIds"
         :popup-layer-ids="['piezometer_locations']"
+        :area-layer-ids="['test_areas']"
+        :zoom="12"
         @update:area="area = $event"
+        @update:total-area="totalArea = $event"
       />
     </v-col>
   </v-row>

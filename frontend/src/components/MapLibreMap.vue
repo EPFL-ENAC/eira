@@ -3,7 +3,15 @@ import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
-import { area } from "@turf/turf";
+import {
+  area,
+  bbox,
+  intersect,
+  union,
+  type Feature,
+  type MultiPolygon,
+  type Polygon,
+} from "@turf/turf";
 import {
   FullscreenControl,
   GeolocateControl,
@@ -12,32 +20,38 @@ import {
   Popup,
   ScaleControl,
   type IControl,
+  type LngLatLike,
   type StyleSpecification,
 } from "maplibre-gl";
 import { onMounted, ref, watch } from "vue";
 
-export interface Props {
-  styleSpec: string | StyleSpecification;
-  center?: [number, number];
-  zoom?: number;
-  aspectRatio?: number;
-  minZoom?: number;
-  maxZoom?: number;
-  filterIds?: string[];
-  popupLayerIds?: string[];
-}
-const props = withDefaults(defineProps<Props>(), {
-  center: () => [0, 0],
-  zoom: 10,
-  aspectRatio: undefined,
-  minZoom: undefined,
-  maxZoom: undefined,
-  filterIds: undefined,
-  popupLayerIds: () => [],
-});
+const props = withDefaults(
+  defineProps<{
+    styleSpec: string | StyleSpecification;
+    center?: [number, number];
+    zoom?: number;
+    aspectRatio?: number;
+    minZoom?: number;
+    maxZoom?: number;
+    filterIds?: string[];
+    popupLayerIds?: string[];
+    areaLayerIds?: string[];
+  }>(),
+  {
+    center: () => [0, 0],
+    zoom: 10,
+    aspectRatio: undefined,
+    minZoom: undefined,
+    maxZoom: undefined,
+    filterIds: undefined,
+    popupLayerIds: () => [],
+    areaLayerIds: () => [],
+  }
+);
 
 const emit = defineEmits<{
   (e: "update:area", value: number): void;
+  (e: "update:totalArea", value: number): void;
 }>();
 
 const loading = ref(false);
@@ -97,9 +111,69 @@ onMounted(() => {
   });
 
   function updateArea() {
-    const data = draw.getAll();
-    const selectedArea = area(data);
-    emit("update:area", selectedArea);
+    const { area, totalArea } = getArea();
+    emit("update:area", area);
+    emit("update:totalArea", totalArea);
+  }
+
+  function getArea(): {
+    area: number;
+    totalArea: number;
+  } {
+    if (!map) {
+      return {
+        area: 0,
+        totalArea: 0,
+      };
+    }
+    const selectedFeatures = draw.getAll().features as Feature<
+      Polygon | MultiPolygon
+    >[];
+    if (selectedFeatures.length === 0) {
+      return {
+        area: 0,
+        totalArea: 0,
+      };
+    }
+
+    const selectedFeature = selectedFeatures.reduce(
+      (f1, f2) => union(f1, f2) as Feature<Polygon | MultiPolygon>
+    );
+
+    const totalArea = area(selectedFeature);
+
+    if (props.areaLayerIds.length === 0) {
+      return {
+        area: 0,
+        totalArea: totalArea,
+      };
+    }
+
+    const boundingBox = bbox(selectedFeature);
+    const southWest: LngLatLike = [boundingBox[0], boundingBox[1]];
+    const northEast: LngLatLike = [boundingBox[2], boundingBox[3]];
+    const features = map.queryRenderedFeatures(
+      [map.project(southWest), map.project(northEast)],
+      {
+        layers: props.areaLayerIds,
+      }
+    ) as Feature<Polygon | MultiPolygon>[];
+
+    if (features.length === 0) {
+      return {
+        area: 0,
+        totalArea: totalArea,
+      };
+    }
+
+    const feature = features.reduce(
+      (f1, f2) => union(f1, f2) as Feature<Polygon | MultiPolygon>
+    );
+    const intersection = intersect(selectedFeature, feature);
+    return {
+      area: intersection ? area(intersection) : 0,
+      totalArea: totalArea,
+    };
   }
 });
 
