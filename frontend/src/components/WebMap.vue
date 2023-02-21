@@ -3,11 +3,11 @@ import LayerSelector, {
   type SelectableItem,
 } from "@/components/LayerSelector.vue";
 import MapLibreMap from "@/components/MapLibreMap.vue";
-import { round } from "lodash";
+import { range, round } from "lodash";
 import { computed, ref } from "vue";
 
 const prefixes: SelectableItem[] = [
-  { title: "Ponding", value: "ponding-raster" },
+  { title: "Ponding", value: ["ponding-raster", "ponding-vector"] },
   { title: "Piezometer elevation", value: "piezo-elev-raster" },
   {
     title: "Piezometer contours",
@@ -32,6 +32,10 @@ const items: SelectableItem[] = [
     title: "test area",
     value: "test_areas", // TODO remove test data
   },
+];
+const areaLayerIds = [
+  "test_areas",
+  ...range(12).map((i) => `ponding-vector_${i + 1}`),
 ];
 
 const selectedlayerIds = ref<string[]>([
@@ -68,7 +72,7 @@ const totalArea = ref(0);
         style-spec="https://raw.githubusercontent.com/EPFL-ENAC/EIRA-data/main/Data_vector_style/style_raster_background.json"
         :filter-ids="layerIds"
         :popup-layer-ids="['piezometer_locations']"
-        :area-layer-ids="['test_areas']"
+        :area-layer-ids="areaLayerIds"
         :zoom="12"
         @update:area="area = $event"
         @update:total-area="totalArea = $event"
