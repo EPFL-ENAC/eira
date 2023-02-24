@@ -63,8 +63,12 @@ const totalArea = ref(0);
         :items="items"
         :prefixes="prefixes"
       />
-      <div>Area : {{ round(area, 2) }} [m²]</div>
-      <div>Total area : {{ round(totalArea, 2) }} [m²]</div>
+      <div class="text-capitalize">
+        {{ $t("area") }} : {{ round(area, 2) }} [m²]
+      </div>
+      <div class="text-capitalize">
+        {{ $t("areaTotal") }} : {{ round(totalArea, 2) }} [m²]
+      </div>
     </v-col>
     <v-col>
       <MapLibreMap

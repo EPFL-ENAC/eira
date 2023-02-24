@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { i18n } from "@/main";
 import type { SelectItemObject } from "@/utils/vuetify";
 import { computed, ref, watch } from "vue";
 
@@ -25,23 +26,25 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: string[]): void;
 }>();
 
-const months: SelectItemObject[] = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-].map((item, index) => ({
-  title: item,
-  value: (index + 1).toString(),
-}));
+const months = computed<SelectItemObject[]>(() =>
+  [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ].map((item, index) => ({
+    title: i18n.global.t(`month.${item}`),
+    value: (index + 1).toString(),
+  }))
+);
 const layers: SelectItemObject[] = props.prefixes.map((item) => ({
   title: item.title,
   value: Array.isArray(item.value)
@@ -56,7 +59,7 @@ const items: SelectItemObject[] = props.items.map((item) => ({
 }));
 
 const selectedMonths = ref<string[]>(
-  months
+  months.value
     .map((item) => item.value)
     .filter((value) =>
       props.modelValue.some((modelValue) =>
@@ -101,14 +104,14 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
 
 <template>
   <v-card min-width="256px">
-    <v-card-title>Layers</v-card-title>
+    <v-card-title class="text-capitalize">{{ $t("layer", 2) }}</v-card-title>
     <v-card-text>
       <v-select
         v-model="selectedMonths"
         chips
         closable-chips
         color="primary"
-        label="Select month"
+        :label="$t('selectMonth')"
         :items="months"
         multiple
       />
@@ -117,7 +120,7 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         chips
         closable-chips
         color="primary"
-        label="Select layer"
+        :label="$t('selectLayer')"
         :items="layers"
         multiple
       />
