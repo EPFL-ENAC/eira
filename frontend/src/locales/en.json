@@ -70,7 +70,8 @@
     "topography-subtitle": "1-meter topographic contours of the project area, provided by the Region of Nouakchott."
   },
   "map": {
-    "title": "Research project EIRA: Enhancing Infrastructure Resilience to Flooding using Afforestation. The Case of Nouakchott city, Mauritania"
+    "title": "Research project EIRA",
+    "subtitle": "Enhancing Infrastructure Resilience to Flooding using Afforestation. The Case of Nouakchott city, Mauritania"
   },
   "month": {
     "1": "January",

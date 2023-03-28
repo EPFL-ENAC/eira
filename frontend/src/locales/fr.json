@@ -70,7 +70,8 @@
     "topography-subtitle": "Lignes de niveau avec une résolution verticale de 1 m, données de la Région de Nouakchott."
   },
   "map": {
-    "title": "Projet de recherche EIRA: Améliorer la résilience de l'infrastructure au phénomène d'inondation en utilisant la plantation d'arbres, cas d'étude pour la ville de Nouakchott, Mauritanie"
+    "title": "Projet de recherche EIRA",
+    "subtitle": "Améliorer la résilience de l'infrastructure au phénomène d'inondation en utilisant la plantation d'arbres, cas d'étude pour la ville de Nouakchott, Mauritanie"
   },
   "month": {
     "1": "Janvier",
