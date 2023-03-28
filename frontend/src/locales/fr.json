@@ -1,21 +1,77 @@
 {
   "area": "aire",
   "areaTotal": "aire total",
+  "close": "fermer",
+  "introduction": {
+    "title": "Bienvenue sur la carte interactive du projet EIRA !",
+    "body": "Cette plateforme permet de visualiser les cartes et informations développées par le PL-LCH (Plateforme de constructions hydrauliques) et le PERL (Plant Ecology Research Laboratory) à l'EPFL en collaboration avec la Région de Nouakchott et le CNRE (Centre National de la Ressource en Eau) à Nouakchott, Mauritanie. Actuellement, la carte présente des données de topographie et de niveaux d'eau souterrain (piézométrie) dans la ville de Nouakchott, la zone d'étude.",
+    "description": {
+      "title": "Description du projet",
+      "body": "La ville de Nouakchott (Mauritania) fait face à des problèmes d'inondations depuis environ une décennie, malgré le climat chaud et humide. Ces inondations rendent certaines parties de la ville insalubres et posent des problèmes socio-économiques et de santé publique à long terme. Pendant la saison des pluies (juillet-septembre), la combinaison de l'augmentation du niveau de la nappe d'eau souterraine, la recharge artificielle des eaux souterraines au travers de la ville et la diminution de la capacité d'infiltration des eaux pluviales due à l'urbanisation rapide semble être à l'origine de l'augmentation de la fréquence et de la durée des inondations. Ce projet suppose que la plantation d'espèces d'arbres tolérantes au sel permettra l'amélioration de la résilience de la ville de Nouakchott aux inondations en rabattant le niveau de la nappe. Le projet vise alors à quantifier la consommation d'eau d'espèces d'arbres locales (transpiration) pour la simulation de scénarios de stratégie de plantation d'arbres intégrés et longs termes à Nouakchott."
+    },
+    "navigation": {
+      "title": "Navigation sur le site",
+      "body": "Après la sélection des mois désirés, les données cartographiques de moyenne mensuelle peuvent être sélectionnées en utilisant le menu déroulant nommé \"Sélection de couches\". Les couches statiques sur la partie gauche de la carte peuvent aussi être affichées ou non. Les descriptions et les légendes apportent des informations complémentaires sur chaque couche. Les outils de navigation sur la partie supérieure droite de la carte permettent de zoomer ou dézoomer, passer la carte en plein écran et se géolocaliser (si la localisation est activée). Il est conseillé d'accéder au site internet depuis un ordinateur parce qu'il n'a pas été optimisé pour les téléphones intelligents."
+    },
+    "partner": {
+      "title": "Partenaires du projet",
+      "pl-lch": "PL-LCH (Plateforme de constructions hydrauliques)",
+      "crn": "Région de Nouakchott",
+      "perl": "PERL (Plant Ecology Research Laboratory)",
+      "cnre": "Centre national de la ressource en eau (CNRE)",
+      "univ-nkc": "Université de Nouakchott",
+      "exaf": "EXAF (Excellence in Africa)",
+      "lausanne": "Ville de Lausanne"
+    },
+    "people": {
+      "title": "Equipe du projet",
+      "perona": "Paolo Perona",
+      "perona-subtitle": "Directeur académique du PL-LCH",
+      "grossiord": "Charlotte Grossiord",
+      "grossiord-subtitle": "Professeure assistante du PERL",
+      "dubois": "Emmanuel Dubois",
+      "dubois-subtitle": "Chercheur (PL-LCH)",
+      "marshall": "Montana Marshall",
+      "marshall-subtitle": "Ingénieure de recherche (PL-LCH)",
+      "chenal": "Jérôme Chenal",
+      "chenal-subtitle": "Directeur académique de EXAF",
+      "cherif": "Saleck Ahmed Cherif",
+      "cherif-subtitle": "Directeur des études, de la programmation et de la coopération de la Région de Nouakchott",
+      "boukhreiss": "Fatimatou Boukhreiss",
+      "boukhreiss-subtitle": "Chargée du service de l’instrumentation et de la coordination de la Région de Nouakchott"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "acknowledgement": {
+      "title": "Remerciements",
+      "body": "Une grande partie des données et couches cartographiques présentées dans cette carte appartiennent à la Région de Nouakchott et au CNRE. Ce travail a été rendu possible grâce au financement de l'EPFL \"2022 ENAC Interdisciplinary Cluster Grant\". Cet outil de visualisation a été créé dans le cadre de ce projet de recherche par l'équipe EPFL de ENAC-IT4R"
+    },
+    "license": {
+      "title": "Licence de données",
+      "body": "Les données sont protégées par une licence CC BY (les adresses des jeux de données seront ajoutées prochainement)"
+    },
+    "legalNotice": "Mentions légales",
+    "dataProtection": "Protection des données"
+  },
   "layer": "couche | couches",
-  "selectLayer": "Selectionner la couche",
-  "selectMonth": "Selectionner le mois",
+  "map": {
+    "title": "Projet de recherche EIRA: Améliorer la résilience de l'infrastructure au phénomène d'inondation en utilisant la plantation d'arbres, cas d'étude pour la ville de Nouakchott, Mauritanie"
+  },
   "month": {
-    "january": "Janvier",
-    "february": "Février",
-    "march": "Mars",
-    "april": "Avril",
-    "may": "Mai",
-    "june": "Juin",
-    "july": "Juillet",
-    "august": "Août",
-    "september": "Septembre",
-    "october": "Octobre",
-    "november": "Novembre",
-    "december": "Décembre"
-  }
+    "1": "Janvier",
+    "2": "Février",
+    "3": "Mars",
+    "4": "Avril",
+    "5": "Mai",
+    "6": "Juin",
+    "7": "Juillet",
+    "8": "Août",
+    "9": "Septembre",
+    "10": "Octobre",
+    "11": "Novembre",
+    "12": "Décembre"
+  },
+  "selectLayer": "Selectionner la couche",
+  "selectMonth": "Selectionner le mois"
 }

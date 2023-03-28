@@ -1,3 +1,5 @@
+import "@/assets/main.css";
+
 import App from "@/App.vue";
 import en from "@/locales/en.json";
 import fr from "@/locales/fr.json";
@@ -5,17 +7,15 @@ import router from "@/router";
 import { LocalStorageKey } from "@/utils/localStorage";
 import { createPinia } from "pinia";
 import { createApp } from "vue";
-import { createI18n, useI18n, type I18n } from "vue-i18n";
-
-import "@/assets/main.css";
+import { createI18n, useI18n } from "vue-i18n";
 
 // Vuetify
-import { mdiHome } from "@mdi/js";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import { aliases, mdi } from "vuetify/iconsets/mdi-svg";
 import colors from "vuetify/lib/util/colors";
+import { en as vuetifyEn, fr as vuetifyFr } from "vuetify/locale";
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 import "vuetify/styles";
 
@@ -25,8 +25,8 @@ export const i18n = createI18n({
   locale: localStorage.getItem(LocalStorageKey.Locale) ?? "en",
   fallbackLocale: "en",
   messages: {
-    en: en,
-    fr: fr,
+    en: { $vuetify: vuetifyEn, ...en },
+    fr: { $vuetify: vuetifyFr, ...fr },
   },
 });
 
@@ -36,9 +36,8 @@ const vuetify = createVuetify({
   theme: {
     themes: {
       light: {
-        dark: false,
         colors: {
-          primary: colors.cyan.base,
+          primary: colors.blue.base,
           secondary: colors.amber.base,
         },
       },
@@ -46,16 +45,13 @@ const vuetify = createVuetify({
   },
   icons: {
     defaultSet: "mdi",
-    aliases: {
-      ...aliases,
-      home: mdiHome,
-    },
+    aliases,
     sets: {
       mdi,
     },
   },
   locale: {
-    adapter: createVueI18nAdapter({ i18n: i18n as I18n, useI18n }),
+    adapter: createVueI18nAdapter({ i18n, useI18n }),
   },
 });
 

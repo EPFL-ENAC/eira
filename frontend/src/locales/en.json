@@ -1,21 +1,77 @@
 {
   "area": "area",
   "areaTotal": "total area",
+  "close": "close",
+  "introduction": {
+    "title": "Welcome to the EIRA interactive map!",
+    "body": "This platform provides an interactive interface to view maps and information developed by PL-LCH (Platform of Hydraulic Constructions) and PERL (Plant Ecology Research Laboratory) at EPFL in collaboration with the Région de Nouakchott and the CNRE (Centre National de la Ressource en Eau) in Nouakchott, Mauritania. Currently, this map provides information related to topography and groundwater level (piezometric) data in Nouakchott city, the study area.",
+    "description": {
+      "title": "Project Information",
+      "body": "Despite a warm and dry climate, the city of Nouakchott (Mauritania) has been facing constant flooding for almost a decade, making part of the city inhabitable and posing long-term health and socio-economic threats. During the rainy season (July-September), the combination of a rising groundwater table, artificial groundwater recharge throughout the city, and reduced infiltration caused by rapid urbanization seem to be the origin of the observed increasing frequency and duration of flooding events. This project hypothesizes that increasing the long-term resilience to urban flooding in the city of Nouakchott can be achieved by planting salt-tolerant trees to lower the groundwater table. The project aims to quantify the water uptake of local tree species (transpiration) to simulate scenarios for an integrated and sustainable afforestation strategy for Nouakchott."
+    },
+    "navigation": {
+      "title": "Site Navigation",
+      "body": "After selecting which month(s) are of interest, the average monthly data layers can be selected using the dropdown menu titled “Select Layer.” The static layers on the left side of the map can also be turned on or off. The descriptions and legend provide additional information for each layer. The navigational tools on the top right part of the map provide the ability to zoom in and out, to see the map in full screen, and to locate the user (if location sharing is enabled). We advise users to access the site on a computer because it has not been optimized for mobile phones."
+    },
+    "partner": {
+      "title": "Project Partners",
+      "pl-lch": "PL-LCH (Platform of Hydraulic Constructions)",
+      "crn": "Region of Nouakchott",
+      "perl": "PERL (Plant Ecology Research Laboratory)",
+      "cnre": "National Water Resources Center (CNRE)",
+      "univ-nkc": "University of Nouakchott",
+      "exaf": "EXAF (Excellence in Africa)",
+      "lausanne": "City of Lausanne"
+    },
+    "people": {
+      "title": "Project Team",
+      "perona": "Paolo Perona",
+      "perona-subtitle": "Academic Director at PL-LCH",
+      "grossiord": "Charlotte Grossiord",
+      "grossiord-subtitle": "Assistant Professor at PERL",
+      "dubois": "Emmanuel Dubois",
+      "dubois-subtitle": "Scientist (PL-LCH)",
+      "marshall": "Montana Marshall",
+      "marshall-subtitle": "Scientific Assistant (PL-LCH)",
+      "chenal": "Jérôme Chenal",
+      "chenal-subtitle": "Academic Director at EXAF",
+      "cherif": "Saleck Ahmed Cherif",
+      "cherif-subtitle": "Director of Studies, Projects, and Cooperation at the Region of Nouakchott",
+      "boukhreiss": "Fatimatou Boukhreiss",
+      "boukhreiss-subtitle": "Head of Project Monitoring and Coordination Service at the Region of Nouakchott"
+    },
+    "contact": {
+      "title": "Contact Information"
+    },
+    "acknowledgement": {
+      "title": "Acknowledgements",
+      "body": "Much of the data and layers presented in this map belong to the Region of Nouakchott and the CNRE. This work was made possible through funding from the 2022 EPFL ENAC Interdisciplinary Cluster Grant. This visualization tool was created thanks to the participation of the ENAC-IT4R team of EPFL within the framework of the EIRA research project."
+    },
+    "license": {
+      "title": "Data Licensing",
+      "body": "Data are under a CC BY license. (Addresses of the datasets will be provided soon)"
+    },
+    "legalNotice": "Legal Notice",
+    "dataProtection": "Data protection"
+  },
   "layer": "layer | layers",
-  "selectLayer": "Select layer",
-  "selectMonth": "Select month",
+  "map": {
+    "title": "Research project EIRA: Enhancing Infrastructure Resilience to Flooding using Afforestation. The Case of Nouakchott city, Mauritania"
+  },
   "month": {
-    "january": "January",
-    "february": "February",
-    "march": "March",
-    "april": "April",
-    "may": "May",
-    "june": "June",
-    "july": "July",
-    "august": "August",
-    "september": "September",
-    "october": "October",
-    "november": "November",
-    "december": "December"
-  }
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+  "selectLayer": "Select layer",
+  "selectMonth": "Select month"
 }
