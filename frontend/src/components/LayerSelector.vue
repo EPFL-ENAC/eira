@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { i18n } from "@/main";
+import { useTranslate } from "@/utils/translate";
 import type { SelectItemObject } from "@/utils/vuetify";
 import { range } from "lodash";
 import { computed, ref, watch } from "vue";
@@ -27,9 +27,11 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: string[]): void;
 }>();
 
+const { to } = useTranslate();
+
 const months = computed<SelectItemObject[]>(() =>
   range(1, 13).map((item) => ({
-    title: i18n.global.t(`month.${item}`),
+    title: item.toString(),
     value: item.toString(),
   }))
 );
@@ -101,7 +103,9 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         color="primary"
         :label="$t('selectMonth')"
         :items="months"
+        :item-title="(item) => $t(`month.${item.title}`)"
         multiple
+        variant="outlined"
       />
       <v-select
         v-model="selectedLayers"
@@ -111,16 +115,36 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         :label="$t('selectLayer')"
         :items="layers"
         multiple
-      />
+        variant="outlined"
+      >
+        <!-- eslint-disable-next-line vue/no-template-shadow -->
+        <template #item="{ item, props }">
+          <v-list-item
+            v-bind="props"
+            :title="$t(`layers.${item.title}`)"
+            :subtitle="to(`layers.${item.title}-subtitle`)"
+            lines="three"
+            @click="props.onClick"
+          />
+        </template>
+      </v-select>
       <v-checkbox
         v-for="(item, index) in items"
         :key="index"
         v-model="selectedItems"
         color="primary"
         density="compact"
-        :label="item.title"
         :value="item.value"
-      />
+      >
+        <!-- eslint-disable-next-line vue/no-template-shadow -->
+        <template #label="{ props }">
+          <v-list-item
+            v-bind="props"
+            :title="$t(`layers.${item.title}`)"
+            :subtitle="to(`layers.${item.title}-subtitle`)"
+          />
+        </template>
+      </v-checkbox>
     </v-card-text>
   </v-card>
 </template>

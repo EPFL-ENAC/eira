@@ -7,30 +7,36 @@ import { range, round } from "lodash";
 import { computed, ref } from "vue";
 
 const prefixes: SelectableItem[] = [
-  { title: "Ponding", value: ["ponding-raster", "ponding-vector"] },
-  { title: "Piezometer elevation", value: "piezo-elev-raster" },
   {
-    title: "Piezometer contours",
+    title: "ponding",
+    value: ["ponding-raster", "ponding-vector"],
+  },
+  {
+    title: "piezoElevRaster",
+    value: "piezo-elev-raster",
+  },
+  {
+    title: "piezoContour",
     value: ["piezo_contour", "text-piezo_contour"],
   },
 ];
 const items: SelectableItem[] = [
-  { title: "Piezometer location", value: "piezometer_locations" },
   {
-    title: "Project extent",
+    title: "piezoLocations",
+    value: "piezometer_locations",
+  },
+  {
+    title: "cityLimit",
     value: ["data_extent", "approximate_development_limit"],
   },
   {
-    title: "Topography",
+    title: "topography",
     value: "topo_clipped",
   },
+  // TODO remove test data
   {
-    title: "Hillshade",
-    value: "hillshade",
-  },
-  {
-    title: "test area",
-    value: "test_areas", // TODO remove test data
+    title: "test",
+    value: "test_areas",
   },
 ];
 const areaLayerIds = [
