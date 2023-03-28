@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import { useTranslate } from "@/utils/translate";
 import { mdiClose } from "@mdi/js";
-import { useI18n } from "vue-i18n";
-
-const { te } = useI18n();
 
 const emit = defineEmits<{
   (e: "click", value: boolean): void;
 }>();
+
+const { to } = useTranslate();
 
 const linkItems: {
   key: string;
@@ -101,12 +101,9 @@ const linkItems: {
                 target="_blank"
                 :title="$t(`introduction.${item.key}.${subItem.key}`)"
                 :subtitle="
-                  te(`introduction.${item.key}.${subItem.key}-subtitle`)
-                    ? $t(`introduction.${item.key}.${subItem.key}-subtitle`)
-                    : undefined
+                  to(`introduction.${item.key}.${subItem.key}-subtitle`)
                 "
-              >
-              </v-list-item>
+              />
             </v-list>
           </v-card>
         </v-col>

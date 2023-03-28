@@ -55,6 +55,20 @@
     "dataProtection": "Protection des données"
   },
   "layer": "couche | couches",
+  "layers": {
+    "cityLimit": "Développement approximatif de la ville",
+    "cityLimit-subtitle": "Limite approximative du tissu urbain dense de Nouakchott estimée début 2023.",
+    "piezoContour": "Niveaux piézométriques (isopièzes)",
+    "piezoContour-subtitle": "Basées sur les mesures manuelles de la profondeur des niveaux d’eau souterraine dans le réseau de piézomètres de Nouakchott, ces données présentent le niveau d’eau souterraine mensuel moyen dans la zone d’étude (en mètres au-dessus du niveau de la mer). Les valeurs mensuelles ont été obtenues en moyennant les données mensuelles disponibles pour la période de mesures. Ces valeurs présentent donc une approximation mensuelle des niveaux d’eau souterraine en régime permanent. Ils sont présentés ici sous forme d’isopièzes avec une résolution verticale de 0.25 m.",
+    "piezoElevRaster": "Niveaux piézométriques (continus)",
+    "piezoElevRaster-subtitle": "Basées sur les mesures manuelles de la profondeur des niveaux d’eau souterraine dans le réseau de piézomètres de Nouakchott, ces données présentent le niveau d’eau souterraine mensuel moyen dans la zone d’étude (en mètres au-dessus du niveau de la mer). Les valeurs mensuelles ont été obtenues en moyennant les données mensuelles disponibles pour la période de mesures. Ces valeurs présentent donc une approximation mensuelle des niveaux d’eau souterraine en régime permanent.",
+    "piezoLocations": "Localisation des piézomètres",
+    "piezoLocations-subtitle": "Localisation des piézomètres de suivi du niveau de la nappe à Nouakchott (CNRE). Les données couvrent la période mars 2015 à aujourd’hui.",
+    "ponding": "Zones inondées",
+    "ponding-subtitle": "Cette couche représente une estimation mensuelle des zones inondées en régime permanent, correspondant à des zones où les niveaux d’eau souterraine atteignent la surface topographique. Ces zones inondées au pas de temps mensuel ont été obtenues en soustrayant l’altitude des niveaux d’eau souterraine (données présentées dans la section « Niveaux piézométriques (continus) ») aux données topographiques de la Région de Nouakchott (données présentées dans la section « Topographie »). Les différentes nuances de bleu représentent la profondeur des niveaux d’eau (bleu clair correspondant à des surfaces d’eau peu profondes).",
+    "topography": "Topographie",
+    "topography-subtitle": "Lignes de niveau avec une résolution verticale de 1 m, données de la Région de Nouakchott."
+  },
   "map": {
     "title": "Projet de recherche EIRA: Améliorer la résilience de l'infrastructure au phénomène d'inondation en utilisant la plantation d'arbres, cas d'étude pour la ville de Nouakchott, Mauritanie"
   },

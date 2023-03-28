@@ -55,6 +55,20 @@
     "dataProtection": "Data protection"
   },
   "layer": "layer | layers",
+  "layers": {
+    "cityLimit": "Approximate City Development Limit",
+    "cityLimit-subtitle": "Approximate limit of the dense urban areas of Nouakchott, estimated in early 2023.",
+    "piezoContour": "Groundwater Head (contour)",
+    "piezoContour-subtitle": "Based on the manual groundwater depth measurements in the Nouakchott observation well network, these data estimate the average monthly groundwater levels in the study area (in meters above sea level). The monthly values were calculated by averaging the available groundwater level data for each month over the period of record. As such, these values represent a “steady state” monthly approximation of groundwater levels. They are presented here with a 0.25 m-vertical resolution contours.",
+    "piezoElevRaster": "Groundwater Head (surface)",
+    "piezoElevRaster-subtitle": "Based on the manual groundwater depth measurements in the Nouakchott observation well network, these data estimate the average monthly groundwater levels in the study area (in meters above sea level). The monthly values were calculated by averaging the available groundwater level data for each month over the period of record. As such, these values represent a “steady state” monthly approximation of groundwater levels.",
+    "piezoLocations": "Piezometer Locations",
+    "piezoLocations-subtitle": "Locations of the piezometers (observation wells) for Nouakchott groundwater monitoring (CNRE) The data collection period is March 2015 to present.",
+    "ponding": "Ponded Areas",
+    "ponding-subtitle": "This layer represents steady-state monthly estimations of ponded areas, meaning that the groundwater head reaches the surface topography at these locations. These monthly ponded areas were calculated by comparing the groundwater level surfaces (represented in the “Groundwater Head (Surface)” layer) to the topographic data provided by the Region of Nouakchott (represented in the “Topographic Contours” layer). The different shades of blue represent different depths of ponding (lighter blue colors mean shallower ponded areas).",
+    "topography": "Topographic Contours",
+    "topography-subtitle": "1-meter topographic contours of the project area, provided by the Region of Nouakchott."
+  },
   "map": {
     "title": "Research project EIRA: Enhancing Infrastructure Resilience to Flooding using Afforestation. The Case of Nouakchott city, Mauritania"
   },
