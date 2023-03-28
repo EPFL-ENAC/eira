@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { i18n } from "@/main";
 import type { SelectItemObject } from "@/utils/vuetify";
+import { range } from "lodash";
 import { computed, ref, watch } from "vue";
 
 export interface SelectableItem {
@@ -27,22 +28,9 @@ const emit = defineEmits<{
 }>();
 
 const months = computed<SelectItemObject[]>(() =>
-  [
-    "january",
-    "february",
-    "march",
-    "april",
-    "may",
-    "june",
-    "july",
-    "august",
-    "september",
-    "october",
-    "november",
-    "december",
-  ].map((item, index) => ({
+  range(1, 13).map((item) => ({
     title: i18n.global.t(`month.${item}`),
-    value: (index + 1).toString(),
+    value: item.toString(),
   }))
 );
 const layers: SelectItemObject[] = props.prefixes.map((item) => ({

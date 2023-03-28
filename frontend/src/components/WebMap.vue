@@ -56,7 +56,7 @@ const totalArea = ref(0);
 </script>
 
 <template>
-  <v-row class="h-100">
+  <v-row>
     <v-col cols="3">
       <LayerSelector
         v-model="selectedlayerIds"
@@ -70,7 +70,7 @@ const totalArea = ref(0);
         {{ $t("areaTotal") }} : {{ round(totalArea, 2) }} [m²]
       </div>
     </v-col>
-    <v-col>
+    <v-col cols="9">
       <MapLibreMap
         :center="[18.0735, -15.9582]"
         style-spec="https://raw.githubusercontent.com/EPFL-ENAC/EIRA-data/main/Data_vector_style/style_raster_background.json"
