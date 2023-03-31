@@ -3,44 +3,51 @@ import { useTranslate } from "@/utils/translate";
 import type { SelectItemObject } from "@/utils/vuetify";
 import { range } from "lodash";
 import { computed, ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 export interface SelectableItem {
   title: string;
   value: string | string[];
 }
 
-export interface Props {
-  modelValue?: string[];
-  separator?: string;
-  itemSeparator?: string;
-  prefixes?: SelectableItem[];
-  items?: SelectableItem[];
-}
-const props = withDefaults(defineProps<Props>(), {
-  modelValue: () => [],
-  separator: "_",
-  itemSeparator: ",",
-  prefixes: () => [],
-  items: () => [],
-});
+const props = withDefaults(
+  defineProps<{
+    modelValue?: string[];
+    separator?: string;
+    itemSeparator?: string;
+    prefixes?: SelectableItem[];
+    items?: SelectableItem[];
+  }>(),
+  {
+    modelValue: () => [],
+    separator: "_",
+    itemSeparator: ",",
+    prefixes: () => [],
+    items: () => [],
+  }
+);
 const emit = defineEmits<{
   (e: "update:modelValue", value: string[]): void;
 }>();
 
+const { t } = useI18n();
 const { to } = useTranslate();
 
 const months = computed<SelectItemObject[]>(() =>
   range(1, 13).map((item) => ({
-    title: item.toString(),
+    title: t(`month.${item}`),
     value: item.toString(),
   }))
 );
-const layers: SelectItemObject[] = props.prefixes.map((item) => ({
-  title: item.title,
-  value: Array.isArray(item.value)
-    ? item.value.join(props.itemSeparator)
-    : item.value,
-}));
+const layers = computed<(SelectItemObject & { subtitle?: string })[]>(() =>
+  props.prefixes.map((item) => ({
+    title: t(`layers.${item.title}`),
+    subtitle: to(`layers.${item.title}-subtitle`),
+    value: Array.isArray(item.value)
+      ? item.value.join(props.itemSeparator)
+      : item.value,
+  }))
+);
 const items: SelectItemObject[] = props.items.map((item) => ({
   title: item.title,
   value: Array.isArray(item.value)
@@ -58,7 +65,7 @@ const selectedMonths = ref<string[]>(
     )
 );
 const selectedLayers = ref<string[]>(
-  layers
+  layers.value
     .map((item) => item.value)
     .filter((value) =>
       props.modelValue.some((modelValue) =>
@@ -103,7 +110,6 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         color="primary"
         :label="$t('selectMonth')"
         :items="months"
-        :item-title="(item) => $t(`month.${item.title}`)"
         multiple
         variant="outlined"
       />
@@ -121,8 +127,7 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
         <template #item="{ item, props }">
           <v-list-item
             v-bind="props"
-            :title="$t(`layers.${item.title}`)"
-            :subtitle="to(`layers.${item.title}-subtitle`)"
+            :subtitle="item.raw.subtitle"
             lines="three"
             @click="props.onClick"
           />

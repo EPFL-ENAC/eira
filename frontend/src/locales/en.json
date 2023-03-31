@@ -58,6 +58,7 @@
   "layers": {
     "cityLimit": "Approximate City Development Limit",
     "cityLimit-subtitle": "Approximate limit of the dense urban areas of Nouakchott, estimated in early 2023.",
+    "dataExtent": "Current Data Analysis Extent",
     "piezoContour": "Groundwater Head (contour)",
     "piezoContour-subtitle": "Based on the manual groundwater depth measurements in the Nouakchott observation well network, these data estimate the average monthly groundwater levels in the study area (in meters above sea level). The monthly values were calculated by averaging the available groundwater level data for each month over the period of record. As such, these values represent a “steady state” monthly approximation of groundwater levels. They are presented here with a 0.25 m-vertical resolution contours.",
     "piezoElevRaster": "Groundwater Head (surface)",
