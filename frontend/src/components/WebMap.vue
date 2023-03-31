@@ -17,17 +17,25 @@ const prefixes: SelectableItem[] = [
   },
   {
     title: "piezoContour",
-    value: ["piezo_contour", "text-piezo_contour"],
+    value: [
+      "piezo_contour",
+      "text-piezo_contour",
+      "text-piezo_highzoom_contour",
+    ],
   },
 ];
 const items: SelectableItem[] = [
   {
     title: "piezoLocations",
-    value: "piezometer_locations",
+    value: ["piezometer_locations", "piezometer_locations_labels"],
   },
   {
     title: "cityLimit",
-    value: ["data_extent", "approximate_development_limit"],
+    value: "approximate_development_limit",
+  },
+  {
+    title: "dataExtent",
+    value: "data_extent",
   },
   {
     title: "topography",
