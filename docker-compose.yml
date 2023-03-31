@@ -25,4 +25,6 @@ services:
     labels:
       - "traefik.http.routers.frontend.tls=true"
       - "traefik.http.routers.frontend.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.frontend.middlewares=frontend"
+      - "traefik.http.middlewares.frontend.compress=true"
     restart: unless-stopped
