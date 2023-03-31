@@ -54,6 +54,7 @@ const areaLayerIds = [
 
 const selectedlayerIds = ref<string[]>([
   "piezometer_locations",
+  "piezometer_locations_labels",
   "data_extent",
   "approximate_development_limit",
   "test_areas", // TODO remove test data

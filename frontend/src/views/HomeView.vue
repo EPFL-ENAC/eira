@@ -23,7 +23,7 @@ const logos: { img: string; url: string }[] = [
         cols="auto"
       >
         <a :href="logo.url" target="_blank">
-          <v-img :src="logo.img" width="100px" />
+          <v-img :src="logo.img" height="50px" width="100px" />
         </a>
       </v-col>
     </v-row>
