@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import "@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
+import "@maplibre/maplibre-gl-geocoder/dist/maplibre-gl-geocoder.css";
 import "maplibre-gl/dist/maplibre-gl.css";
 
+import { geocoderApi } from "@/utils/geocoder";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
+import MaplibreGeocoder from "@maplibre/maplibre-gl-geocoder";
 import {
   area,
   bbox,
@@ -16,6 +19,7 @@ import {
   FullscreenControl,
   GeolocateControl,
   Map,
+  Marker,
   NavigationControl,
   Popup,
   ScaleControl,
@@ -76,6 +80,13 @@ onMounted(() => {
     },
   });
   map.addControl(draw as unknown as IControl);
+  map.addControl(
+    new MaplibreGeocoder(geocoderApi, {
+      maplibregl: { Marker },
+      showResultsWhileTyping: true,
+    }),
+    "top-left"
+  );
 
   map.once("load", () => {
     filterLayer(props.filterIds);
