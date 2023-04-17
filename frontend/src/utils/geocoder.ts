@@ -1,3 +1,12 @@
+import { LngLatBounds } from "maplibre-gl";
+
+// https://cartographyvectors.com/map/972-mauritania-detailed-boundary
+const mauritaniaBounds = new LngLatBounds(
+  [-17.0812, 14.7344],
+  [-4.8216, 27.2854]
+);
+const [[x1, y1], [x2, y2]] = mauritaniaBounds.toArray();
+
 /**
  * https://maplibre.org/maplibre-gl-js-docs/example/geocoder/
  */
@@ -8,7 +17,7 @@ export const geocoderApi = {
       const request =
         "https://nominatim.openstreetmap.org/search?q=" +
         config.query +
-        `&format=geojson&polygon_geojson=1&addressdetails=1`;
+        `&format=geojson&polygon_geojson=1&addressdetails=1&viewbox=${x1},${y1},${x2},${y2}&bounded=1`;
       const response = await fetch(request);
       const geojson = await response.json();
       for (const feature of geojson.features) {
