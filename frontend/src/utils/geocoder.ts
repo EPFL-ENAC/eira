@@ -1,11 +1,7 @@
 import { LngLatBounds } from "maplibre-gl";
 
-// https://cartographyvectors.com/map/972-mauritania-detailed-boundary
-const mauritaniaBounds = new LngLatBounds(
-  [-17.0812, 14.7344],
-  [-4.8216, 27.2854]
-);
-const [[x1, y1], [x2, y2]] = mauritaniaBounds.toArray();
+const nouakchottBounds = new LngLatBounds([-16.2, 17.886], [-15.781, 18.393]);
+const [[x1, y1], [x2, y2]] = nouakchottBounds.toArray();
 
 /**
  * https://maplibre.org/maplibre-gl-js-docs/example/geocoder/
