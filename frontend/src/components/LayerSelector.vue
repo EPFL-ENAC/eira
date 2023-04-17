@@ -100,8 +100,12 @@ watch(combinedNames, (names) => emit("update:modelValue", names));
 </script>
 
 <template>
-  <v-card min-width="256px">
-    <v-card-title class="text-capitalize">{{ $t("layer", 2) }}</v-card-title>
+  <v-card>
+    <v-card-item>
+      <v-card-title class="text-capitalize">
+        {{ $t("layer", 2) }}
+      </v-card-title>
+    </v-card-item>
     <v-card-text>
       <v-select
         v-model="selectedMonths"

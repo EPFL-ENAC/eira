@@ -2,6 +2,10 @@
   "area": "area",
   "areaTotal": "total area",
   "close": "close",
+  "draw": {
+    "polygon": "Draw a polygon",
+    "trash": "Delete"
+  },
   "introduction": {
     "title": "Welcome to the EIRA interactive map!",
     "body": "This platform provides an interactive interface to view maps and information developed by PL-LCH (Platform of Hydraulic Constructions) and PERL (Plant Ecology Research Laboratory) at EPFL in collaboration with the Région de Nouakchott and the CNRE (Centre National de la Ressource en Eau) in Nouakchott, Mauritania. Currently, this map provides information related to topography and groundwater level (piezometric) data in Nouakchott city, the study area.",
@@ -89,5 +93,6 @@
     "12": "December"
   },
   "selectLayer": "Select layer",
-  "selectMonth": "Select month"
+  "selectMonth": "Select month",
+  "tool": "tool | tools"
 }

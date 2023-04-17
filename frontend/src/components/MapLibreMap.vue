@@ -29,6 +29,7 @@ import {
 } from "maplibre-gl";
 import { onMounted, ref, watch } from "vue";
 
+defineExpose({ drawPolygon, drawTrash });
 const props = withDefaults(
   defineProps<{
     styleSpec: string | StyleSpecification;
@@ -52,7 +53,6 @@ const props = withDefaults(
     areaLayerIds: () => [],
   }
 );
-
 const emit = defineEmits<{
   (e: "update:area", value: number): void;
   (e: "update:totalArea", value: number): void;
@@ -60,24 +60,22 @@ const emit = defineEmits<{
 
 const loading = ref(false);
 let map: Map | undefined = undefined;
+let draw: MapboxDraw | undefined = undefined;
 
 onMounted(() => {
   map = new Map({
     container: "maplibre-map",
-    style: props.styleSpec,
     center: [props.center[1], props.center[0]],
+    style: props.styleSpec,
+    trackResize: true,
     zoom: props.zoom,
   });
   map.addControl(new NavigationControl({}));
   map.addControl(new GeolocateControl({}));
   map.addControl(new ScaleControl({}));
   map.addControl(new FullscreenControl({}));
-  const draw = new MapboxDraw({
+  draw = new MapboxDraw({
     displayControlsDefault: false,
-    controls: {
-      polygon: true,
-      trash: true,
-    },
   });
   map.addControl(draw as unknown as IControl);
   map.addControl(
@@ -137,7 +135,7 @@ onMounted(() => {
         totalArea: 0,
       };
     }
-    const selectedFeatures = draw.getAll().features as Feature<
+    const selectedFeatures = draw?.getAll().features as Feature<
       Polygon | MultiPolygon
     >[];
     if (selectedFeatures.length === 0) {
@@ -206,6 +204,12 @@ function filterLayer(filterIds?: string[]) {
         );
       });
   }
+}
+function drawPolygon() {
+  draw?.changeMode("draw_polygon");
+}
+function drawTrash() {
+  draw?.trash();
 }
 </script>
 

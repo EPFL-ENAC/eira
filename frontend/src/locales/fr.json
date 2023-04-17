@@ -2,6 +2,10 @@
   "area": "aire",
   "areaTotal": "aire total",
   "close": "fermer",
+  "draw": {
+    "polygon": "Dessiner un polygone",
+    "trash": "Supprimer"
+  },
   "introduction": {
     "title": "Bienvenue sur la carte interactive du projet EIRA !",
     "body": "Cette plateforme permet de visualiser les cartes et informations développées par le PL-LCH (Plateforme de constructions hydrauliques) et le PERL (Plant Ecology Research Laboratory) à l'EPFL en collaboration avec la Région de Nouakchott et le CNRE (Centre National de la Ressource en Eau) à Nouakchott, Mauritanie. Actuellement, la carte présente des données de topographie et de niveaux d'eau souterrain (piézométrie) dans la ville de Nouakchott, la zone d'étude.",
@@ -88,5 +92,6 @@
     "12": "Décembre"
   },
   "selectLayer": "Selectionner la couche",
-  "selectMonth": "Selectionner le mois"
+  "selectMonth": "Selectionner le mois",
+  "tool": "outil | outils"
 }
