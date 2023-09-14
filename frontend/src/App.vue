@@ -14,11 +14,12 @@ function updateLocale(locale: string) {
 
 <template>
   <v-app>
-    <v-app-bar color="primary" density="compact">
+    <v-app-bar color="primary">
       <v-tabs class="text-white">
         <v-tab to="/" :prepend-icon="mdiHome">
           <v-app-bar-title>EIRA</v-app-bar-title>
         </v-tab>
+        <v-tab to="/story">{{ $t("tabs.story") }} </v-tab>
       </v-tabs>
       <v-spacer />
       <v-col class="text-white" cols="auto">
