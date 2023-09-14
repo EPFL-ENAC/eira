@@ -6,6 +6,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { geocoderApi } from "@/utils/geocoder";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import MaplibreGeocoder from "@maplibre/maplibre-gl-geocoder";
+
 import {
   area,
   bbox,
@@ -24,12 +25,16 @@ import {
   Popup,
   ScaleControl,
   type IControl,
+  type LngLatBoundsLike,
   type LngLatLike,
   type StyleSpecification,
 } from "maplibre-gl";
 import { onMounted, ref, watch } from "vue";
 
 defineExpose({ drawPolygon, drawTrash });
+
+const mapContainer = ref<HTMLElement | null>(null);
+
 const props = withDefaults(
   defineProps<{
     styleSpec: string | StyleSpecification;
@@ -38,9 +43,11 @@ const props = withDefaults(
     aspectRatio?: number;
     minZoom?: number;
     maxZoom?: number;
+    bounds?: LngLatBoundsLike;
     filterIds?: string[];
     popupLayerIds?: string[];
     areaLayerIds?: string[];
+    extended?: boolean;
   }>(),
   {
     center: () => [0, 0],
@@ -49,6 +56,8 @@ const props = withDefaults(
     minZoom: undefined,
     maxZoom: undefined,
     filterIds: undefined,
+    bounds: undefined,
+    extended: true,
     popupLayerIds: () => [],
     areaLayerIds: () => [],
   }
@@ -64,27 +73,32 @@ let draw: MapboxDraw | undefined = undefined;
 
 onMounted(() => {
   map = new Map({
-    container: "maplibre-map",
-    center: [props.center[1], props.center[0]],
+    container: mapContainer.value as HTMLElement,
+    center: props.bounds ? undefined : [props.center[1], props.center[0]],
+    bounds: props.bounds,
     style: props.styleSpec,
     trackResize: true,
     zoom: props.zoom,
   });
+
   map.addControl(new NavigationControl({}));
-  map.addControl(new GeolocateControl({}));
   map.addControl(new ScaleControl({}));
-  map.addControl(new FullscreenControl({}));
   draw = new MapboxDraw({
     displayControlsDefault: false,
   });
-  map.addControl(draw as unknown as IControl);
-  map.addControl(
-    new MaplibreGeocoder(geocoderApi, {
-      maplibregl: { Marker },
-      showResultsWhileTyping: true,
-    }),
-    "top-left"
-  );
+
+  if (props.extended) {
+    map.addControl(new GeolocateControl({}));
+    map.addControl(new FullscreenControl({}));
+    map.addControl(draw as unknown as IControl);
+    map.addControl(
+      new MaplibreGeocoder(geocoderApi, {
+        maplibregl: { Marker },
+        showResultsWhileTyping: true,
+      }),
+      "top-left"
+    );
+  }
 
   map.once("load", () => {
     filterLayer(props.filterIds);
@@ -216,12 +230,12 @@ function drawTrash() {
 <template>
   <v-progress-linear v-if="loading" :active="loading" indeterminate />
   <v-responsive :aspect-ratio="aspectRatio" height="100%">
-    <div id="maplibre-map" />
+    <div ref="mapContainer" />
   </v-responsive>
 </template>
 
 <style scoped>
-#maplibre-map {
+.maplibregl-map {
   height: 100%;
 }
 </style>

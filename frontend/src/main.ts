@@ -9,6 +9,11 @@ import { createPinia } from "pinia";
 import { createApp } from "vue";
 import { createI18n, useI18n } from "vue-i18n";
 
+// Vue Fullpage.js
+
+import VueFullPage from "vue-fullpage.js";
+import "vue-fullpage.js/dist/style.css";
+
 // Vuetify
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
@@ -60,4 +65,6 @@ app.use(router);
 app.use(pinia);
 app.use(vuetify);
 app.use(i18n);
+app.use(VueFullPage);
+
 app.mount("#app");
