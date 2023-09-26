@@ -99,7 +99,28 @@
       ]
     },
     "floodingSchema": {
-      "title": "Flooding"
+      "title": "Flooding",
+      "paragraphs": {
+        "before": [
+          "Shallow groundwater and saltwater intrusion",
+          "Limited sewer system",
+          "Urban growth and reduced infiltration",
+          "Climate change"
+        ],
+        "after": [
+          "Homelessness and property loss",
+          "Limitations on social, urban, and industrial growth",
+          "Spread of infectious diseases ",
+          "Economic losses and interruptions"
+        ]
+      }
+    },
+    "projectDescription": {
+      "title": "Project Description and Goals",
+      "paragraphs": [
+        "The goal of the project is to assess how planting salt-tolerant tree species in the city of Nouakchott could help to increase the resilience of the community to urban flooding. The idea behind this nature-based solution is that the trees would act as natural pumps and lower the groundwater table, thus increasing the soil storage capacity to store more water during rain season.",
+        "This work consists of a joint interdisciplinary ecohydrology and plant physiology approach and aims to quantify the water uptake of local tree species (transpiration) to simulate scenarios for an integrated and sustainable tree-planting strategy for Nouakchott. In addition to increasing the city’s resilience to flooding, tree-planting in the city could have positive impacts by enhancing the provision of sustainable services for the people and the economy."
+      ]
     }
   },
   "layer": "layer | layers",
