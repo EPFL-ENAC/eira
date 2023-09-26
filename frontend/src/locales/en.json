@@ -61,6 +61,47 @@
     "legalNotice": "Legal Notice",
     "dataProtection": "Data protection"
   },
+  "story": {
+    "nouakchottMauritania": {
+      "title": "Nouakchott, Mauritania",
+      "map": "story/nouakchott_map_en.png",
+      "meteo": "story/nouakchott_meteo_en.png",
+      "source": "Source data: World Bank",
+      "paragraphs": [
+        "Nouakchott is the capital and largest city of the Islamic Republic of Mauritania and one of the hubs of the Mauritanian economy.",
+        "The city has rapidly expanded since the mid-1950s and currently has an area of approximately 200 km2 and a population of 1.1 million people.",
+        "Nouakchott is largely flat with an average elevation of 7 meters above sea level, with several districts close to or below sea level.",
+        "Nouakchott has a hot desert climate with an average annual temperature of 29°C and average annual rainfall of 105 mm/year.",
+        "The city sits on sandy soil with a very shallow and saline groundwater table.",
+        "Domestic water (180,000 m3/day) is supplied through the Aftout Essahli conduit delivering surficial water from the Senegal River and through the pumping station in the quaternary freshwater aquifer of El-Trarza (north of Nouakchott).",
+        "There is a limited sewer network in Nouakchott, only serving the oldest neighborhoods."
+      ]
+    },
+    "floodingIssues": {
+      "title": "Flooding issues",
+      "paragraphs": [
+        "An increasing frequency of flooding events has been observed, while a portion of the city has remained flooded since 2011",
+        "In recent years, there has been massive urban growth, with the population starting at approximately 6,000 people in 1961 and increasing to over 1 million people at present.",
+        "This urban growth has caused decreased permeability, and therefore reduced infiltration around the city",
+        "An especially intense flood event occurred in 2013, which left 2,000 people homeless and caused a cholera outbreak (The Guardian, 2016)",
+        "Climate change will also affect Nouakchott in the upcoming years, including the occurrence of more intense rainfall events and sea-level rise"
+      ]
+    },
+    "hydrogeologicalContext": {
+      "title": "Hydrogeological context",
+      "paragraphs": [
+        "Saltwater intrusion maintains a constant level in the water table beneath the city",
+        "+",
+        "Infiltration of most of Nouakchott’s consumed water acts as systematic artificial aquifer recharge, increasing the groundwater levels (Mohamed et al., 2017)",
+        "= This creates an increased risk of groundwater saturation excess and flooding",
+        "One of the solutions to reduce the flooding is the lowering the water table level (reducing recharge,and  increasing groundwater uptake)",
+        ""
+      ]
+    },
+    "floodingSchema": {
+      "title": "Flooding"
+    }
+  },
   "layer": "layer | layers",
   "layers": {
     "cityLimit": "Approximate City Development Limit",
