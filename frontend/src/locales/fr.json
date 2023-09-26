@@ -99,8 +99,6 @@
     },
     "floodingSchema": {
       "title": "Inondation",
-      "risks": "Facteurs de risque",
-      "effects": "Conséquences des inondations",
       "paragraphs": {
         "before": [
           "Eaux souterraines proches de la surface et intrusion marine",
@@ -115,6 +113,28 @@
           "Pertes et interruptions économiques"
         ]
       }
+    },
+    "projectDescription": {
+      "title": "Description du projet et objectifs",
+      "paragraphs": [
+        "L'objectif du projet est d'évaluer comment la plantation d'espèces d'arbres tolérantes au sel dans la ville de Nouakchott pourrait contribuer à accroître la résilience de la communauté face aux inondations urbaines. L'idée derrière cette solution de bio-ingénierie est que les arbres agiraient comme des pompes naturelles et abaisseraient la nappe phréatique, augmentant ainsi la capacité de stockage du sol pour emmagasiner plus d'eau pendant la saison des pluies.",
+        "Ce travail consiste en une approche interdisciplinaire conjointe d'écohydrologie et de physiologie végétale et vise à quantifier l'absorption d'eau des espèces d'arbres locales (transpiration) afin de simuler des scénarios pour une stratégie intégrée et durable de plantation d'arbres à Nouakchott. En plus d'augmenter la résilience de la ville aux inondations, la plantation d'arbres dans la ville pourrait avoir des impacts positifs pour améliorer la fourniture de services durables pour la population et l'économie."
+      ]
+    },
+    "projectObjectives": {
+      "title": "Objectifs du projet",
+      "paragraphs": [
+        "Compréhension de la dynamique hydrogéologique à partir des données existantes mesurées sur le réseau de piézomètres",
+        "Quantification de la transpiration réelle d’espèces d’arbres locales, des échanges sol-plantes-atmosphère à l’échelle de la plante et de la résistance au chaud et aux conditions arides",
+        "Implémentation d’un modèle 3D de l’écoulement des eaux souterraines à l’échelle de la ville incluant les échanges surface-souterrains et les flux sol-atmosphère liés à la transpiration de la végétation",
+        "Utilisation du modèle des eaux souterraines pour produire des scénarios de plantation d’arbres et quantifier leurs impacts sur les inondations, l’intrusion marine, subsidence du sol pour la prise en compte pour la planification du développement"
+      ],
+      "paragraphs_titles": [
+        "Analyse des données",
+        "Physiologie végétale",
+        "Modélisation hydrogéologique – dynamique végétale",
+        "Gestion durable de l'eau"
+      ]
     }
   },
   "layer": "couche | couches",

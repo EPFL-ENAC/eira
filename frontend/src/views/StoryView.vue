@@ -3,6 +3,7 @@ import MapLibreMap from "@/components/MapLibreMap.vue";
 import { mdiArrowDown } from "@mdi/js";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import { computed } from "vue";
+import type { VueMessageType } from "vue-i18n";
 
 const layerIds = computed<string[]>(() => [
   "piezometer_locations",
@@ -26,6 +27,8 @@ const options = {
     "floodingIssues",
     "hydrogeologicalContext",
     "floodingSchema",
+    "projectDescription",
+    "projectObjectives",
   ],
 
   navigation: true,
@@ -224,7 +227,7 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
             </v-row>
           </v-col>
           <v-col class="h-100 align-center d-flex flex-column" cols="6">
-            <v-row class="flex-2-1">
+            <v-row>
               <v-col
                 v-for="(paragraph, index) in $tm(
                   'story.floodingSchema.paragraphs.before'
@@ -234,7 +237,7 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
                 :key="index"
               >
                 <p
-                  class="schema-text text-body-1 text-md-h5"
+                  class="schema-text text-body-1 text-md-h6 text-lg-h5"
                   :style="{
                     color: 'white',
                     'background-color': colorsFloodingSchema[index],
@@ -244,8 +247,13 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
                 </p>
               </v-col>
             </v-row>
-            <v-row class="flex-1-1">
-              <p class="schema-text text-h3">
+            <v-row class="flex-0-1-50">
+              <p class="text-h4 d-flex align-center">
+                <v-icon
+                  size="large"
+                  color="black"
+                  :icon="mdiArrowDown"
+                ></v-icon>
                 {{ $t("story.floodingSchema.title")
                 }}<v-icon
                   size="large"
@@ -254,7 +262,7 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
                 ></v-icon>
               </p>
             </v-row>
-            <v-row class="flex-2-1">
+            <v-row>
               <v-col
                 v-for="(paragraph, index) in $tm(
                   'story.floodingSchema.paragraphs.after'
@@ -264,7 +272,7 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
                 :key="index"
               >
                 <p
-                  class="schema-text text-body-1 text-md-h5"
+                  class="schema-text text-body-1 text-md-h6 text-lg-h5"
                   :style="{
                     color: 'white',
                     'background-color': colorsFloodingSchema[index],
@@ -276,6 +284,82 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
             </v-row>
           </v-col>
         </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            cols="5"
+            xl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              src="story/depression_diagram.svg"
+              width="100%"
+              cover
+            />
+            <v-img
+              class="flex-1-1"
+              src="story/flooding_photo_6.JPG"
+              width="100%"
+              max-height="35%"
+            />
+          </v-col>
+          <v-col class="h-100 align-center d-flex" cols="7" xl="5">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h3">
+                {{ $t("story.projectDescription.title") }}
+              </div>
+              <div class="text-body-1 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.projectDescription.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container class="d-flex flex-column" fluid>
+        <div class="text-h3">{{ $t("story.projectObjectives.title") }}</div>
+        <v-timeline class="flex-1 h-100" direction="horizontal">
+          <v-timeline-item
+            v-for="(paragraph, index) in $tm(
+              'story.projectObjectives.paragraphs'
+            )"
+            :key="index"
+            dot-color="purple-lighten-2"
+            fill-dot
+          >
+            <v-card>
+              <v-card-title class="bg-purple-lighten-2">
+                <h2 class="font-weight-light">
+                  {{
+                    $rt(
+                      $tm(
+                        "story.projectObjectives.paragraphs_titles[" +
+                          index +
+                          "]"
+                      ) as VueMessageType
+                    )
+                  }}
+                </h2>
+              </v-card-title>
+              <v-card-text>
+                {{ $rt(paragraph) }}
+              </v-card-text>
+            </v-card>
+          </v-timeline-item>
+        </v-timeline>
       </v-container>
     </div>
     <div class="section">
@@ -303,11 +387,15 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
 }
 
 p.schema-text {
-  padding: 1em;
+  padding: 1.5vw;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+div.schema-group {
+  flex: 3 1;
 }
 
 .section .v-container {
