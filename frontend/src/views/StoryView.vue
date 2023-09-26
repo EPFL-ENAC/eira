@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import MapLibreMap from "@/components/MapLibreMap.vue";
+import { mdiArrowDown } from "@mdi/js";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import { computed } from "vue";
 
@@ -18,9 +19,21 @@ const styleSpec =
 const options = {
   licenseKey: "gplv3-license",
   scrollOverflow: false,
+  // autoScrolling: false,
+  responsiveWidth: 900,
+  anchors: [
+    "nouakchottMauritania",
+    "floodingIssues",
+    "hydrogeologicalContext",
+    "floodingSchema",
+  ],
+
+  navigation: true,
+  navigationPosition: "right",
   normalScrollElements: ".maplibregl-map",
-  paddingTop: "64px",
 };
+
+const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
 
 const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
 </script>
@@ -28,62 +41,256 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
 <template>
   <full-page id="fullpage-wrapper" ref="fullpage" :options="options">
     <div class="section">
-      <v-container>
-        <v-row class="h-100">
-          <v-col cols="4">
-            <MapLibreMap
-              ref="maplibreMap"
-              :bounds="mapBounds"
-              :style-spec="styleSpec"
-              :filter-ids="layerIds"
-              :popup-layer-ids="['piezometer_locations']"
-              :zoom="11.5"
-              :extended="false"
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            cols="5"
+            xl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.nouakchottMauritania.map')"
+              width="100%"
+              max-height="60%"
             />
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.nouakchottMauritania.meteo')"
+              width="100%"
+              max-height="35%"
+            />
+            <p>{{ $t("story.nouakchottMauritania.source") }}</p>
           </v-col>
-          <v-col class="h-100" cols="8">
-            <v-card class="h-100">
-              <v-card-title class="text-h3"> Nouakchott </v-card-title>
-              <v-card-text>
-                <v-list>
-                  <v-list-item>
-                    Nouakchott is the capital and largest city of the Islamic
-                    Republic of Mauritania and one of the hubs of the
-                    Mauritanian economy
-                  </v-list-item>
-                  <v-list-item>
-                    The city has rapidly expanded since the mid-1950s and
-                    currently has an area of approximately 200 km2 and a
-                    population of 1.1 million people
-                  </v-list-item>
-                  <v-list-item>
-                    Nouakchott is largely flat with an average elevation of 7
-                    meters above sea level, with several districts close to or
-                    below sea level
-                  </v-list-item>
-                  <v-list-item>
-                    Nouakchott has a hot desert climate with an average annual
-                    temperature of 29°C and average annual rainfall of 105
-                    mm/year
-                  </v-list-item>
-                  <v-list-item>
-                    The city sits on sandy soil with a very shallow and saline
-                    groundwater table Domestic water (180,000 m3/day) is
-                    supplied through the Aftout Essahli conduit delivering
-                    surficial water from the Senegal River and through the
-                    pumping station in the quaternary freshwater aquifer of
-                    El-Trarza (north of Nouakchott) There is a limited sewer
-                    network in Nouakchott, only serving the oldest neighborhoods
-                  </v-list-item>
-                </v-list>
-              </v-card-text>
-            </v-card>
+          <v-col class="h-100 align-center d-flex" cols="7" xl="5">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h3">
+                {{ $t("story.nouakchottMauritania.title") }}
+              </div>
+              <div class="text-body-1 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.nouakchottMauritania.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
           </v-col>
         </v-row>
       </v-container>
     </div>
-    <div class="section">Section 2</div>
-    <div class="section">Section 3</div>
+    <div class="section">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col
+            cols="7"
+            xl="6"
+            class="align-center justify-center h-100 d-flex flex-column"
+          >
+            <v-row class="w-100 flex-2-1">
+              <v-col cols="12" class="d-flex flex-column justify-center">
+                <a
+                  class="w-100 text-center"
+                  target="_"
+                  href="https://www.ateliers.org/media/workshop/documents/nouakchott_fr.pdf"
+                  ><v-img
+                    class="mb-2"
+                    width="100%"
+                    max-height="100%"
+                    src="story/flooding_evolution.png"
+                  />
+                  Les Ateliers, 2014</a
+                >
+              </v-col>
+            </v-row>
+            <v-row class="w-100 flex-1-2">
+              <v-col cols="12" lg="6" class="d-flex flex-column justify-center">
+                <a
+                  class="w-100 text-center"
+                  target="_"
+                  href="https://www.theguardian.com/global-development/2016/jul/25/the-best-solution-move-the-mauritanian-capital-water-on-the-rise-in-nouakchott"
+                  ><v-img
+                    class="mb-2"
+                    src="story/the_guardian.png"
+                    max-height="100%"
+                    width="100%"
+                  />
+                  The Guardian, 2016
+                </a>
+              </v-col>
+              <v-col cols="12" lg="6" class="d-flex flex-column justify-center">
+                <v-img
+                  class="mb-2"
+                  src="story/flooding_photo.jpeg"
+                  max-height="100%"
+                />
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col class="h-100 align-center d-flex" cols="5" xl="6">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h3">
+                {{ $t("story.floodingIssues.title") }}
+              </div>
+              <div class="text-body-1 text-xxl-h5">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.floodingIssues.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            cols="7"
+            xl="6"
+            class="align-center h-100 justify-center d-flex flex-column"
+          >
+            <v-row class="w-100">
+              <v-col class="d-flex flex-column justify-center align-center">
+                <div
+                  class="mb-2 d-flex align-center w-75 justify-center bg-blue h-25"
+                  src="story/flooding_photo.jpeg"
+                  max-height="100%"
+                >
+                  WIP Diagram
+                </div>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col class="h-100 align-center d-flex" cols="5" xl="6">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h3">
+                {{ $t("story.hydrogeologicalContext.title") }}
+              </div>
+              <div class="text-body-1 text-xxl-h5">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.hydrogeologicalContext.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            cols="6"
+            class="align-center h-100 justify-center d-flex flex-column"
+          >
+            <v-row class="w-100">
+              <v-col
+                class="d-flex flex-column justify-space-between align-center"
+              >
+                <v-carousel cycle height="35vh" show-arrows="hover">
+                  <v-carousel-item
+                    v-for="(item, index) in [2, 3]"
+                    :key="index"
+                    :src="'story/flooding_photo_' + item + '.JPG'"
+                    cover
+                  ></v-carousel-item>
+                </v-carousel>
+                <v-carousel cycle height="35vh" show-arrows="hover">
+                  <v-carousel-item
+                    v-for="(item, index) in [4, 5]"
+                    :key="index"
+                    :src="'story/flooding_photo_' + item + '.JPG'"
+                    cover
+                  ></v-carousel-item>
+                </v-carousel>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col class="h-100 align-center d-flex flex-column" cols="6">
+            <v-row class="flex-2-1">
+              <v-col
+                v-for="(paragraph, index) in $tm(
+                  'story.floodingSchema.paragraphs.before'
+                )"
+                class="d-flex justify-center align-center"
+                cols="6"
+                :key="index"
+              >
+                <p
+                  class="schema-text text-body-1 text-md-h5"
+                  :style="{
+                    color: 'white',
+                    'background-color': colorsFloodingSchema[index],
+                  }"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </v-col>
+            </v-row>
+            <v-row class="flex-1-1">
+              <p class="schema-text text-h3">
+                {{ $t("story.floodingSchema.title")
+                }}<v-icon
+                  size="large"
+                  color="black"
+                  :icon="mdiArrowDown"
+                ></v-icon>
+              </p>
+            </v-row>
+            <v-row class="flex-2-1">
+              <v-col
+                v-for="(paragraph, index) in $tm(
+                  'story.floodingSchema.paragraphs.after'
+                )"
+                class="d-flex justify-center align-center"
+                cols="6"
+                :key="index"
+              >
+                <p
+                  class="schema-text text-body-1 text-md-h5"
+                  :style="{
+                    color: 'white',
+                    'background-color': colorsFloodingSchema[index],
+                  }"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container>
+        <MapLibreMap
+          ref="maplibreMap"
+          :bounds="mapBounds"
+          :style-spec="styleSpec"
+          :filter-ids="layerIds"
+          :popup-layer-ids="['piezometer_locations']"
+          :zoom="11.5"
+          :extended="false"
+        />
+      </v-container>
+    </div>
   </full-page>
 </template>
 
@@ -94,13 +301,18 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
   left: 0;
   width: 100%;
 }
-.section {
-  text-align: center;
-  font-size: 3em;
-  font-family: arial;
-  max-height: 100%;
+
+p.schema-text {
+  padding: 1em;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
-.v-container {
+
+.section .v-container {
   height: 80vh;
+  padding: 0 10vw;
+  padding-top: 64px;
 }
 </style>
