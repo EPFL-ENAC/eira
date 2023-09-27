@@ -4,6 +4,7 @@ import { mdiArrowDown } from "@mdi/js";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import { computed } from "vue";
 import type { VueMessageType } from "vue-i18n";
+import { useDisplay } from "vuetify";
 
 const layerIds = computed<string[]>(() => [
   "piezometer_locations",
@@ -21,7 +22,7 @@ const options = {
   licenseKey: "gplv3-license",
   scrollOverflow: false,
   // autoScrolling: false,
-  responsiveWidth: 900,
+  responsiveWidth: 960,
   anchors: [
     "nouakchottMauritania",
     "floodingIssues",
@@ -44,16 +45,21 @@ const options = {
 const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
 
 const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
+
+const { smAndDown } = useDisplay();
 </script>
 
 <template>
   <full-page id="fullpage-wrapper" ref="fullpage" :options="options">
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100 overflow-y-auto">
           <v-col
-            cols="5"
+            cols="12"
+            md="5"
             xl="6"
+            order="2"
+            order-md="1"
             class="align-center h-100 justify-space-around d-flex flex-column"
           >
             <v-img
@@ -70,7 +76,14 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
             />
             <p>{{ $t("story.nouakchottMauritania.source") }}</p>
           </v-col>
-          <v-col class="h-100 align-center d-flex" cols="7" xl="5">
+          <v-col
+            class="h-100 align-center d-flex"
+            order="1"
+            order-md="2"
+            cols="12"
+            md="7"
+            xl="5"
+          >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h3">
                 {{ $t("story.nouakchottMauritania.title") }}
@@ -91,12 +104,15 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100">
           <v-col
-            cols="7"
+            cols="12"
+            md="7"
             xl="6"
+            order="2"
+            order-md="1"
             class="align-center justify-center h-100 d-flex flex-column"
           >
             <v-row class="w-100 flex-2-1">
@@ -139,7 +155,14 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="h-100 align-center d-flex" cols="5" xl="6">
+          <v-col
+            class="h-100 align-center d-flex"
+            cols="12"
+            md="5"
+            xl="6"
+            order="1"
+            order-md="2"
+          >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h3">
                 {{ $t("story.floodingIssues.title") }}
@@ -160,27 +183,37 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100 overflow-y-auto">
           <v-col
-            cols="7"
+            cols="12"
+            md="7"
             xl="6"
+            order="2"
+            order-md="1"
             class="align-center h-100 justify-center d-flex flex-column"
           >
             <v-row class="w-100">
               <v-col class="d-flex flex-column justify-center align-center">
                 <div
-                  class="mb-2 d-flex align-center w-75 justify-center bg-blue h-25"
+                  class="mb-2 d-flex align-center w-75 justify-center bg-blue"
+                  style="min-height: 200px; height: 25vh"
                   src="story/flooding_photo.jpeg"
-                  max-height="100%"
                 >
                   WIP Diagram
                 </div>
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="h-100 align-center d-flex" cols="5" xl="6">
+          <v-col
+            class="h-100 align-center d-flex"
+            cols="12"
+            md="5"
+            xl="6"
+            order="1"
+            order-md="2"
+          >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h3">
                 {{ $t("story.hydrogeologicalContext.title") }}
@@ -201,11 +234,12 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100 overflow-y-auto">
           <v-col
-            cols="6"
+            cols="12"
+            md="6"
             class="align-center h-100 justify-center d-flex flex-column"
           >
             <v-row class="w-100">
@@ -220,7 +254,12 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
                     cover
                   ></v-carousel-item>
                 </v-carousel>
-                <v-carousel cycle height="35vh" show-arrows="hover">
+                <v-carousel
+                  cycle
+                  class="mt-5"
+                  height="35vh"
+                  show-arrows="hover"
+                >
                   <v-carousel-item
                     v-for="(item, index) in [4, 5]"
                     :key="index"
@@ -231,15 +270,15 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="h-100 align-center d-flex flex-column" cols="6">
+          <v-col class="h-100 align-center d-flex flex-column" cols="12" md="6">
             <v-row>
               <v-col
                 v-for="(paragraph, index) in $tm(
                   'story.floodingSchema.paragraphs.before'
                 )"
+                :key="index"
                 class="d-flex justify-center align-center"
                 cols="6"
-                :key="index"
               >
                 <p
                   class="schema-text text-body-1 text-md-h6 text-lg-h5"
@@ -272,9 +311,9 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
                 v-for="(paragraph, index) in $tm(
                   'story.floodingSchema.paragraphs.after'
                 )"
+                :key="index"
                 class="d-flex justify-center align-center"
                 cols="6"
-                :key="index"
               >
                 <p
                   class="schema-text text-body-1 text-md-h6 text-lg-h5"
@@ -291,12 +330,15 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100 overflow-y-auto">
           <v-col
-            cols="5"
+            cols="12"
+            md="5"
             xl="6"
+            order="2"
+            order-md="1"
             class="align-center h-100 justify-space-around d-flex flex-column"
           >
             <v-img
@@ -312,7 +354,14 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
               max-height="35%"
             />
           </v-col>
-          <v-col class="h-100 align-center d-flex" cols="7" xl="5">
+          <v-col
+            class="h-100 align-center d-flex"
+            cols="12"
+            md="7"
+            xl="5"
+            order="1"
+            order-md="2"
+          >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h3">
                 {{ $t("story.projectDescription.title") }}
@@ -333,10 +382,10 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container class="d-flex flex-column justify-space-between" fluid>
         <div class="text-h3">{{ $t("story.projectObjectives.title") }}</div>
-        <v-timeline direction="horizontal">
+        <v-timeline :direction="smAndDown ? 'vertical' : 'horizontal'">
           <v-timeline-item
             v-for="(paragraph, index) in $tm(
               'story.projectObjectives.paragraphs'
@@ -367,10 +416,16 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-timeline>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100">
-          <v-col cols="8" class="align-center h-100 d-flex flex-column">
+          <v-col
+            cols="12"
+            md="8"
+            order="2"
+            order-md="1"
+            class="align-center h-100 d-flex flex-column"
+          >
             <v-row class="w-100 h-100 d-flex">
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
                 <v-img src="story/first_field_campain_1.JPG" />
@@ -386,7 +441,13 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="h-100 align-center d-flex" cols="4">
+          <v-col
+            class="h-100 align-center d-flex"
+            cols="12"
+            md="4"
+            order="1"
+            order-md="2"
+          >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h3">
                 {{ $t("story.firstFieldCampain.title") }}
@@ -407,11 +468,21 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100">
-          <v-col cols="7" class="align-center h-100 d-flex flex-column">
-            <v-container fluid class="pa-0">
+          <v-col
+            cols="12"
+            md="7"
+            order="2"
+            order-md="1"
+            class="align-center h-100 d-flex flex-column"
+          >
+            <v-container
+              fluid
+              class="pa-0"
+              :style="smAndDown ? { height: '50vh' } : {}"
+            >
               <MapLibreMap
                 ref="maplibreMap"
                 :bounds="mapBounds"
@@ -423,9 +494,9 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
               />
             </v-container>
           </v-col>
-          <v-col class="h-100" cols="5">
+          <v-col class="h-100" cols="12" md="5" order="1" order-md="2">
             <v-sheet
-              class="pl-6 h-100 text-left justify-space-between d-flex flex-column"
+              class="pl-md-6 h-100 text-left justify-space-between d-flex flex-column"
             >
               <div class="text-h3">
                 {{ $t("story.groundwaterMonitoring.title") }}
@@ -439,27 +510,55 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100">
-          <v-col cols="9" class="align-center h-100 d-flex flex-column">
+          <v-col
+            cols="12"
+            md="9"
+            order="2"
+            order-md="1"
+            class="align-center h-100 d-flex flex-column"
+          >
             <v-row class="w-100 h-100 d-flex">
-              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+              <v-col
+                cols="12"
+                md="6"
+                class="d-flex flex-column justify-center h-50"
+              >
                 <v-img src="story/transpiration_monitoring_diagram_1.jpg" />
               </v-col>
-              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+              <v-col
+                cols="12"
+                md="6"
+                class="d-flex flex-column justify-center h-50"
+              >
                 <v-img src="story/transpiration_monitoring_photo_1.jpeg" />
               </v-col>
-              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+              <v-col
+                cols="12"
+                md="6"
+                class="d-flex flex-column justify-center h-50"
+              >
                 <v-img src="story/transpiration_monitoring_diagram_2.png" />
               </v-col>
 
-              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+              <v-col
+                cols="12"
+                md="6"
+                class="d-flex flex-column justify-center h-50"
+              >
                 <v-img src="story/transpiration_monitoring_photo_2.jpeg" />
               </v-col>
             </v-row>
           </v-col>
-          <v-col class="h-100 align-center d-flex" cols="3">
+          <v-col
+            class="h-100 align-center d-flex"
+            cols="12"
+            md="3"
+            order="1"
+            order-md="2"
+          >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h3">
                 {{ $t("story.transpirationMonitoring.title") }}
@@ -486,24 +585,30 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <div class="text-h3">{{ $t("story.targetedTreeSpecies.title") }}</div>
 
         <v-row class="justify-center h-100 align-center">
           <v-col
+            cols="6"
+            md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
             <v-img width="100%" src="story/tree_Azadirachta_indica.jpeg" />
             <i class="text-h6">Azadirachta indica</i>
           </v-col>
           <v-col
+            cols="6"
+            md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
             <v-img width="100%" src="story/tree_Casuarina_equisetifolia.jpeg" />
             <i class="text-h6">Casuarina equisetifolia</i>
           </v-col>
           <v-col
+            cols="6"
+            md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
             <v-img
@@ -514,12 +619,16 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
           </v-col>
 
           <v-col
+            cols="6"
+            md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
             <v-img width="100%" src="story/tree_Phoenix_dactylifera.JPG" />
             <i class="text-h6">Phoenix dactylifera</i>
           </v-col>
           <v-col
+            cols="6"
+            md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
             <v-img width="100%" src="story/tree_Tamarix_aphylla.jpeg" />
@@ -528,7 +637,7 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
         </v-row>
       </v-container>
     </div>
-    <div class="section">
+    <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <div class="text-h3">{{ $t("story.references") }}</div>
         <p class="text-h6 my-10">
@@ -556,11 +665,27 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
 </template>
 
 <style scoped>
+@media (max-width: 961px) {
+  .section .text-h3 {
+    padding-bottom: 0.6em;
+  }
+}
 #fullpage-wrapper {
   position: absolute !important;
   top: 0;
   left: 0;
   width: 100%;
+}
+.section .v-container {
+  padding: 0 10vw;
+  padding-top: calc(64px + 3em);
+}
+
+@media (min-width: 961px) {
+  .section .v-container {
+    height: 80vh;
+    padding-top: 64px;
+  }
 }
 
 p.schema-text {
@@ -573,11 +698,5 @@ p.schema-text {
 
 div.schema-group {
   flex: 3 1;
-}
-
-.section .v-container {
-  height: 80vh;
-  padding: 0 10vw;
-  padding-top: 64px;
 }
 </style>
