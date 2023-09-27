@@ -665,6 +665,13 @@ const { smAndDown } = useDisplay();
 </template>
 
 <style scoped>
+.v-sheet {
+  background: none;
+}
+.section:nth-child(2n) {
+  background-color: #e5e6e552;
+}
+
 @media (max-width: 961px) {
   .section .text-h3 {
     padding-bottom: 0.6em;
