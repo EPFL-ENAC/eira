@@ -121,7 +121,41 @@
         "The goal of the project is to assess how planting salt-tolerant tree species in the city of Nouakchott could help to increase the resilience of the community to urban flooding. The idea behind this nature-based solution is that the trees would act as natural pumps and lower the groundwater table, thus increasing the soil storage capacity to store more water during rain season.",
         "This work consists of a joint interdisciplinary ecohydrology and plant physiology approach and aims to quantify the water uptake of local tree species (transpiration) to simulate scenarios for an integrated and sustainable tree-planting strategy for Nouakchott. In addition to increasing the city’s resilience to flooding, tree-planting in the city could have positive impacts by enhancing the provision of sustainable services for the people and the economy."
       ]
-    }
+    },
+    "projectObjectives": {
+      "title": "Project Objectives",
+      "paragraphs": [
+        "To understand current groundwater functioning from historical meteorological records and groundwater levels from the existing network of piezometers ",
+        "To quantify actual transpiration of existing local tree species as well as soil-plant- atmosphere energy and mass exchanges at the plant scale and drought/heat resilience",
+        "To implement an urban-scale 3D groundwater model including surface- groundwater and soil- atmosphere flux exchanges due to transpiration by vegetation",
+        "Use the groundwater model to provide tree-planting scenarios and assess their impacts on flooding, saline intrusion, and soil subsidence for possible inclusion in development planning"
+      ],
+      "paragraphs_titles": [
+        "Data Analysis",
+        "Plant physiology",
+        "Hydrogeologic-plant dynamic Modelling",
+        "Sustainable water management"
+      ]
+    },
+    "firstFieldCampain": {
+      "title": "First field campaign",
+      "paragraphs": [
+        "The first field campaign of the project allowed the project team of the Région de Nouakchott and EPFL to meet in person, to monitor tree transpiration with 12 sap flow sensors on five different tree species, to monitor five groundwater observation wells (automatic sensors), to map flooded areas in the city, and to define the topics of four master projects in collaboration with the Biology Department of the University of Nouakchott."
+      ]
+    },
+    "groundwaterMonitoring": {
+      "title": "Groundwater Monitoring"
+    },
+    "transpirationMonitoring": {
+      "title": "Transpiration Monitoring",
+      "paragraphs": [
+        "Quantification of tree transpiration using sap flow meters (based on the heat ratio method; Burgess et al., 2001), powered by solar panels."
+      ]
+    },
+    "targetedTreeSpecies": {
+      "title": "Targeted tree species"
+    },
+    "references": "References"
   },
   "layer": "layer | layers",
   "layers": {

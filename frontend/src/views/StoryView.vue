@@ -29,6 +29,11 @@ const options = {
     "floodingSchema",
     "projectDescription",
     "projectObjectives",
+    "firstFieldCampain",
+    "groundwaterMonitoring",
+    "transpirationMonitoring",
+    "targetedTreeSpecies",
+    "references",
   ],
 
   navigation: true,
@@ -329,32 +334,32 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
       </v-container>
     </div>
     <div class="section">
-      <v-container class="d-flex flex-column" fluid>
+      <v-container class="d-flex flex-column justify-space-between" fluid>
         <div class="text-h3">{{ $t("story.projectObjectives.title") }}</div>
-        <v-timeline class="flex-1 h-100" direction="horizontal">
+        <v-timeline direction="horizontal">
           <v-timeline-item
             v-for="(paragraph, index) in $tm(
               'story.projectObjectives.paragraphs'
             )"
             :key="index"
-            dot-color="purple-lighten-2"
-            fill-dot
+            :dot-color="colorsFloodingSchema[index]"
           >
             <v-card>
-              <v-card-title class="bg-purple-lighten-2">
-                <h2 class="font-weight-light">
-                  {{
-                    $rt(
-                      $tm(
-                        "story.projectObjectives.paragraphs_titles[" +
-                          index +
-                          "]"
-                      ) as VueMessageType
-                    )
-                  }}
-                </h2>
+              <v-card-title
+                class="text-white text-h5 text-xl-h4 pa-4 pa-xxl-6 text-wrap text-break"
+                :style="{
+                  'background-color': colorsFloodingSchema[index],
+                }"
+              >
+                {{
+                  $rt(
+                    $tm(
+                      "story.projectObjectives.paragraphs_titles[" + index + "]"
+                    ) as VueMessageType
+                  )
+                }}
               </v-card-title>
-              <v-card-text>
+              <v-card-text class="pa-4 pa-xxl-6 text-h6">
                 {{ $rt(paragraph) }}
               </v-card-text>
             </v-card>
@@ -363,16 +368,188 @@ const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
       </v-container>
     </div>
     <div class="section">
-      <v-container>
-        <MapLibreMap
-          ref="maplibreMap"
-          :bounds="mapBounds"
-          :style-spec="styleSpec"
-          :filter-ids="layerIds"
-          :popup-layer-ids="['piezometer_locations']"
-          :zoom="11.5"
-          :extended="false"
-        />
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col cols="8" class="align-center h-100 d-flex flex-column">
+            <v-row class="w-100 h-100 d-flex">
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/first_field_campain_1.JPG" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/first_field_campain_4.JPG" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/first_field_campain_3.jpeg" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/first_field_campain_2.jpeg" />
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col class="h-100 align-center d-flex" cols="4">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h3">
+                {{ $t("story.firstFieldCampain.title") }}
+              </div>
+              <div class="text-body-1 text-xxl-h5">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.firstFieldCampain.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col cols="7" class="align-center h-100 d-flex flex-column">
+            <v-container fluid class="pa-0">
+              <MapLibreMap
+                ref="maplibreMap"
+                :bounds="mapBounds"
+                :style-spec="styleSpec"
+                :filter-ids="layerIds"
+                :popup-layer-ids="['piezometer_locations']"
+                :zoom="11.5"
+                :extended="false"
+              />
+            </v-container>
+          </v-col>
+          <v-col class="h-100" cols="5">
+            <v-sheet
+              class="pl-6 h-100 text-left justify-space-between d-flex flex-column"
+            >
+              <div class="text-h3">
+                {{ $t("story.groundwaterMonitoring.title") }}
+              </div>
+              <v-img
+                width="100%"
+                src="story/groundwater_monitoring_photo.jpeg"
+              />
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col cols="9" class="align-center h-100 d-flex flex-column">
+            <v-row class="w-100 h-100 d-flex">
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/transpiration_monitoring_diagram_1.jpg" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/transpiration_monitoring_photo_1.jpeg" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/transpiration_monitoring_diagram_2.png" />
+              </v-col>
+
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img src="story/transpiration_monitoring_photo_2.jpeg" />
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col class="h-100 align-center d-flex" cols="3">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h3">
+                {{ $t("story.transpirationMonitoring.title") }}
+              </div>
+              <div class="text-body-1 text-xxl-h5">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.transpirationMonitoring.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+                <p class="pt-2 pt-lg-6 pt-xxl-8">
+                  Source:
+                  <a href="https://www.ictinternational.com" target="_">
+                    https://www.ictinternational.com
+                  </a>
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <div class="text-h3">{{ $t("story.targetedTreeSpecies.title") }}</div>
+
+        <v-row class="justify-center h-100 align-center">
+          <v-col
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Azadirachta_indica.jpeg" />
+            <i class="text-h6">Azadirachta indica</i>
+          </v-col>
+          <v-col
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Casuarina_equisetifolia.jpeg" />
+            <i class="text-h6">Casuarina equisetifolia</i>
+          </v-col>
+          <v-col
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img
+              width="100%"
+              src="story/tree_Eucalyptus_camaldulensis.jpeg"
+            />
+            <i class="text-h6">Eucalyptus camaldulensis</i>
+          </v-col>
+
+          <v-col
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Phoenix_dactylifera.JPG" />
+            <i class="text-h6">Phoenix dactylifera</i>
+          </v-col>
+          <v-col
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Tamarix_aphylla.jpeg" />
+            <i class="text-h6">Tamarix aphylla</i>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section">
+      <v-container fluid>
+        <div class="text-h3">{{ $t("story.references") }}</div>
+        <p class="text-h6 my-10">
+          Mohamed, A.-S., Leduc, C., Marlin, C., Wagué, O., & Sidi Cheikh, M.-A.
+          (2017). Impacts of climate change and anthropization on groundwater
+          resources in the Nouakchott urban area (coastal Mauritania). Comptes
+          Rendus Geoscience, 349(6–7), 280–289.
+          <a href="https://doi.org/10.1016/j.crte.2017.09.011" target="_"
+            >https://doi.org/10.1016/j.crte.2017.09.011</a
+          >
+        </p>
+        <p class="text-h6 my-10">
+          Smith, A. D. (2016, July 25). “The best solution? Move the Mauritanian
+          capital”: water on the rise in Nouakchott. The Guardian.
+
+          <a
+            href="https://www.theguardian.com/global-development/2016/jul/25/the-best-solution-move-the-mauritanian-capital-water-on-the-rise-in-nouakchott"
+            target="_"
+            >https://www.theguardian.com/global-development/2016/jul/25/the-best-solution-move-the-mauritanian-capital-water-on-the-rise-in-nouakchott</a
+          >
+        </p>
       </v-container>
     </div>
   </full-page>

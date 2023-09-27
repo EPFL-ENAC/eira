@@ -135,7 +135,26 @@
         "Modélisation hydrogéologique – dynamique végétale",
         "Gestion durable de l'eau"
       ]
-    }
+    },
+    "firstFieldCampain": {
+      "title": "Première campagne de mesures",
+      "paragraphs": [
+        "La première campagne de mesures du projet a permis à l'équipe de la Région de Nouakchott et de l'EPFL de se rencontrer, d’instrumenter 12 capteurs de flux de sève pour enregistrer la transpiration de cinq espèces d'arbres différentes, d’installer des suivis en continu de cinq piézomètres (sondes de mesure automatiques), de cartographier les zones inondées de la ville et de définir quatre projets de master en collaboration avec le département de biologie de l'Université de Nouakchott."
+      ]
+    },
+    "groundwaterMonitoring": {
+      "title": "Suivi des eaux souterraines"
+    },
+    "transpirationMonitoring": {
+      "title": "Mesure de la transpiration",
+      "paragraphs": [
+        "Quantification de la transpiration des arbres grâce à l’utilisation de capteurs de flux de sèves (basés sur la méthode “heat ratio” de Burgess et al., 2001) et alimentés par des panneaux solaires."
+      ]
+    },
+    "targetedTreeSpecies": {
+      "title": "Espèces d’arbres ciblées"
+    },
+    "references": "Références"
   },
   "layer": "couche | couches",
   "layers": {
