@@ -284,7 +284,7 @@ const { smAndDown } = useDisplay();
                   class="schema-text text-body-1 text-md-h6 text-lg-h5"
                   :style="{
                     color: 'white',
-                    'background-color': colorsFloodingSchema[index],
+                    'background-color': colorsFloodingSchema[index as number],
                   }"
                 >
                   {{ $rt(paragraph) }}
@@ -319,7 +319,7 @@ const { smAndDown } = useDisplay();
                   class="schema-text text-body-1 text-md-h6 text-lg-h5"
                   :style="{
                     color: 'white',
-                    'background-color': colorsFloodingSchema[index],
+                    'background-color': colorsFloodingSchema[index as number],
                   }"
                 >
                   {{ $rt(paragraph) }}
@@ -391,19 +391,21 @@ const { smAndDown } = useDisplay();
               'story.projectObjectives.paragraphs'
             )"
             :key="index"
-            :dot-color="colorsFloodingSchema[index]"
+            :dot-color="colorsFloodingSchema[index as number]"
           >
             <v-card>
               <v-card-title
                 class="text-white text-h5 text-xl-h4 pa-4 pa-xxl-6 text-wrap text-break"
                 :style="{
-                  'background-color': colorsFloodingSchema[index],
+                  'background-color': colorsFloodingSchema[index as number],
                 }"
               >
                 {{
                   $rt(
                     $tm(
-                      "story.projectObjectives.paragraphs_titles[" + index + "]"
+                      "story.projectObjectives.paragraphs_titles[" +
+                        (index as number) +
+                        "]"
                     ) as VueMessageType
                   )
                 }}
