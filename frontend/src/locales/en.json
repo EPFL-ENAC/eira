@@ -69,37 +69,35 @@
       "source": "Source data: World Bank",
       "paragraphs": [
         "Nouakchott is the capital and largest city of the Islamic Republic of Mauritania and one of the hubs of the Mauritanian economy.",
-        "The city has rapidly expanded since the mid-1950s and currently has an area of approximately 200 km2 and a population of 1.1 million people.",
+        "The city has rapidly expanded since the mid-1950s and currently has an area of approximately 200 km² and a population of 1.1 million people.",
         "Nouakchott is largely flat with an average elevation of 7 meters above sea level, with several districts close to or below sea level.",
         "Nouakchott has a hot desert climate with an average annual temperature of 29°C and average annual rainfall of 105 mm/year.",
         "The city sits on sandy soil with a very shallow and saline groundwater table.",
-        "Domestic water (180,000 m3/day) is supplied through the Aftout Essahli conduit delivering surficial water from the Senegal River and through the pumping station in the quaternary freshwater aquifer of El-Trarza (north of Nouakchott).",
+        "Domestic water (180,000 m³/day) is supplied through the Aftout Essahli conduit delivering surficial water from the Senegal River and through the pumping station in the quaternary freshwater aquifer of El-Trarza (north of Nouakchott).",
         "There is a limited sewer network in Nouakchott, only serving the oldest neighborhoods."
       ]
     },
     "floodingIssues": {
       "title": "Flooding issues",
       "paragraphs": [
-        "An increasing frequency of flooding events has been observed, while a portion of the city has remained flooded since 2011",
+        "Since 2010, an increasing frequency of flooding events has been observed, while a portion of the city has remained flooded.",
         "In recent years, there has been massive urban growth, with the population starting at approximately 6,000 people in 1961 and increasing to over 1 million people at present.",
-        "This urban growth has caused decreased permeability, and therefore reduced infiltration around the city",
-        "An especially intense flood event occurred in 2013, which left 2,000 people homeless and caused a cholera outbreak (The Guardian, 2016)",
-        "Climate change will also affect Nouakchott in the upcoming years, including the occurrence of more intense rainfall events and sea-level rise"
+        "This urban growth has caused decreased permeability, and therefore reduced infiltration around the city.",
+        "An especially intense flood event occurred in 2013, which left 2,000 people homeless and caused a cholera outbreak (The Guardian, 2016).",
+        "Climate change will also affect Nouakchott in the upcoming years, including the occurrence of more intense rainfall events and sea-level rise."
       ]
     },
     "hydrogeologicalContext": {
       "title": "Hydrogeological context",
+      "diagram": "story/hydrogeological_context_en.png",
       "paragraphs": [
-        "Saltwater intrusion maintains a constant level in the water table beneath the city",
-        "+",
-        "Infiltration of most of Nouakchott’s consumed water acts as systematic artificial aquifer recharge, increasing the groundwater levels (Mohamed et al., 2017)",
-        "= This creates an increased risk of groundwater saturation excess and flooding",
-        "One of the solutions to reduce the flooding is the lowering the water table level (reducing recharge,and  increasing groundwater uptake)",
-        ""
+        "Shallow groundwater is maintained by sea intrusion from the Atlantic ocean that maintains a constant level in the water table beneath the city.",
+        "As well, the re-infiltration of most of Nouakchott’s used water acts as artificial aquifer recharge, increasing the groundwater levels (Mohamed et al., 2017)"
       ]
     },
     "floodingSchema": {
-      "title": "Flooding",
+      "flooding": "Flooding",
+      "title": "Impact of the flooding",
       "paragraphs": {
         "before": [
           "Shallow groundwater and saltwater intrusion",
@@ -117,23 +115,25 @@
     },
     "projectDescription": {
       "title": "Project Description and Goals",
+      "photo1": "story/project_description_1_en.png",
+      "photo2": "story/project_description_2_en.png",
       "paragraphs": [
-        "The goal of the project is to assess how planting salt-tolerant tree species in the city of Nouakchott could help to increase the resilience of the community to urban flooding. The idea behind this nature-based solution is that the trees would act as natural pumps and lower the groundwater table, thus increasing the soil storage capacity to store more water during rain season.",
-        "This work consists of a joint interdisciplinary ecohydrology and plant physiology approach and aims to quantify the water uptake of local tree species (transpiration) to simulate scenarios for an integrated and sustainable tree-planting strategy for Nouakchott. In addition to increasing the city’s resilience to flooding, tree-planting in the city could have positive impacts by enhancing the provision of sustainable services for the people and the economy."
+        "The goal of the project is to assess how planting trees in the city of Nouakchott could help to increase the resilience of the community to urban flooding. Considering the arid conditions (little rainfall) and the abundant shallow groundwater, trees will use groundwater to maintain their growth. This nature-based solution uses trees as natural pumps to lower the groundwater levels through their water uptake, the transpiration, thus increasing the soil storage capacity to store more water during rain season.",
+        "This work consists of a joint interdisciplinary ecohydrology and plant physiology approach and aims to quantify the transpiration of tree species found locally to simulate tree-planting scenarios in the city to develop an integrated and sustainable tree-planting strategy for Nouakchott. In addition to increasing the city’s resilience to flooding, tree-planting in the city could have positive impacts by enhancing the provision of sustainable services for the people and the economy."
       ]
     },
     "projectObjectives": {
       "title": "Project Objectives",
       "paragraphs": [
         "To understand current groundwater functioning from historical meteorological records and groundwater levels from the existing network of piezometers ",
-        "To quantify actual transpiration of existing local tree species as well as soil-plant- atmosphere energy and mass exchanges at the plant scale and drought/heat resilience",
+        "To quantify actual transpiration of existing local tree species as well as soil-plant-atmosphere energy and mass exchanges at the plant scale and drought/heat resilience",
         "To implement an urban-scale 3D groundwater model including surface- groundwater and soil- atmosphere flux exchanges due to transpiration by vegetation",
         "Use the groundwater model to provide tree-planting scenarios and assess their impacts on flooding, saline intrusion, and soil subsidence for possible inclusion in development planning"
       ],
       "paragraphs_titles": [
         "Data Analysis",
         "Plant physiology",
-        "Hydrogeologic-plant dynamic Modelling",
+        "Eco-hydrogeology Modelling",
         "Sustainable water management"
       ]
     },
@@ -144,7 +144,12 @@
       ]
     },
     "groundwaterMonitoring": {
-      "title": "Groundwater Monitoring"
+      "title": "Groundwater Monitoring",
+      "map": "story/groundwater_monitoring_map_en.png"
+    },
+    "targetedTreeSpecies": {
+      "title": "Targeted tree species",
+      "phoenix_vernacular": "(Date palm/Nkhal)"
     },
     "transpirationMonitoring": {
       "title": "Transpiration Monitoring",
@@ -152,9 +157,7 @@
         "Quantification of tree transpiration using sap flow meters (based on the heat ratio method; Burgess et al., 2001), powered by solar panels."
       ]
     },
-    "targetedTreeSpecies": {
-      "title": "Targeted tree species"
-    },
+
     "references": "References"
   },
   "layer": "layer | layers",
