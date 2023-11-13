@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MapLibreMap from "@/components/MapLibreMap.vue";
 import { mdiArrowDown } from "@mdi/js";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import { computed } from "vue";
@@ -189,20 +188,17 @@ const { smAndDown } = useDisplay();
           <v-col
             cols="12"
             md="7"
-            xl="6"
             order="2"
             order-md="1"
             class="align-center h-100 justify-center d-flex flex-column"
           >
             <v-row class="w-100">
               <v-col class="d-flex flex-column justify-center align-center">
-                <div
-                  class="mb-2 d-flex align-center w-75 justify-center bg-blue"
-                  style="min-height: 200px; height: 25vh"
-                  src="story/flooding_photo.jpeg"
-                >
-                  WIP Diagram
-                </div>
+                <v-img
+                  class="my-10 d-flex align-center justify-center"
+                  :src="$t('story.hydrogeologicalContext.diagram')"
+                  width="100%"
+                />
               </v-col>
             </v-row>
           </v-col>
@@ -210,7 +206,6 @@ const { smAndDown } = useDisplay();
             class="h-100 align-center d-flex"
             cols="12"
             md="5"
-            xl="6"
             order="1"
             order-md="2"
           >
@@ -246,7 +241,10 @@ const { smAndDown } = useDisplay();
               <v-col
                 class="d-flex flex-column justify-space-between align-center"
               >
-                <v-carousel cycle height="35vh" show-arrows="hover">
+                <div class="text-h3 text-left w-100 mb-6">
+                  {{ $t("story.floodingSchema.title") }}
+                </div>
+                <v-carousel cycle height="30vh" show-arrows="hover">
                   <v-carousel-item
                     v-for="(item, index) in [2, 3]"
                     :key="index"
@@ -257,7 +255,7 @@ const { smAndDown } = useDisplay();
                 <v-carousel
                   cycle
                   class="mt-5"
-                  height="35vh"
+                  height="30vh"
                   show-arrows="hover"
                 >
                   <v-carousel-item
@@ -298,7 +296,7 @@ const { smAndDown } = useDisplay();
                   color="black"
                   :icon="mdiArrowDown"
                 ></v-icon>
-                {{ $t("story.floodingSchema.title")
+                {{ $t("story.floodingSchema.flooding")
                 }}<v-icon
                   size="large"
                   color="black"
@@ -343,15 +341,15 @@ const { smAndDown } = useDisplay();
           >
             <v-img
               class="flex-1-1"
-              src="story/depression_diagram.svg"
+              :src="$t('story.projectDescription.photo1')"
               width="100%"
-              cover
+              max-height="45%"
             />
             <v-img
               class="flex-1-1"
-              src="story/flooding_photo_6.JPG"
+              :src="$t('story.projectDescription.photo2')"
               width="100%"
-              max-height="35%"
+              max-height="45%"
             />
           </v-col>
           <v-col
@@ -479,22 +477,11 @@ const { smAndDown } = useDisplay();
             order="2"
             order-md="1"
             class="align-center h-100 d-flex flex-column"
-          >
-            <v-container
-              fluid
-              class="pa-0"
-              :style="smAndDown ? { height: '50vh' } : {}"
-            >
-              <MapLibreMap
-                ref="maplibreMap"
-                :bounds="mapBounds"
-                :style-spec="styleSpec"
-                :filter-ids="layerIds"
-                :popup-layer-ids="['piezometer_locations']"
-                :zoom="11.5"
-                :extended="false"
-              />
-            </v-container>
+            ><v-img
+              class="flex-1-1"
+              :src="$t('story.groundwaterMonitoring.map')"
+              width="60%"
+            />
           </v-col>
           <v-col class="h-100" cols="12" md="5" order="1" order-md="2">
             <v-sheet
@@ -508,6 +495,61 @@ const { smAndDown } = useDisplay();
                 src="story/groundwater_monitoring_photo.jpeg"
               />
             </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <div class="text-h3">{{ $t("story.targetedTreeSpecies.title") }}</div>
+
+        <v-row class="justify-center h-100 align-center">
+          <v-col
+            cols="6"
+            md=""
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Azadirachta_indica.jpeg" />
+            <i class="text-h6">Azadirachta indica (Quinin/Nim)</i>
+          </v-col>
+          <v-col
+            cols="6"
+            md=""
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Casuarina_equisetifolia.jpg" />
+            <i class="text-h6">Casuarina equisetifolia (Filao)</i>
+          </v-col>
+          <v-col
+            cols="6"
+            md=""
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img
+              width="100%"
+              src="story/tree_Eucalyptus_camaldulensis.jpeg"
+            />
+            <i class="text-h6">Eucalyptus camaldulensis (Eucalyptus)</i>
+          </v-col>
+
+          <v-col
+            cols="6"
+            md=""
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Phoenix_dactylifera.jpg" />
+            <i class="text-h6"
+              >Phoenix dactylifera
+              {{ $t("story.targetedTreeSpecies.phoenix_vernacular") }}</i
+            >
+          </v-col>
+          <v-col
+            cols="6"
+            md=""
+            class="d-flex flex-column justify-center align-center w-100 h-75"
+          >
+            <v-img width="100%" src="story/tree_Tamarix_aphylla.jpeg" />
+            <i class="text-h6">Tamarix aphylla (Ttarve)</i>
           </v-col>
         </v-row>
       </v-container>
@@ -528,7 +570,7 @@ const { smAndDown } = useDisplay();
                 md="6"
                 class="d-flex flex-column justify-center h-50"
               >
-                <v-img src="story/transpiration_monitoring_diagram_1.jpg" />
+                <v-img src="story/transpiration_monitoring_photo_3.jpg" />
               </v-col>
               <v-col
                 cols="12"
@@ -543,6 +585,12 @@ const { smAndDown } = useDisplay();
                 class="d-flex flex-column justify-center h-50"
               >
                 <v-img src="story/transpiration_monitoring_diagram_2.png" />
+                <p class="pt-2 text-center pt-lg-6 pt-xxl-8">
+                  Source:
+                  <a href="https://www.ictinternational.com" target="_">
+                    https://www.ictinternational.com
+                  </a>
+                </p>
               </v-col>
 
               <v-col
@@ -575,70 +623,13 @@ const { smAndDown } = useDisplay();
                 >
                   {{ $rt(paragraph) }}
                 </p>
-                <p class="pt-2 pt-lg-6 pt-xxl-8">
-                  Source:
-                  <a href="https://www.ictinternational.com" target="_">
-                    https://www.ictinternational.com
-                  </a>
-                </p>
               </div>
             </v-sheet>
           </v-col>
         </v-row>
       </v-container>
     </div>
-    <div class="section fp-auto-height-responsive">
-      <v-container fluid>
-        <div class="text-h3">{{ $t("story.targetedTreeSpecies.title") }}</div>
 
-        <v-row class="justify-center h-100 align-center">
-          <v-col
-            cols="6"
-            md=""
-            class="d-flex flex-column justify-center align-center w-100 h-75"
-          >
-            <v-img width="100%" src="story/tree_Azadirachta_indica.jpeg" />
-            <i class="text-h6">Azadirachta indica</i>
-          </v-col>
-          <v-col
-            cols="6"
-            md=""
-            class="d-flex flex-column justify-center align-center w-100 h-75"
-          >
-            <v-img width="100%" src="story/tree_Casuarina_equisetifolia.jpeg" />
-            <i class="text-h6">Casuarina equisetifolia</i>
-          </v-col>
-          <v-col
-            cols="6"
-            md=""
-            class="d-flex flex-column justify-center align-center w-100 h-75"
-          >
-            <v-img
-              width="100%"
-              src="story/tree_Eucalyptus_camaldulensis.jpeg"
-            />
-            <i class="text-h6">Eucalyptus camaldulensis</i>
-          </v-col>
-
-          <v-col
-            cols="6"
-            md=""
-            class="d-flex flex-column justify-center align-center w-100 h-75"
-          >
-            <v-img width="100%" src="story/tree_Phoenix_dactylifera.JPG" />
-            <i class="text-h6">Phoenix dactylifera</i>
-          </v-col>
-          <v-col
-            cols="6"
-            md=""
-            class="d-flex flex-column justify-center align-center w-100 h-75"
-          >
-            <v-img width="100%" src="story/tree_Tamarix_aphylla.jpeg" />
-            <i class="text-h6">Tamarix aphylla</i>
-          </v-col>
-        </v-row>
-      </v-container>
-    </div>
     <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <div class="text-h3">{{ $t("story.references") }}</div>
@@ -660,6 +651,17 @@ const { smAndDown } = useDisplay();
             target="_"
             >https://www.theguardian.com/global-development/2016/jul/25/the-best-solution-move-the-mauritanian-capital-water-on-the-rise-in-nouakchott</a
           >
+        </p>
+
+        <p class="text-h6 my-10">
+          Burgess, S. S. O., Adams, M. A., Turner, N. C., Beverly, C. R., Ong,
+          C. K., Khan, A. A. H., & Bleby, T. M. (2001). An improved heat pulse
+          method to measure low and reverse rates of sap flow in woody plants†.
+          Tree Physiology, 21(9), 589–598.
+
+          <a href="https://doi.org/10.1093/treephys/21.9.589" target="_">
+            https://doi.org/10.1093/treephys/21.9.589
+          </a>
         </p>
       </v-container>
     </div>

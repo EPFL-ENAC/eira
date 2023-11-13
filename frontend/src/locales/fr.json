@@ -69,56 +69,57 @@
       "source": "Données sources: Banque Mondiale",
       "paragraphs": [
         "Nouakchott est la capitale de la République Islamique de Mauritanie et sa plus grande ville. C’est un des centres économiques de Mauritanie.",
-        "La croissance de la ville est très importante depuis le milieu des années 1950 and couvre présentement une superficie d’environ 200 km2 pour une population de 1.1 million d’habitants.",
+        "La croissance de la ville est très importante depuis le milieu des années 1950 et couvre présentement une superficie d’environ 200 km² pour une population de 1.1 million d’habitants.",
         "Le relief de Nouakchott est relativement plat avec une altitude moyenne de 7 m au-dessus du niveau de la mer et avec plusieurs quartiers proches ou sous le niveau de la mer.",
         "Le climat à Nouakchott est chaud et désertique avec une température annuelle de 29°C et 105 mm/an de précipitation.",
         "La ville est bâtie sur des sols sableux contenant une nappe d’eau salée dont le niveau est proche de la surface.",
-        "L’alimentation en eau domestique (180 000 m3/j) est assurée par l’apport de l’Aftout Essahli, apportant de l’eau captée dans le fleuve Sénégal et par la station de pompage dans l’aquifère quaternaire de El-Trarza (Nord de Nouakchott). ",
+        "L’alimentation en eau domestique (180 000 m³/j) est assurée par l’apport de l’Aftout Essahli, apportant de l’eau captée dans le fleuve Sénégal et par la station de pompage dans l’aquifère quaternaire de El-Trarza (Nord de Nouakchott). ",
         "Il existe un reseau d’eaux usées limité, couvrant principalement les plus vieux quartiers de la ville."
       ]
     },
     "floodingIssues": {
       "title": "Le problème des inondations",
       "paragraphs": [
-        "Une augmentation de la fréquence des inondations a été observée alors que certaines parties de la ville sont inondées en permanence.",
+        "Depuis 2010, une augmentation de la fréquence des inondations a été observée et certaines parties de la ville sont inondées en permanence.",
         "Dans les dernières années, il y a eu une expansion urbaine particulièrement importante faisant passer la population de la ville d’environ 6000 personnes en 1961 à plus de 1 million présentement.",
         "La croissance urbaine a entrainé une capacité d’infiltration réduite dans la ville.",
-        "Une crue particulièrement intense a eu lieu en 2013 qui a laissé 2000 personnes privées de leurs logements et a créé une épidémie de Cholera (The Guardian, 2016)",
-        "Les changements climatiques impacteront aussi Nouakchott, notamment à cause d’épisodes pluvieux plus intenses et une projection de l’augmentation du niveau de la mer"
+        "Une crue particulièrement intense a eu lieu en 2013 qui a laissé 2000 personnes privées de leurs logements et a créé une épidémie de Cholera (The Guardian, 2016).",
+        "Les changements climatiques impacteront aussi Nouakchott, notamment à cause d’épisodes pluvieux plus intenses et une projection de l’augmentation du niveau de la mer."
       ]
     },
     "hydrogeologicalContext": {
       "title": "Contexte hydrogéologique",
+      "diagram": "story/hydrogeological_context_fr.png",
       "paragraphs": [
-        "L’intrusion marine maintient un niveau d’eau souterraine constant sous la ville",
-        "+",
-        "L’infiltration de la plupart des eaux usées de Nouakchott fonctionne comme une recharge artificielle des eaux souterraines, faisant augmenter les niveaux d’eau souterrains (Mohamed et al., 2017). ",
-        "= Risque d’inondation par remontée de nappe",
-        "Une des solutions pour réduire les inondations consiste à rabaisser le niveau de la nappe d’eau souterraine (réduction de la recharge, augmentation des prélèvements dans la nappe…)"
+        "Des niveaux d’eau souterraine proches de la surface sont maintenus par l’intrusion marine venant de l’Océan Atlantique qui maintient un niveau d’eau contant de la nappe sous la ville.",
+        "Également, la ré-infiltration de la plus part des eaux usées de Nouakchott forme une recharge des eaux souterraines artificielle, faisant augmenter les niveaux d’eau souterraine (Mohamed et al., 2017)"
       ]
     },
     "floodingSchema": {
-      "title": "Inondation",
+      "flooding": "Inondation",
+      "title": "Impact des inondations",
       "paragraphs": {
         "before": [
           "Eaux souterraines proches de la surface et intrusion marine",
-          "Résau d’eaux uséee limité",
-          "Croissance urbaine et reduction de l’infiltration",
+          "Résau d’eaux usées limité",
+          "Croissance urbaine et réduction de l’infiltration",
           "Changements climatiques"
         ],
         "after": [
           "Itinérance et perte de propriétés",
           "Limitations sociales, urbaines et économiques",
-          "Risque épidémiologique",
+          "Risques épidémiologiques",
           "Pertes et interruptions économiques"
         ]
       }
     },
     "projectDescription": {
       "title": "Description du projet et objectifs",
+      "photo1": "story/project_description_1_fr.png",
+      "photo2": "story/project_description_2_fr.png",
       "paragraphs": [
-        "L'objectif du projet est d'évaluer comment la plantation d'espèces d'arbres tolérantes au sel dans la ville de Nouakchott pourrait contribuer à accroître la résilience de la communauté face aux inondations urbaines. L'idée derrière cette solution de bio-ingénierie est que les arbres agiraient comme des pompes naturelles et abaisseraient la nappe phréatique, augmentant ainsi la capacité de stockage du sol pour emmagasiner plus d'eau pendant la saison des pluies.",
-        "Ce travail consiste en une approche interdisciplinaire conjointe d'écohydrologie et de physiologie végétale et vise à quantifier l'absorption d'eau des espèces d'arbres locales (transpiration) afin de simuler des scénarios pour une stratégie intégrée et durable de plantation d'arbres à Nouakchott. En plus d'augmenter la résilience de la ville aux inondations, la plantation d'arbres dans la ville pourrait avoir des impacts positifs pour améliorer la fourniture de services durables pour la population et l'économie."
+        "L'objectif du projet est d'évaluer comment la plantation d'arbres dans la ville de Nouakchott pourrait contribuer à accroître la résilience de la communauté face aux inondations urbaines. Au regard des conditions arides (peu de précipitations) et de la grande disponibilité d’eau souterraine proche de la surface, les arbres consommeront de l’eau souterraine pour maintenir leur croissance. Cette solution basée sur la nature considère les arbres comme des pompes naturelles qui abaisseront les niveaux d’eau souterraine par leur consommation d’eau, la transpiration, augmentant ainsi la capacité de stockage du sol pour emmagasiner plus d'eau pendant la saison des pluies.",
+        "Ce travail consiste en une approche interdisciplinaire conjointe d’éco-hydrologie et de physiologie végétale et vise à quantifier la transpiration d’espèces d'arbres trouvées localement et tolérantes aux conditions de salinité rencontrées à Nouakchott. L’objectif est de simuler des scénarios de plantation d’arbres dans la ville pour élaborer une stratégie intégrée et durable de plantation d'arbres à Nouakchott. En plus d'augmenter la résilience de la ville aux inondations, la plantation d'arbres dans la ville pourrait avoir des impacts positifs pour améliorer la fourniture de services durables pour la population et l'économie"
       ]
     },
     "projectObjectives": {
@@ -132,18 +133,23 @@
       "paragraphs_titles": [
         "Analyse des données",
         "Physiologie végétale",
-        "Modélisation hydrogéologique – dynamique végétale",
+        "Modélisation éco-hydrogéologique",
         "Gestion durable de l'eau"
       ]
     },
     "firstFieldCampain": {
-      "title": "Première campagne de mesures",
+      "title": "Première campagne de mesure",
       "paragraphs": [
-        "La première campagne de mesures du projet a permis à l'équipe de la Région de Nouakchott et de l'EPFL de se rencontrer, d’instrumenter 12 capteurs de flux de sève pour enregistrer la transpiration de cinq espèces d'arbres différentes, d’installer des suivis en continu de cinq piézomètres (sondes de mesure automatiques), de cartographier les zones inondées de la ville et de définir quatre projets de master en collaboration avec le département de biologie de l'Université de Nouakchott."
+        "La première campagne de mesure du projet a permis à l'équipe de la Région de Nouakchott et de l'EPFL de se rencontrer, d’instrumenter 12 capteurs de flux de sève pour enregistrer la transpiration de cinq espèces d'arbres différentes, d’installer des suivis en continu de cinq piézomètres (sondes de mesure automatiques), de cartographier les zones inondées de la ville et de définir quatre projets de master en collaboration avec le département de biologie de l'Université de Nouakchott."
       ]
     },
     "groundwaterMonitoring": {
-      "title": "Suivi des eaux souterraines"
+      "title": "Suivi des eaux souterraines",
+      "map": "story/groundwater_monitoring_map_fr.png"
+    },
+    "targetedTreeSpecies": {
+      "title": "Espèces d’arbres ciblées",
+      "phoenix_vernacular": "(Palmier-datier/Nkhal)"
     },
     "transpirationMonitoring": {
       "title": "Mesure de la transpiration",
@@ -151,9 +157,7 @@
         "Quantification de la transpiration des arbres grâce à l’utilisation de capteurs de flux de sèves (basés sur la méthode “heat ratio” de Burgess et al., 2001) et alimentés par des panneaux solaires."
       ]
     },
-    "targetedTreeSpecies": {
-      "title": "Espèces d’arbres ciblées"
-    },
+
     "references": "Références"
   },
   "layer": "couche | couches",
