@@ -7,7 +7,7 @@
     "trash": "Delete"
   },
   "tabs": {
-    "story": "Story"
+    "map": "Interactive map"
   },
   "introduction": {
     "title": "Welcome to the EIRA interactive map!",
@@ -62,6 +62,11 @@
     "dataProtection": "Data protection"
   },
   "story": {
+    "introduction": {
+      "title": "Research project EIRA",
+      "subtitle": "Enhancing Infrastructure Resilience to Flooding using Afforestation The Case of Nouakchott city, Mauritania",
+      "secondary": "A collaboration between the Platform of Hydraulic Constructions (PL-LCH), the Plant Ecology Research Laboratory (PERL) at EPFL, the Région de Nouakchott and the Centre National de la Ressource en Eau (CNRE – National Water Resource Institute)"
+    },
     "nouakchottMauritania": {
       "title": "Nouakchott, Mauritania",
       "map": "story/nouakchott_map_en.png",

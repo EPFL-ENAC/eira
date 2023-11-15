@@ -19,7 +19,7 @@ function updateLocale(locale: string) {
         <v-tab to="/" :prepend-icon="mdiHome">
           <v-app-bar-title>EIRA</v-app-bar-title>
         </v-tab>
-        <v-tab to="/story">{{ $t("tabs.story") }} </v-tab>
+        <v-tab to="/map">{{ $t("tabs.map") }} </v-tab>
       </v-tabs>
       <v-spacer />
       <v-col class="text-white" cols="auto">

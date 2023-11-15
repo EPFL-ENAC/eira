@@ -7,7 +7,7 @@
     "trash": "Supprimer"
   },
   "tabs": {
-    "story": "Histoire"
+    "map": "Carte interactive"
   },
   "introduction": {
     "title": "Bienvenue sur la carte interactive du projet EIRA !",
@@ -62,6 +62,11 @@
     "dataProtection": "Protection des données"
   },
   "story": {
+    "introduction": {
+      "title": "Projet de recherche EIRA",
+      "subtitle": "Améliorer la résilience de l’infrastructure au phénomène d’inondation en utilisant la plantation d’arbres cas d’étude pour la ville de Nouakchott, Mauritanie",
+      "secondary": "Une collaboration entre la Platforme de constructions hydrauliques (PL-LCH), le « Plant Ecology Research Laboratory » (PERL) à l’EPFL, la Région de Nouakchott et le Centre National de la Ressource en Eau (CNRE)"
+    },
     "nouakchottMauritania": {
       "title": "Nouakchott, Mauritanie",
       "map": "story/nouakchott_map_fr.png",

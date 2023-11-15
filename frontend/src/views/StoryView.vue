@@ -23,6 +23,7 @@ const options = {
   // autoScrolling: false,
   responsiveWidth: 960,
   anchors: [
+    "pneumaProject",
     "nouakchottMauritania",
     "floodingIssues",
     "hydrogeologicalContext",
@@ -31,8 +32,8 @@ const options = {
     "projectObjectives",
     "firstFieldCampain",
     "groundwaterMonitoring",
-    "transpirationMonitoring",
     "targetedTreeSpecies",
+    "transpirationMonitoring",
     "references",
   ],
 
@@ -50,6 +51,44 @@ const { smAndDown } = useDisplay();
 
 <template>
   <full-page id="fullpage-wrapper" ref="fullpage" :options="options">
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-75 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="12" md="8">
+            <v-sheet class="text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.introduction.title") }}
+              </div>
+              <div class="text-h4 pt-2 pt-lg-4">
+                {{ $t("story.introduction.subtitle") }}
+              </div>
+              <div class="text-body-1 text-xxl-h6">
+                <p class="pt-2 pt-lg-6 pt-xxl-8">
+                  {{ $t("story.introduction.secondary") }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+        <v-row class="ma-10 justify-center align-center h-25 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="6" md="3">
+            <v-img src="story/logo_epfl.png" max-width="100%" max-height="100%"
+          /></v-col>
+          <v-col class="h-100 align-center d-flex" cols="6" md="3">
+            <v-img
+              src="story/logo_nouakchott.png"
+              max-width="100%"
+              max-height="100%"
+          /></v-col>
+          <v-col class="h-100 align-center d-flex" cols="6" md="3">
+            <v-img src="story/logo_lch.png" max-width="100%" max-height="100%"
+          /></v-col>
+          <v-col class="h-100 align-center d-flex" cols="6" md="3">
+            <v-img src="story/logo_cnre.png" max-width="100%" max-height="100%"
+          /></v-col>
+        </v-row>
+      </v-container>
+    </div>
     <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100 overflow-y-auto">
@@ -84,7 +123,7 @@ const { smAndDown } = useDisplay();
             xl="5"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.nouakchottMauritania.title") }}
               </div>
               <div class="text-body-1 text-xxl-h6">
@@ -163,7 +202,7 @@ const { smAndDown } = useDisplay();
             order-md="2"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.floodingIssues.title") }}
               </div>
               <div class="text-body-1 text-xxl-h5">
@@ -210,7 +249,7 @@ const { smAndDown } = useDisplay();
             order-md="2"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.hydrogeologicalContext.title") }}
               </div>
               <div class="text-body-1 text-xxl-h5">
@@ -241,7 +280,7 @@ const { smAndDown } = useDisplay();
               <v-col
                 class="d-flex flex-column justify-space-between align-center"
               >
-                <div class="text-h3 text-left w-100 mb-6">
+                <div class="text-h2 text-left w-100 mb-6">
                   {{ $t("story.floodingSchema.title") }}
                 </div>
                 <v-carousel cycle height="30vh" show-arrows="hover">
@@ -361,7 +400,7 @@ const { smAndDown } = useDisplay();
             order-md="2"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.projectDescription.title") }}
               </div>
               <div class="text-body-1 text-xxl-h6">
@@ -382,7 +421,7 @@ const { smAndDown } = useDisplay();
     </div>
     <div class="section fp-auto-height-responsive">
       <v-container class="d-flex flex-column justify-space-between" fluid>
-        <div class="text-h3">{{ $t("story.projectObjectives.title") }}</div>
+        <div class="text-h2">{{ $t("story.projectObjectives.title") }}</div>
         <v-timeline :direction="smAndDown ? 'vertical' : 'horizontal'">
           <v-timeline-item
             v-for="(paragraph, index) in $tm(
@@ -449,7 +488,7 @@ const { smAndDown } = useDisplay();
             order-md="2"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.firstFieldCampain.title") }}
               </div>
               <div class="text-body-1 text-xxl-h5">
@@ -487,7 +526,7 @@ const { smAndDown } = useDisplay();
             <v-sheet
               class="pl-md-6 h-100 text-left justify-space-between d-flex flex-column"
             >
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.groundwaterMonitoring.title") }}
               </div>
               <v-img
@@ -501,7 +540,7 @@ const { smAndDown } = useDisplay();
     </div>
     <div class="section fp-auto-height-responsive">
       <v-container fluid>
-        <div class="text-h3">{{ $t("story.targetedTreeSpecies.title") }}</div>
+        <div class="text-h2">{{ $t("story.targetedTreeSpecies.title") }}</div>
 
         <v-row class="justify-center h-100 align-center">
           <v-col
@@ -610,7 +649,7 @@ const { smAndDown } = useDisplay();
             order-md="2"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
-              <div class="text-h3">
+              <div class="text-h2">
                 {{ $t("story.transpirationMonitoring.title") }}
               </div>
               <div class="text-body-1 text-xxl-h5">
@@ -632,7 +671,7 @@ const { smAndDown } = useDisplay();
 
     <div class="section fp-auto-height-responsive">
       <v-container fluid>
-        <div class="text-h3">{{ $t("story.references") }}</div>
+        <div class="text-h2">{{ $t("story.references") }}</div>
         <p class="text-h6 my-10">
           Mohamed, A.-S., Leduc, C., Marlin, C., Wagué, O., & Sidi Cheikh, M.-A.
           (2017). Impacts of climate change and anthropization on groundwater
@@ -677,7 +716,7 @@ const { smAndDown } = useDisplay();
 }
 
 @media (max-width: 961px) {
-  .section .text-h3 {
+  .section .text-h2 {
     padding-bottom: 0.6em;
   }
 }
