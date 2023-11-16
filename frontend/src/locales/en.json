@@ -163,7 +163,18 @@
       ]
     },
 
-    "references": "References"
+    "references": "References",
+    "enacResearchDay": {
+      "title": "Project presentation at",
+      "text": "Watch the presentation of the project at the ENAC Research Day (EPFL) in September 2023:"
+    },
+    "interactiveMap": {
+      "title": "Link to the interactive map",
+      "paragraphs": [
+        "This platform provides an interactive interface to view maps and information developed by PL-LCH (Platform of Hydraulic Constructions) and PERL (Plant Ecology Research Laboratory) at EPFL in collaboration with the Région de Nouakchott and the CNRE (Centre National de la Ressource en Eau) in Nouakchott, Mauritania.",
+        "Currently, this map provides information related to topography and groundwater level (piezometric) data in Nouakchott city, the study area."
+      ]
+    }
   },
   "layer": "layer | layers",
   "layers": {

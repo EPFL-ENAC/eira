@@ -31,7 +31,7 @@
       "lausanne": "Ville de Lausanne"
     },
     "people": {
-      "title": "Equipe du projet",
+      "title": "Équipe du projet",
       "perona": "Paolo Perona",
       "perona-subtitle": "Directeur académique du PL-LCH",
       "grossiord": "Charlotte Grossiord",
@@ -163,7 +163,18 @@
       ]
     },
 
-    "references": "Références"
+    "references": "Références",
+    "enacResearchDay": {
+      "title": "Présentation du projet au ",
+      "text": "Regarder la presentation du projet faite lors de la journée de la recherche de l’ENAC (EPFL) en septembre 2023 (en anglais avec sous-titre) :"
+    },
+    "interactiveMap": {
+      "title": "Lien vers la carte interactive",
+      "paragraphs": [
+        "Cette plateforme permet de visualiser les cartes et informations développées par le PL-LCH (Plateforme de constructions hydrauliques) et le PERL (Plant Ecology Research Laboratory) à l’EPFL en collaboration avec la Région de Nouakchott et le CNRE (Centre National de la Ressource en Eau) à Nouakchott, Mauritanie.",
+        "Actuellement, la carte présente des données de topographie et de niveaux d’eau souterraine (piézométrie) dans la ville de Nouakchott, la zone d’étude."
+      ]
+    }
   },
   "layer": "couche | couches",
   "layers": {
