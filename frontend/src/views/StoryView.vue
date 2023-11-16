@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { mdiArrowDown } from "@mdi/js";
+import { mdiArrowDown, mdiOpenInApp } from "@mdi/js";
 import type { LngLatBoundsLike } from "maplibre-gl";
 import { computed } from "vue";
 import type { VueMessageType } from "vue-i18n";
@@ -35,6 +35,11 @@ const options = {
     "targetedTreeSpecies",
     "transpirationMonitoring",
     "references",
+    "enacResearchDay",
+    "interactiveMap",
+    "projectPartners",
+    "projectTeam",
+    "acknowledgements",
   ],
 
   navigation: true,
@@ -47,6 +52,66 @@ const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
 const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
 
 const { smAndDown } = useDisplay();
+
+const partnerItems: { key: string; url?: string }[] = [
+  {
+    key: "pl-lch",
+    url: "https://www.epfl.ch/labs/lch",
+  },
+
+  {
+    key: "perl",
+    url: "https://www.epfl.ch/labs/perl",
+  },
+  {
+    key: "crn",
+    url: "https://crn.mr/fr",
+  },
+  {
+    key: "cnre",
+  },
+  {
+    key: "univ-nkc",
+    url: "https://www.univ-nkc.mr",
+  },
+  {
+    key: "exaf",
+    url: "https://www.epfl.ch/research/domains/exaf",
+  },
+  {
+    key: "lausanne",
+    url: "https://www.lausanne.ch",
+  },
+];
+
+const peopleItems: { key: string; url?: string }[] = [
+  {
+    key: "perona",
+    url: "https://people.epfl.ch/paolo.perona",
+  },
+  {
+    key: "grossiord",
+    url: "https://people.epfl.ch/charlotte.grossiord",
+  },
+  {
+    key: "dubois",
+    url: "https://people.epfl.ch/emmanuel.dubois",
+  },
+  {
+    key: "marshall",
+    url: "https://people.epfl.ch/montana.marshall",
+  },
+  {
+    key: "chenal",
+    url: "https://people.epfl.ch/jerome.chenal",
+  },
+  {
+    key: "cherif",
+  },
+  {
+    key: "boukhreiss",
+  },
+];
 </script>
 
 <template>
@@ -62,7 +127,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h4 pt-2 pt-lg-4">
                 {{ $t("story.introduction.subtitle") }}
               </div>
-              <div class="text-body-1 text-xxl-h6">
+              <div class="text-h6 text-xxl-h6">
                 <p class="pt-2 pt-lg-6 pt-xxl-8">
                   {{ $t("story.introduction.secondary") }}
                 </p>
@@ -126,7 +191,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h2">
                 {{ $t("story.nouakchottMauritania.title") }}
               </div>
-              <div class="text-body-1 text-xxl-h6">
+              <div class="text-h6 text-xxl-h6">
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.nouakchottMauritania.paragraphs'
@@ -205,7 +270,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h2">
                 {{ $t("story.floodingIssues.title") }}
               </div>
-              <div class="text-body-1 text-xxl-h5">
+              <div class="text-h6 text-xxl-h5">
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.floodingIssues.paragraphs'
@@ -252,7 +317,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h2">
                 {{ $t("story.hydrogeologicalContext.title") }}
               </div>
-              <div class="text-body-1 text-xxl-h5">
+              <div class="text-h6 text-xxl-h5">
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.hydrogeologicalContext.paragraphs'
@@ -318,7 +383,7 @@ const { smAndDown } = useDisplay();
                 cols="6"
               >
                 <p
-                  class="schema-text text-body-1 text-md-h6 text-lg-h5"
+                  class="schema-text text-h6 text-md-h6 text-lg-h5"
                   :style="{
                     color: 'white',
                     'background-color': colorsFloodingSchema[index as number],
@@ -353,7 +418,7 @@ const { smAndDown } = useDisplay();
                 cols="6"
               >
                 <p
-                  class="schema-text text-body-1 text-md-h6 text-lg-h5"
+                  class="schema-text text-h6 text-md-h6 text-lg-h5"
                   :style="{
                     color: 'white',
                     'background-color': colorsFloodingSchema[index as number],
@@ -403,7 +468,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h2">
                 {{ $t("story.projectDescription.title") }}
               </div>
-              <div class="text-body-1 text-xxl-h6">
+              <div class="text-h6 text-xxl-h6">
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.projectDescription.paragraphs'
@@ -491,7 +556,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h2">
                 {{ $t("story.firstFieldCampain.title") }}
               </div>
-              <div class="text-body-1 text-xxl-h5">
+              <div class="text-h6 text-xxl-h5">
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.firstFieldCampain.paragraphs'
@@ -652,7 +717,7 @@ const { smAndDown } = useDisplay();
               <div class="text-h2">
                 {{ $t("story.transpirationMonitoring.title") }}
               </div>
-              <div class="text-body-1 text-xxl-h5">
+              <div class="text-h6 text-xxl-h5">
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.transpirationMonitoring.paragraphs'
@@ -702,6 +767,213 @@ const { smAndDown } = useDisplay();
             https://doi.org/10.1093/treephys/21.9.589
           </a>
         </p>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-sheet
+          class="pl-6 text-left overflow-y-auto h-100 d-flex flex-column"
+        >
+          <div class="text-h2">
+            {{ $t("story.enacResearchDay.title") }}
+            <a
+              href="https://www.epfl.ch/schools/enac/about/events/enac-research-day/past-research-days/enac-research-day-2023/?utm_medium=email&utm_campaign=Research+Day+2023+-+Merci&utm_source=Research+Day+2023+-+Merci&utm_content=Recordings+and+photos"
+              target="_"
+              >ENAC Research Day 2023</a
+            >
+          </div>
+          <div class="text-h6 text-xxl-h6 flex-1-1 d-flex flex-column">
+            <p class="py-2 py-lg-6 py-xxl-8">
+              {{ $t("story.enacResearchDay.text") }}
+            </p>
+            <iframe
+              id="kmsembed-0_jfmxhdcj"
+              src="https://mediaspace.epfl.ch/embed/secure/iframe/entryId/0_jfmxhdcj/uiConfId/23449012/st/978"
+              class="kmsembed w-100 flex-1-1"
+              allowfullscreen
+              webkitallowfullscreen
+              mozAllowFullScreen
+              allow="fullscreen *; encrypted-media *"
+              referrerPolicy="no-referrer-when-downgrade"
+              sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation"
+              frameborder="0"
+              title="ENAC Research Day 2023 - Session 2"
+            ></iframe>
+          </div>
+        </v-sheet>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-sheet
+          class="pl-6 text-left overflow-y-auto h-100 d-flex flex-column"
+        >
+          <div class="text-h2">
+            {{ $t("story.interactiveMap.title") }}
+          </div>
+
+          <div class="text-h6 text-xxl-h5">
+            <p
+              v-for="(paragraph, index) in $tm(
+                'story.interactiveMap.paragraphs'
+              )"
+              :key="index"
+              class="pt-2 pt-lg-6 pt-xxl-8"
+            >
+              {{ $rt(paragraph) }}
+            </p>
+          </div>
+          <v-btn
+            class="mt-6 mt-md-12 mt-xxl-20"
+            href="/map"
+            :append-icon="mdiOpenInApp"
+            size="x-large"
+          >
+            {{ $t("tabs.map") }}
+          </v-btn>
+        </v-sheet>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col cols="12" md="6" class="d-flex flex-column">
+            <div class="text-h2">
+              {{ $t("introduction.partner.title") }}
+            </div>
+
+            <div class="text-h6 text-xxl-h5">
+              <p
+                v-for="subItem in partnerItems"
+                :key="subItem.key"
+                class="pt-2 pt-lg-6 pt-xxl-8"
+              >
+                {{ $t(`introduction.partner.${subItem.key}`) }}
+                <br />
+                <a v-if="subItem.url" :href="subItem.url">{{ subItem.url }}</a>
+              </p>
+            </div>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            class="h-100 d-flex flex-column justify-space-around"
+            style="gap: 1em"
+          >
+            <v-img class="flex-1-1" src="story/partner_1.jpg" />
+            <v-img class="flex-1-1" src="story/partner_2.jpg" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col cols="12" md="4" class="d-flex flex-column">
+            <div class="text-h2">
+              {{ $t("introduction.people.title") }}
+            </div>
+
+            <div class="text-h6 text-xxl-h5">
+              <div
+                v-for="subItem in peopleItems"
+                :key="subItem.key"
+                class="pt-2 pt-lg-6 pt-xxl-8"
+              >
+                <a :href="subItem.url">
+                  {{ $t(`introduction.people.${subItem.key}`) }}
+                </a>
+                <div class="text-subtitle-1">
+                  {{ $t(`introduction.people.${subItem.key}-subtitle`) }}
+                </div>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="12" md="4" class="d-flex flex-column">
+            <div class="text-h4 mt-15">
+              {{ $t("introduction.contact.title") }}
+            </div>
+
+            <div class="text-h6 text-xxl-h5">
+              <p>
+                Emmanuel Dubois <br />
+                EPFL ENAC IIC PL-LCH / GC A3 505 <br />
+                +41 21 693 51 88 <br />
+                emmanuel.dubois@epfl.ch
+              </p>
+            </div>
+          </v-col>
+          <v-col
+            cols="12"
+            md="4"
+            class="h-100 d-flex flex-column justify-space-around"
+            style="gap: 1em"
+          >
+            <v-img class="flex-1-1" src="story/project_team_1.jpg" />
+            <v-img class="flex-1-1" src="story/project_team_2.jpg" />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col
+            cols="12"
+            md="7"
+            class="d-flex flex-column h-100 justify-space-between"
+          >
+            <div>
+              <div class="text-h4 pb-2">
+                {{ $t("introduction.acknowledgement.title") }}
+              </div>
+
+              <p class="text-h6 text-xxl-h5 pb-2 pb-lg-6 pb-xxl-8">
+                {{ $t("introduction.acknowledgement.body") }}
+              </p>
+            </div>
+
+            <div>
+              <div class="text-h4 pb-2">
+                {{ $t("introduction.license.title") }}
+              </div>
+
+              <p class="text-h6 text-xxl-h5 pb-2 pb-lg-6 pb-xxl-8">
+                {{ $t("introduction.license.body") }}
+              </p>
+            </div>
+            <div>
+              <p class="pb-4">
+                <a
+                  class="text-h4"
+                  href="https://www.epfl.ch/about/overview/regulations-and-guidelines/disclaimer"
+                  target="_blank"
+                >
+                  {{ $t("introduction.legalNotice") }}
+                </a>
+              </p>
+              <p>
+                <a
+                  class="text-h4"
+                  href="https://www.epfl.ch/about/presidency/presidents-team/legal-affairs/epfl-privacy-policy"
+                  target="_blank"
+                >
+                  {{ $t("introduction.dataProtection") }}
+                </a>
+              </p>
+            </div>
+          </v-col>
+
+          <v-col
+            cols="12"
+            md="5"
+            class="h-100 d-flex flex-column justify-space-around"
+            style="gap: 1em"
+          >
+            <v-img class="flex-1-1" src="story/acknowledgements_1.jpg" />
+            <v-img class="flex-1-1" src="story/acknowledgements_2.jpg" />
+          </v-col>
+        </v-row>
       </v-container>
     </div>
   </full-page>
