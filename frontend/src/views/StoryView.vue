@@ -1,21 +1,7 @@
 <script setup lang="ts">
 import { mdiArrowDown, mdiOpenInApp } from "@mdi/js";
-import type { LngLatBoundsLike } from "maplibre-gl";
-import { computed } from "vue";
 import type { VueMessageType } from "vue-i18n";
 import { useDisplay } from "vuetify";
-
-const layerIds = computed<string[]>(() => [
-  "piezometer_locations",
-  "piezometer_locations_labels",
-  "data_extent",
-  "approximate_development_limit",
-  "background",
-  "natural_earth",
-]);
-
-const styleSpec =
-  "https://raw.githubusercontent.com/EPFL-ENAC/EIRA-data/main/Data_vector_style/style_raster_background.json";
 
 const options = {
   licenseKey: "gplv3-license",
@@ -26,6 +12,7 @@ const options = {
     "pneumaProject",
     "nouakchottMauritania",
     "floodingIssues",
+    "floodingOrigin",
     "hydrogeologicalContext",
     "floodingSchema",
     "projectDescription",
@@ -48,8 +35,6 @@ const options = {
 };
 
 const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
-
-const mapBounds = [-15.84, 17.95, -16.08, 18.17] as LngLatBoundsLike;
 
 const { smAndDown } = useDisplay();
 
@@ -160,7 +145,7 @@ const peopleItems: { key: string; url?: string }[] = [
           <v-col
             cols="12"
             md="5"
-            xl="6"
+            xxl="6"
             order="2"
             order-md="1"
             class="align-center h-100 justify-space-around d-flex flex-column"
@@ -185,7 +170,7 @@ const peopleItems: { key: string; url?: string }[] = [
             order-md="2"
             cols="12"
             md="7"
-            xl="5"
+            xxl="5"
           >
             <v-sheet class="pl-6 text-left overflow-y-auto">
               <div class="text-h2">
@@ -282,6 +267,73 @@ const peopleItems: { key: string; url?: string }[] = [
                 </p>
               </div>
             </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col class="h-100 align-center d-flex" cols="12" md="4" xxl="6">
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.floodingOrigin.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h5">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.floodingOrigin.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="8"
+            xxl="6"
+            class="align-center justify-center h-100 d-flex flex-column"
+          >
+            <v-row class="w-100 flex-1-1 h-50">
+              <v-col
+                cols="12"
+                lg="6"
+                class="d-flex h-100 flex-column justify-center"
+              >
+                <v-img
+                  class="mb-2"
+                  :src="$t('story.floodingOrigin.schema')"
+                  max-height="100%"
+                  width="100%"
+                />
+              </v-col>
+              <v-col
+                cols="12"
+                lg="6"
+                class="d-flex h-100 flex-column justify-center"
+              >
+                <v-img
+                  class="mb-2"
+                  src="story/origin_photo_1.jpg"
+                  max-height="100%"
+                />
+              </v-col>
+            </v-row>
+            <v-row class="w-100 flex-1-1 h-50">
+              <v-col cols="12" class="d-flex h-100 flex-column justify-center">
+                <v-img
+                  class="mb-2"
+                  width="100%"
+                  max-height="100%"
+                  cover
+                  src="story/origin_photo_2.jpg"
+                />
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -438,7 +490,7 @@ const peopleItems: { key: string; url?: string }[] = [
           <v-col
             cols="12"
             md="5"
-            xl="6"
+            xxl="6"
             order="2"
             order-md="1"
             class="align-center h-100 justify-space-around d-flex flex-column"
@@ -460,7 +512,7 @@ const peopleItems: { key: string; url?: string }[] = [
             class="h-100 align-center d-flex"
             cols="12"
             md="7"
-            xl="5"
+            xxl="5"
             order="1"
             order-md="2"
           >
@@ -532,10 +584,10 @@ const peopleItems: { key: string; url?: string }[] = [
           >
             <v-row class="w-100 h-100 d-flex">
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img src="story/first_field_campain_1.JPG" />
+                <v-img cover src="story/first_field_campain_1.JPG" />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img src="story/first_field_campain_4.JPG" />
+                <v-img cover src="story/first_field_campain_4.JPG" />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
                 <v-img src="story/first_field_campain_3.jpeg" />
@@ -560,6 +612,58 @@ const peopleItems: { key: string; url?: string }[] = [
                 <p
                   v-for="(paragraph, index) in $tm(
                     'story.firstFieldCampain.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100">
+          <v-col
+            cols="12"
+            md="8"
+            order="2"
+            order-md="1"
+            class="align-center h-100 d-flex flex-column"
+          >
+            <v-row class="w-100 h-100 d-flex">
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img cover src="story/second_field_campain_1.jpg" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img cover src="story/second_field_campain_2.jpg" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img cover src="story/second_field_campain_3.jpg" />
+              </v-col>
+              <v-col cols="6" class="d-flex flex-column justify-center h-50">
+                <v-img cover src="story/second_field_campain_4.jpg" />
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col
+            class="h-100 align-center d-flex"
+            cols="12"
+            md="4"
+            order="1"
+            order-md="2"
+          >
+            <v-sheet class="pl-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.secondFieldCampain.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h5">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.secondFieldCampain.paragraphs'
                   )"
                   :key="index"
                   class="pt-2 pt-lg-6 pt-xxl-8"
@@ -924,7 +1028,7 @@ const peopleItems: { key: string; url?: string }[] = [
             class="d-flex flex-column h-100 justify-space-between"
           >
             <div>
-              <div class="text-h4 pb-2">
+              <div class="text-h3 pb-2">
                 {{ $t("introduction.acknowledgement.title") }}
               </div>
 
@@ -934,7 +1038,7 @@ const peopleItems: { key: string; url?: string }[] = [
             </div>
 
             <div>
-              <div class="text-h4 pb-2">
+              <div class="text-h3 pb-2">
                 {{ $t("introduction.license.title") }}
               </div>
 

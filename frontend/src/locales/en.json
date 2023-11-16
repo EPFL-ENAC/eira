@@ -92,6 +92,14 @@
         "Climate change will also affect Nouakchott in the upcoming years, including the occurrence of more intense rainfall events and sea-level rise."
       ]
     },
+    "floodingOrigin": {
+      "title": "Flooding origin",
+      "schema": "story/origin_schema_en.png",
+      "paragraphs": [
+        "The flooding comes from a rise in the groundwater level that reaches the topographical surface.",
+        "One of the solutions to reduce the flooding is to lower the groundwater level by reducing recharge or increasing groundwater uptakes."
+      ]
+    },
     "hydrogeologicalContext": {
       "title": "Hydrogeological context",
       "diagram": "story/hydrogeological_context_en.png",
@@ -146,6 +154,12 @@
       "title": "First field campaign",
       "paragraphs": [
         "The first field campaign of the project allowed the project team of the Région de Nouakchott and EPFL to meet in person, to monitor tree transpiration with 12 sap flow sensors on five different tree species, to monitor five groundwater observation wells (automatic sensors), to map flooded areas in the city, and to define the topics of four master projects in collaboration with the Biology Department of the University of Nouakchott."
+      ]
+    },
+    "secondFieldCampain": {
+      "title": "Second field campaign",
+      "paragraphs": [
+        "The second field campaign of the project (September 2023) allowed to fix and move sensors that were not operational any more, to monitor two new sites, to go on with the mapping of the flooded areas in the city, and to present the advancement of the projects of the four master students from University of Nouakchott to the team of Region de Nouakchott. It was also a chance to do some fieldwork with the master students and to teach two workshops on coding with R 101."
       ]
     },
     "groundwaterMonitoring": {

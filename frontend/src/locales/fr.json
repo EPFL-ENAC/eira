@@ -92,6 +92,14 @@
         "Les changements climatiques impacteront aussi Nouakchott, notamment à cause d’épisodes pluvieux plus intenses et une projection de l’augmentation du niveau de la mer."
       ]
     },
+    "floodingOrigin": {
+      "title": "Origine des inondations",
+      "schema": "story/origin_schema_fr.png",
+      "paragraphs": [
+        "Les inondations sont provoquées par l’augmentation des niveaux d’eau souterraine qui atteignent la surface topographique.",
+        "Une des solutions pour réduire les inondations consiste à rabaisser les niveaux d”eau souterraine par la réduction de la recharge ou l’augmentation des prélèvements d’eau dans la nappe."
+      ]
+    },
     "hydrogeologicalContext": {
       "title": "Contexte hydrogéologique",
       "diagram": "story/hydrogeological_context_fr.png",
@@ -146,6 +154,12 @@
       "title": "Première campagne de mesure",
       "paragraphs": [
         "La première campagne de mesure du projet a permis à l'équipe de la Région de Nouakchott et de l'EPFL de se rencontrer, d’instrumenter 12 capteurs de flux de sève pour enregistrer la transpiration de cinq espèces d'arbres différentes, d’installer des suivis en continu de cinq piézomètres (sondes de mesure automatiques), de cartographier les zones inondées de la ville et de définir quatre projets de master en collaboration avec le département de biologie de l'Université de Nouakchott."
+      ]
+    },
+    "secondFieldCampain": {
+      "title": "Deuxième campagne de mesure",
+      "paragraphs": [
+        "La deuxième campagne de mesure du projet en septembre 2023 a permis de déplacer et réparer des capteurs qui n’étaient plus fonctionnels, d’instrumenter deux nouveaux sites, de poursuivre la cartographie des zones inondées de la ville et de présenter l’avancement des quatre projets de master des personnes étudiantes de l’Université de Nouakchott à l’équipe de la Région de Nouakchott. Ce fut aussi l’occasion de faire du terrain avec elles et de faire deux ateliers d’initiation à coder avec R."
       ]
     },
     "groundwaterMonitoring": {
