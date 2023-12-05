@@ -11,6 +11,9 @@ test:
 lint:
 	$(MAKE) -C frontend lint
 
-run:
+run-local:
 	docker-compose build --parallel --pull
 	docker-compose up --remove-orphans
+
+run:
+	docker compose -f docker-compose.yml -f docker-compose.prod.yml up --pull=always -d --remove-orphans
