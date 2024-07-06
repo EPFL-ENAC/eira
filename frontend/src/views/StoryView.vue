@@ -36,7 +36,7 @@ const options = {
 
 const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
 
-const { smAndDown } = useDisplay();
+const { smAndDown, mdAndDown } = useDisplay();
 
 const partnerItems: { key: string; url?: string }[] = [
   {
@@ -202,43 +202,46 @@ const peopleItems: { key: string; url?: string }[] = [
             order="2"
             order-md="1"
             class="align-center justify-center h-100 d-flex flex-column"
+            fill-height
           >
-            <v-row class="w-100 flex-2-1">
+            <v-row class="flex-2-1">
               <v-col cols="12" class="d-flex flex-column justify-center">
                 <a
-                  class="w-100 text-center"
+                  class="text-center h-100"
                   target="_"
                   href="https://www.ateliers.org/media/workshop/documents/nouakchott_fr.pdf"
                   ><v-img
-                    class="mb-2"
-                    width="100%"
-                    max-height="100%"
+                    aspect-ratio="1.87"
+                    width="35vw"
                     src="story/flooding_evolution.png"
                   />
                   Les Ateliers, 2014</a
                 >
               </v-col>
             </v-row>
-            <v-row class="w-100 flex-1-2">
+            <v-row class="flex-1-2">
               <v-col cols="12" lg="6" class="d-flex flex-column justify-center">
                 <a
-                  class="w-100 text-center"
+                  class="text-center h-100 d-flex flex-column align-center justify-center"
                   target="_"
                   href="https://www.theguardian.com/global-development/2016/jul/25/the-best-solution-move-the-mauritanian-capital-water-on-the-rise-in-nouakchott"
                   ><v-img
-                    class="mb-2"
                     src="story/the_guardian.png"
-                    max-height="100%"
-                    width="100%"
+                    height="100%"
+                    width="25vw"
                   />
                   The Guardian, 2016
                 </a>
               </v-col>
-              <v-col cols="12" lg="6" class="d-flex flex-column justify-center">
+              <v-col
+                cols="12"
+                lg="6"
+                class="d-flex flex-column align-center justify-center"
+              >
                 <v-img
-                  class="mb-2"
                   src="story/flooding_photo.jpeg"
-                  max-height="100%"
+                  height="100%"
+                  width="25vw"
                 />
               </v-col>
             </v-row>
@@ -299,11 +302,7 @@ const peopleItems: { key: string; url?: string }[] = [
             class="align-center justify-center h-100 d-flex flex-column"
           >
             <v-row class="w-100 flex-1-1 h-50">
-              <v-col
-                cols="12"
-                lg="6"
-                class="d-flex h-100 flex-column justify-center"
-              >
+              <v-col cols="6" class="d-flex h-100 flex-column justify-center">
                 <v-img
                   class="mb-2"
                   :src="$t('story.floodingOrigin.schema')"
@@ -311,11 +310,7 @@ const peopleItems: { key: string; url?: string }[] = [
                   width="100%"
                 />
               </v-col>
-              <v-col
-                cols="12"
-                lg="6"
-                class="d-flex h-100 flex-column justify-center"
-              >
+              <v-col cols="6" class="d-flex h-100 flex-column justify-center">
                 <v-img
                   class="mb-2"
                   src="story/origin_photo_1.jpg"
@@ -343,7 +338,7 @@ const peopleItems: { key: string; url?: string }[] = [
         <v-row class="justify-center h-100 overflow-y-auto">
           <v-col
             cols="12"
-            md="7"
+            md="6"
             order="2"
             order-md="1"
             class="align-center h-100 justify-center d-flex flex-column"
@@ -361,7 +356,7 @@ const peopleItems: { key: string; url?: string }[] = [
           <v-col
             class="h-100 align-center d-flex"
             cols="12"
-            md="5"
+            md="6"
             order="1"
             order-md="2"
           >
@@ -400,7 +395,7 @@ const peopleItems: { key: string; url?: string }[] = [
                 <div class="text-h2 text-left w-100 mb-6">
                   {{ $t("story.floodingSchema.title") }}
                 </div>
-                <v-carousel cycle height="30vh" show-arrows="hover">
+                <v-carousel cycle height="28vh" show-arrows="hover">
                   <v-carousel-item
                     v-for="(item, index) in [2, 3]"
                     :key="index"
@@ -411,7 +406,7 @@ const peopleItems: { key: string; url?: string }[] = [
                 <v-carousel
                   cycle
                   class="mt-5"
-                  height="30vh"
+                  height="28vh"
                   show-arrows="hover"
                 >
                   <v-carousel-item
@@ -537,9 +532,13 @@ const peopleItems: { key: string; url?: string }[] = [
       </v-container>
     </div>
     <div class="section fp-auto-height-responsive">
-      <v-container class="d-flex flex-column justify-space-between" fluid>
+      <v-container class="d-flex flex-column justify-space-around" fluid>
         <div class="text-h2">{{ $t("story.projectObjectives.title") }}</div>
-        <v-timeline :direction="smAndDown ? 'vertical' : 'horizontal'">
+        <v-timeline
+          :side="mdAndDown ? 'end' : undefined"
+          :style="mdAndDown ? { 'align-self': 'flex-start' } : undefined"
+          :direction="smAndDown ? 'vertical' : 'horizontal'"
+        >
           <v-timeline-item
             v-for="(paragraph, index) in $tm(
               'story.projectObjectives.paragraphs'
@@ -767,7 +766,7 @@ const peopleItems: { key: string; url?: string }[] = [
         <v-row class="justify-center h-100">
           <v-col
             cols="12"
-            md="9"
+            md="8"
             order="2"
             order-md="1"
             class="align-center h-100 d-flex flex-column"
@@ -813,7 +812,7 @@ const peopleItems: { key: string; url?: string }[] = [
           <v-col
             class="h-100 align-center d-flex"
             cols="12"
-            md="3"
+            md="4"
             order="1"
             order-md="2"
           >
@@ -1084,6 +1083,14 @@ const peopleItems: { key: string; url?: string }[] = [
 </template>
 
 <style scoped>
+.text-h6 {
+  font-size: 1rem !important;
+  line-height: 1.25rem !important;
+}
+.text-h2 {
+  font-size: 2.75rem !important;
+  line-height: 3rem !important;
+}
 .v-sheet {
   background: none;
 }
@@ -1091,9 +1098,22 @@ const peopleItems: { key: string; url?: string }[] = [
   background-color: #e5e6e552;
 }
 
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This will center content vertically */
+}
+
 @media (max-width: 961px) {
   .section .text-h2 {
     padding-bottom: 0.6em;
+  }
+  /* Fixes the v-timeline problem when horizontal + all on one side */
+  :deep()
+    .v-timeline--horizontal.v-timeline
+    .v-timeline-item:nth-child(2n + 1)
+    .v-timeline-item__body {
+    align-self: flex-start !important;
   }
 }
 #fullpage-wrapper {
@@ -1103,13 +1123,14 @@ const peopleItems: { key: string; url?: string }[] = [
   width: 100%;
 }
 .section .v-container {
-  padding: 0 10vw;
+  padding-left: 5vw;
+  padding-right: 10vw;
   padding-top: calc(64px + 3em);
 }
 
 @media (min-width: 961px) {
   .section .v-container {
-    height: 80vh;
+    height: 90vh;
     padding-top: 64px;
   }
 }
