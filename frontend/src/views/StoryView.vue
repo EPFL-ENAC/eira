@@ -97,6 +97,14 @@ const peopleItems: { key: string; url?: string }[] = [
     key: "boukhreiss",
   },
 ];
+
+const sizes = "(max-width: 920px) 600w, 1200w";
+
+const getSrcset = (baseSrc: string) => {
+  const fileName = baseSrc.split("/").pop()?.split(".")[0];
+  return `/story/resized/600x/${fileName}.webp 600w,
+          /story/resized/1200x/${fileName}.webp 1200w`;
+};
 </script>
 
 <template>
@@ -122,19 +130,36 @@ const peopleItems: { key: string; url?: string }[] = [
         </v-row>
         <v-row class="ma-10 justify-center align-center h-25 overflow-y-auto">
           <v-col class="h-100 align-center d-flex" cols="6" md="3">
-            <v-img src="story/logo_epfl.png" max-width="100%" max-height="100%"
-          /></v-col>
-          <v-col class="h-100 align-center d-flex" cols="6" md="3">
             <v-img
-              src="story/logo_nouakchott.png"
+              src="story/logo_epfl.png"
+              :sizes="sizes"
+              :srcset="getSrcset('story/logo_epfl.png')"
               max-width="100%"
               max-height="100%"
           /></v-col>
           <v-col class="h-100 align-center d-flex" cols="6" md="3">
-            <v-img src="story/logo_lch.png" max-width="100%" max-height="100%"
+            <v-img
+              src="story/logo_nouakchott.png"
+              :sizes="sizes"
+              :srcset="getSrcset('story/logo_nouakchott.png')"
+              max-width="100%"
+              max-height="100%"
           /></v-col>
           <v-col class="h-100 align-center d-flex" cols="6" md="3">
-            <v-img src="story/logo_cnre.png" max-width="100%" max-height="100%"
+            <v-img
+              src="story/logo_lch.png"
+              :sizes="sizes"
+              :srcset="getSrcset('story/logo_lch.png')"
+              max-width="100%"
+              max-height="100%"
+          /></v-col>
+          <v-col class="h-100 align-center d-flex" cols="6" md="3">
+            <v-img
+              src="story/logo_cnre.png"
+              :sizes="sizes"
+              :srcset="getSrcset('story/logo_cnre.png')"
+              max-width="100%"
+              max-height="100%"
           /></v-col>
         </v-row>
       </v-container>
@@ -153,12 +178,14 @@ const peopleItems: { key: string; url?: string }[] = [
             <v-img
               class="flex-1-1"
               :src="$t('story.nouakchottMauritania.map')"
+              :srcset="getSrcset($t('story.nouakchottMauritania.map'))"
               width="100%"
               max-height="60%"
             />
             <v-img
               class="flex-1-1"
               :src="$t('story.nouakchottMauritania.meteo')"
+              :srcset="getSrcset($t('story.nouakchottMauritania.meteo'))"
               width="100%"
               max-height="35%"
             />
@@ -214,6 +241,8 @@ const peopleItems: { key: string; url?: string }[] = [
                     aspect-ratio="1.87"
                     width="35vw"
                     src="story/flooding_evolution.png"
+                    :sizes="sizes"
+                    :srcset="getSrcset('story/flooding_evolution.png')"
                   />
                   Les Ateliers, 2014</a
                 >
@@ -227,6 +256,8 @@ const peopleItems: { key: string; url?: string }[] = [
                   href="https://www.theguardian.com/global-development/2016/jul/25/the-best-solution-move-the-mauritanian-capital-water-on-the-rise-in-nouakchott"
                   ><v-img
                     src="story/the_guardian.png"
+                    :sizes="sizes"
+                    :srcset="getSrcset('story/the_guardian.png')"
                     height="100%"
                     width="25vw"
                   />
@@ -240,6 +271,8 @@ const peopleItems: { key: string; url?: string }[] = [
               >
                 <v-img
                   src="story/flooding_photo.jpeg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/flooding_photo.jpeg')"
                   height="100%"
                   width="25vw"
                 />
@@ -306,6 +339,7 @@ const peopleItems: { key: string; url?: string }[] = [
                 <v-img
                   class="mb-2"
                   :src="$t('story.floodingOrigin.schema')"
+                  :srcset="getSrcset($t('story.floodingOrigin.schema'))"
                   max-height="100%"
                   width="100%"
                 />
@@ -314,6 +348,8 @@ const peopleItems: { key: string; url?: string }[] = [
                 <v-img
                   class="mb-2"
                   src="story/origin_photo_1.jpg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/origin_photo_1.jpg')"
                   max-height="100%"
                 />
               </v-col>
@@ -326,6 +362,8 @@ const peopleItems: { key: string; url?: string }[] = [
                   max-height="100%"
                   cover
                   src="story/origin_photo_2.jpg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/origin_photo_2.jpg')"
                 />
               </v-col>
             </v-row>
@@ -348,6 +386,9 @@ const peopleItems: { key: string; url?: string }[] = [
                 <v-img
                   class="my-10 d-flex align-center justify-center"
                   :src="$t('story.hydrogeologicalContext.diagram')"
+                  :srcset="
+                    getSrcset($t('story.hydrogeologicalContext.diagram'))
+                  "
                   width="100%"
                 />
               </v-col>
@@ -400,6 +441,8 @@ const peopleItems: { key: string; url?: string }[] = [
                     v-for="(item, index) in [2, 3]"
                     :key="index"
                     :src="'story/flooding_photo_' + item + '.JPG'"
+                    :sizes="sizes"
+                    :srcset="getSrcset('story/flooding_photo_' + item + '.JPG')"
                     cover
                   ></v-carousel-item>
                 </v-carousel>
@@ -413,6 +456,8 @@ const peopleItems: { key: string; url?: string }[] = [
                     v-for="(item, index) in [4, 5]"
                     :key="index"
                     :src="'story/flooding_photo_' + item + '.JPG'"
+                    :sizes="sizes"
+                    :srcset="getSrcset('story/flooding_photo_' + item + '.JPG')"
                     cover
                   ></v-carousel-item>
                 </v-carousel>
@@ -493,12 +538,14 @@ const peopleItems: { key: string; url?: string }[] = [
             <v-img
               class="flex-1-1"
               :src="$t('story.projectDescription.photo1')"
+              :srcset="getSrcset($t('story.projectDescription.photo1'))"
               width="100%"
               max-height="45%"
             />
             <v-img
               class="flex-1-1"
               :src="$t('story.projectDescription.photo2')"
+              :srcset="getSrcset($t('story.projectDescription.photo2'))"
               width="100%"
               max-height="45%"
             />
@@ -583,16 +630,34 @@ const peopleItems: { key: string; url?: string }[] = [
           >
             <v-row class="w-100 h-100 d-flex">
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img cover src="story/first_field_campain_1.JPG" />
+                <v-img
+                  contain
+                  src="story/first_field_campain_1.JPG"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/first_field_campain_1.JPG')"
+                />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img cover src="story/first_field_campain_4.JPG" />
+                <v-img
+                  contain
+                  src="story/first_field_campain_4.JPG"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/first_field_campain_4.JPG')"
+                />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img src="story/first_field_campain_3.jpeg" />
+                <v-img
+                  src="story/first_field_campain_3.jpeg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/first_field_campain_3.jpeg')"
+                />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img src="story/first_field_campain_2.jpeg" />
+                <v-img
+                  src="story/first_field_campain_2.jpeg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/first_field_campain_2.jpeg')"
+                />
               </v-col>
             </v-row>
           </v-col>
@@ -635,16 +700,36 @@ const peopleItems: { key: string; url?: string }[] = [
           >
             <v-row class="w-100 h-100 d-flex">
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img cover src="story/second_field_campain_1.jpg" />
+                <v-img
+                  cover
+                  src="story/second_field_campain_1.jpg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/second_field_campain_1.jpg')"
+                />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img cover src="story/second_field_campain_2.jpg" />
+                <v-img
+                  cover
+                  src="story/second_field_campain_2.jpg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/second_field_campain_2.jpg')"
+                />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img cover src="story/second_field_campain_3.jpg" />
+                <v-img
+                  cover
+                  src="story/second_field_campain_3.jpg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/second_field_campain_3.jpg')"
+                />
               </v-col>
               <v-col cols="6" class="d-flex flex-column justify-center h-50">
-                <v-img cover src="story/second_field_campain_4.jpg" />
+                <v-img
+                  cover
+                  src="story/second_field_campain_4.jpg"
+                  :sizes="sizes"
+                  :srcset="getSrcset('story/second_field_campain_4.jpg')"
+                />
               </v-col>
             </v-row>
           </v-col>
@@ -687,6 +772,7 @@ const peopleItems: { key: string; url?: string }[] = [
             ><v-img
               class="flex-1-1"
               :src="$t('story.groundwaterMonitoring.map')"
+              :srcset="getSrcset($t('story.groundwaterMonitoring.map'))"
               width="60%"
             />
           </v-col>
@@ -700,6 +786,8 @@ const peopleItems: { key: string; url?: string }[] = [
               <v-img
                 width="100%"
                 src="story/groundwater_monitoring_photo.jpeg"
+                :sizes="sizes"
+                :srcset="getSrcset('story/groundwater_monitoring_photo.jpeg')"
               />
             </v-sheet>
           </v-col>
@@ -716,7 +804,12 @@ const peopleItems: { key: string; url?: string }[] = [
             md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
-            <v-img width="100%" src="story/tree_Azadirachta_indica.jpeg" />
+            <v-img
+              width="100%"
+              src="story/tree_Azadirachta_indica.jpeg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/tree_Azadirachta_indica.jpeg')"
+            />
             <i class="text-h6">Azadirachta indica (Quinin/Nim)</i>
           </v-col>
           <v-col
@@ -724,7 +817,12 @@ const peopleItems: { key: string; url?: string }[] = [
             md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
-            <v-img width="100%" src="story/tree_Casuarina_equisetifolia.jpg" />
+            <v-img
+              width="100%"
+              src="story/tree_Casuarina_equisetifolia.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/tree_Casuarina_equisetifolia.jpg')"
+            />
             <i class="text-h6">Casuarina equisetifolia (Filao)</i>
           </v-col>
           <v-col
@@ -735,6 +833,8 @@ const peopleItems: { key: string; url?: string }[] = [
             <v-img
               width="100%"
               src="story/tree_Eucalyptus_camaldulensis.jpeg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/tree_Eucalyptus_camaldulensis.jpeg')"
             />
             <i class="text-h6">Eucalyptus camaldulensis (Eucalyptus)</i>
           </v-col>
@@ -744,7 +844,12 @@ const peopleItems: { key: string; url?: string }[] = [
             md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
-            <v-img width="100%" src="story/tree_Phoenix_dactylifera.jpg" />
+            <v-img
+              width="100%"
+              src="story/tree_Phoenix_dactylifera.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/tree_Phoenix_dactylifera.jpg')"
+            />
             <i class="text-h6"
               >Phoenix dactylifera
               {{ $t("story.targetedTreeSpecies.phoenix_vernacular") }}</i
@@ -755,7 +860,12 @@ const peopleItems: { key: string; url?: string }[] = [
             md=""
             class="d-flex flex-column justify-center align-center w-100 h-75"
           >
-            <v-img width="100%" src="story/tree_Tamarix_aphylla.jpeg" />
+            <v-img
+              width="100%"
+              src="story/tree_Tamarix_aphylla.jpeg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/tree_Tamarix_aphylla.jpeg')"
+            />
             <i class="text-h6">Tamarix aphylla (Ttarve)</i>
           </v-col>
         </v-row>
@@ -777,21 +887,39 @@ const peopleItems: { key: string; url?: string }[] = [
                 md="6"
                 class="d-flex flex-column justify-center h-50"
               >
-                <v-img src="story/transpiration_monitoring_photo_3.jpg" />
+                <v-img
+                  src="story/transpiration_monitoring_photo_3.jpg"
+                  :sizes="sizes"
+                  :srcset="
+                    getSrcset('story/transpiration_monitoring_photo_3.jpg')
+                  "
+                />
               </v-col>
               <v-col
                 cols="12"
                 md="6"
                 class="d-flex flex-column justify-center h-50"
               >
-                <v-img src="story/transpiration_monitoring_photo_1.jpeg" />
+                <v-img
+                  src="story/transpiration_monitoring_photo_1.jpeg"
+                  :sizes="sizes"
+                  :srcset="
+                    getSrcset('story/transpiration_monitoring_photo_1.jpeg')
+                  "
+                />
               </v-col>
               <v-col
                 cols="12"
                 md="6"
                 class="d-flex flex-column justify-center h-50"
               >
-                <v-img src="story/transpiration_monitoring_diagram_2.png" />
+                <v-img
+                  src="story/transpiration_monitoring_diagram_2.png"
+                  :sizes="sizes"
+                  :srcset="
+                    getSrcset('story/transpiration_monitoring_diagram_2.png')
+                  "
+                />
                 <p class="pt-2 text-center pt-lg-6 pt-xxl-8">
                   Source:
                   <a href="https://www.ictinternational.com" target="_">
@@ -805,7 +933,13 @@ const peopleItems: { key: string; url?: string }[] = [
                 md="6"
                 class="d-flex flex-column justify-center h-50"
               >
-                <v-img src="story/transpiration_monitoring_photo_2.jpeg" />
+                <v-img
+                  src="story/transpiration_monitoring_photo_2.jpeg"
+                  :sizes="sizes"
+                  :srcset="
+                    getSrcset('story/transpiration_monitoring_photo_2.jpeg')
+                  "
+                />
               </v-col>
             </v-row>
           </v-col>
@@ -963,8 +1097,18 @@ const peopleItems: { key: string; url?: string }[] = [
             class="h-100 d-flex flex-column justify-space-around"
             style="gap: 1em"
           >
-            <v-img class="flex-1-1" src="story/partner_1.jpg" />
-            <v-img class="flex-1-1" src="story/partner_2.jpg" />
+            <v-img
+              class="flex-1-1"
+              src="story/partner_1.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/partner_1.jpg')"
+            />
+            <v-img
+              class="flex-1-1"
+              src="story/partner_2.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/partner_2.jpg')"
+            />
           </v-col>
         </v-row>
       </v-container>
@@ -1012,8 +1156,18 @@ const peopleItems: { key: string; url?: string }[] = [
             class="h-100 d-flex flex-column justify-space-around"
             style="gap: 1em"
           >
-            <v-img class="flex-1-1" src="story/project_team_1.jpg" />
-            <v-img class="flex-1-1" src="story/project_team_2.jpg" />
+            <v-img
+              class="flex-1-1"
+              src="story/project_team_1.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/project_team_1.jpg')"
+            />
+            <v-img
+              class="flex-1-1"
+              src="story/project_team_2.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/project_team_2.jpg')"
+            />
           </v-col>
         </v-row>
       </v-container>
@@ -1073,8 +1227,18 @@ const peopleItems: { key: string; url?: string }[] = [
             class="h-100 d-flex flex-column justify-space-around"
             style="gap: 1em"
           >
-            <v-img class="flex-1-1" src="story/acknowledgements_1.jpg" />
-            <v-img class="flex-1-1" src="story/acknowledgements_2.jpg" />
+            <v-img
+              class="flex-1-1"
+              src="story/acknowledgements_1.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/acknowledgements_1.jpg')"
+            />
+            <v-img
+              class="flex-1-1"
+              src="story/acknowledgements_2.jpg"
+              :sizes="sizes"
+              :srcset="getSrcset('story/acknowledgements_2.jpg')"
+            />
           </v-col>
         </v-row>
       </v-container>
