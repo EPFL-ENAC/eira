@@ -50,7 +50,7 @@ const options = {
 
 const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
 
-const { smAndDown, mdAndDown, lgAndDown } = useDisplay();
+const { smAndDown, lgAndDown } = useDisplay();
 
 const partnerItems: { key: string; url?: string }[] = [
   {
