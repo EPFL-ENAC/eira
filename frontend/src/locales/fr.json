@@ -135,6 +135,31 @@
         "Ce travail consiste en une approche interdisciplinaire conjointe d’éco-hydrologie et de physiologie végétale et vise à quantifier la transpiration d’espèces d'arbres trouvées localement et tolérantes aux conditions de salinité rencontrées à Nouakchott. L’objectif est de simuler des scénarios de plantation d’arbres dans la ville pour élaborer une stratégie intégrée et durable de plantation d'arbres à Nouakchott. En plus d'augmenter la résilience de la ville aux inondations, la plantation d'arbres dans la ville pourrait avoir des impacts positifs pour améliorer la fourniture de services durables pour la population et l'économie"
       ]
     },
+    "treePlanting": {
+      "title": "L’idée de la plantation d’arbre comme une solution fondée sur la nature pour améliorer la resilience aux inondations et produire de multiples bénéfices",
+      "photo": "story/tree_planting_nature_based_fr.png",
+      "paragraphs": [
+        "Une analyse transdisciplinaire a montré qu'en plus d'augmenter la résilience urbaine aux inondations dans les villes côtières, les programmes de plantation d'arbres ont le potentiel de fournir de multiples co-bénéfices. Ces programmes représentent des solutions à long terme, soutenues par des facteurs environnementaux, qui sont complémentaires de solutions d'ingénierie conventionnelles. L’aspect multi-bénéfique de ces solutions fondées sur la nature et les résultats positifs attendus sur le plan environnemental, économique et social les rendent particulièrement prometteuses. Une large acceptation sociale a été identifiée comme une exigence cruciale pour le succès à long terme des programmes de plantation d'arbres, car le facteur social joue un rôle majeur dans la résolution de nombreuses menaces et faiblesses de la solution.",
+        "Cette analyse est présentée dans le premier article de l'équipe du projet et est publiée dans une revue scientifique internationale (en anglais ; Dubois et al., 2024)."
+      ]
+    },
+    "swotStrengthWeakness": {
+      "title": "Une analyse SWOT basée sur la literature scientifique",
+      "photo": "story/swot_strength_weakness_fr.png",
+      "paragraphs": [
+        "Cette analyse transdisciplinaire s’est appuyée sur une analyse SWOT (forces, faiblessses, opportunités, menaces), dans laquelle les forces et les opportunités correspondent aux aspects positifs des programmes de plantation d'arbres urbains. Les forces sont liées aux aspects techniques et aux atouts, et les opportunités sont liées à la mise en œuvre et à d'autres facteurs externes. En revanche, les faiblesses et les menaces correspondent aux aspects négatifs des programmes de plantation d'arbres urbains et sont liées aux facteurs limitants et aux inconvénients.",
+        "La force des solutions de plantation d'arbres dans les villes côtières sont la grande disponibilité en eau pour les racines des arbres, la présence d'espèces indigènes adaptées aux conditions hydro-pédo-climatiques locales, la capacité d'interception des pluies des arbres qui minimise l'infiltration des pluies dans le sol, et l'approche multidisciplinaire qui englobe l’ensemble des points de vue nécessaires à la mise en œuvre du projet.",
+        "Les faiblesses des solutions de plantation d'arbres sont notamment l'espace requis, et le fait que la plantation d'arbres est généralement une solution partielle qui doit être associée à d'autres solutions fondées sur la nature et/ou à des solutions d'ingénierie conventionnelles pour résoudre complètement les problèmes d'inondation. En outre, les racines des arbres peuvent endommager les infrastructures urbaines, ce qui nécessite des mesures préventives. Il est important de faire pousser et d'entretenir des arbres matures pour maximiser la réduction du risque d'inondation, mais la croissance des arbres dans les environnements urbains peut présenter des difficultés. Enfin, il  existe un risque d'introduction d'espèces envahissantes, et de telles espèces ne devraient pas être envisagées."
+      ]
+    },
+    "swotOpportunitiesThreats": {
+      "title": "Une analyse SWOT basée sur la literature scientifique",
+      "photo": "story/swot_opportunities_threats_fr.png",
+      "paragraphs": [
+        "Les opportunités offertes par les programmes de plantation d'arbres comprennent les bénéfices environnementaux fournis par les arbres urbains, qui entraînent de nombreux services écosystémiques, de la purification de l'air à l'élimination des polluants du sol. Les arbres urbains sont également associés à des bénéfices économiques découlant de la production de nourriture et de bois, ainsi qu'à la possibilité de réduire la consommation d'énergie dans les zones où des systèmes de refroidissement de l'air sont utilisés. Les bénéfices sociaux des arbres sont liés à la création d'emplois, au soutien de la santé mentale, à la réussite scolaire des élèves et aux possibilités d'intégration des communautés défavorisées. Enfin, il existe des opportunités internationales de financement des programmes de plantation d'arbres, provenant d'organisations à but non lucratif et d'organisations privées.  ",
+        "Les menaces liées aux programmes de plantation d'arbres comprennent l'entretien à long terme nécessaire pour assurer la durabilité du programme. Les arbres urbains sont également vulnérables aux menaces environnementales qui pourraient entraver leur survie à long terme. Enfin, comme pour toute initiative ayant une approche «top-down», il existe un risque de refus par les citoyens. Il convient donc d'accorder une attention particulière à l'acceptation sociale du programme afin de garantir son succès à long terme."
+      ]
+    },
     "projectObjectives": {
       "title": "Objectifs du projet",
       "paragraphs": [
@@ -176,7 +201,86 @@
         "Quantification de la transpiration des arbres grâce à l’utilisation de capteurs de flux de sèves (basés sur la méthode “heat ratio” de Burgess et al., 2001) et alimentés par des panneaux solaires."
       ]
     },
+    "treeCoverage": {
+      "title": "Dévelopement des connaissances: couverture arbustive de Nouakchott",
+      "photo": "story/tree_coverage_fr.png",
+      "paragraphs": [
+        "Quatre étudiants en master de l'Université de Nouakchott ont mené des projets de recherche liés aux solutions de plantation d'arbres.",
+        "Mariem Zeine El Abidine Abdoullah a cartographié la couverture arborée de la ville et recensé les principales espèces d'arbres. Ces observations sur le terrain ont permis d'identifier plus de 80 espèces d'arbres présentes sur les terrains publics et privés, les principales espèces étant Prosopis juliflora (18%), Azadirachta indica (16%), Washingtonia Robusta (9%), Phoenix dactylifera (8%) et Ficus rubiginosa (8%). Une classification non supervisée, basée sur une image satellite à haute résolution, a montré que les arbres couvrent 5% du centre de Nouakchott, ce qui représente environ 100 000 arbres."
+      ]
+    },
+    "nouakchottEvapotranspiration": {
+      "title": "Dévelopement des connaissances: évapotranspiration de Nouakchott",
+      "paragraphs": [
+        "Chayea Ntahah a utilisé des mesures de flux de sève de cinq espèces d'arbres à Nouakchott pour étudier la transpiration et a montré qu'il y avait de grandes différences dans les taux de transpiration des arbres entre les différentes espèces, principalement en corrélation avec la taille du tronc. Cette recherche a montré que les taux de transpiration quotidiens pouvaient varier entre 200 L/j pour un grand Azadaricta indica (diamètre du tronc = 64 cm) et quelques litres par jour pour de petits palmiers."
+      ]
+    },
+    "nouakchottAssessmentTreePlanting": {
+      "title": "Dévelopement des connaissances: évaluation d’un programme de plantation d’arbres à Nouakchott",
+      "paragraphs": [
+        "Salma Mohameden Sow a effectué des mesures de terrain sur les arbres qui ont été plantés au cours du programme de plantation d'arbres 2017-2021 le long de la route de l'aéroport. Ces mesures ont consisté à identifier les espèces d'arbres, à mesurer la hauteur de l'arbre et le diamètre du tronc, et à observer la santé générale des arbres. Les deux principales espèces d'arbres sont Conocarpus erectus (53%) et Eucalyptus camaldulensus (37%). La hauteur moyenne est de 1,5 m et le diamètre moyen du tronc est de 3,5 cm. Seulement 28/ XXXXX ? % des arbres étaient morts."
+      ]
+    },
+    "nouakchottSoilSalinity": {
+      "title": "Dévelopement des connaissances: salinité du sol à Nouakchott",
+      "paragraphs": [
+        "Zahra Ahmed Beddi a cartographié la salinité du sol dans la ville de Nouakchott sur la base de 105 échantillons prélevés dans le centre de la ville. L'analyse ultérieure en laboratoire a montré que les quartiers ouest ont un sol très salin et que la concentration tend à diminuer en direction de l'est (vers l'intérieur des terres)."
+      ]
+    },
+    "simulationGroundwaterFlow": {
+      "title": "Simulation de l’écoulement des eaux souterraines à Nouakchott",
+      "paragraphs": [
+        "Un modèle numérique 3D simple a été créé pour simuler l'écoulement des eaux souterraines à Nouakchott. Le modèle a été créé à l'aide du logiciel FREEWAT (Rossetto et al., 2018) basé sur le code MODFLOW.",
+        "Le modèle couvre une partie de Nouakchott, a une résolution spatiale de 250 m x 250 m, et est exécuté dans une condition de régime permanent (équivalent à une situation moyenne tout au long de l'année). La condition de limite ouest du modèle a été fixée pour avoir un niveau d’eau souterraine constant (ce qui signifie que le niveau de la nappe phréatique est fixé et ne varie pas), représentant l'intrusion de l'eau de mer. La limite sud-est a également été fixée à un niveau d’eau souterraine constant représentant le niveau presque constante des eaux souterraines mesurée dans le puits d'observation le plus au sud-est. Les limites nord-est et sud-ouest ont été définies comme des limites 'sans écoulement', ce qui suppose qu'il n'y a pas d'écoulement d'eau souterraine perpendiculaire à ces limites. La recharge de la nappe phréatique a été fixée pour correspondre à l'estimation approximative de l'approvisionnement quotidien en eau domestique (180 000 m3/j) et a été distribuée avec un volume décroissant du centre de la ville vers la périphérie. Le modèle a été calibré à l'aide de mesures de la profondeur des eaux souterraines"
+      ],
+      "photo": "story/simulation_groundwater_flow_fr.png"
+    },
+    "syntheticTreePlantingScenarios": {
+      "title": "Scénarios de plantation d’arbres synthétiques",
+      "photo": "story/synthetic_tree_planting_scenarios.png",
+      "paragraphs": [
+        "En utilisant les résultats préliminaires de la transpiration des arbres in situ de Dubois et al. (2024), une transpiration moyenne des arbres de 25 L/j a été estimée pour les arbres âgés d'environ 20 ans et de plus de 50 L/j pour les arbres âgés de plus de 35 ans. En utilisant ces valeurs, le modèle a été utilisé pour simuler l'impact des programmes de plantation d'arbres à l'échelle de la ville sur les niveaux des eaux souterraines. L'objectif de cet exercice était d'évaluer le potentiel de la plantation d'arbres pour abaisser le niveau des eaux souterraines, réduisant ainsi le risque d'inondation. Cependant, ces scénarios n'ont pas encore été optimisés pour s'adapter aux contraintes géographiques rencontrées sur place. Des scénarios plus détaillés seront réalisés à l'avenir lors de la prochaine itération du modèle."
+      ]
+    },
+    "impactTreePlanting1": {
+      "title": "Impact des scenarios de plantation d’arbres sur les niveaux d’eau souterraine – Scénario 1",
+      "photo": "story/impact_tree_planting_1_fr.png",
+      "paragraphs": [
+        "Le scénario 1 consistait à planter 100 000 arbres dans le centre de Nouakchott, ce qui correspond à l'ajout d'un arbre tous les 25 m dans le vieux centre de la ville et d'un arbre tous les 35 m à l'extérieur de celui-ci. Une forêt urbaine, correspondant à une zone couverte d'arbres (capacité de transpiration = 4 mm/j) a également été ajoutée dans la région de Mina.",
+        "L'ajout d'arbres dans le centre de la ville a eu peu d'impact sur le niveau des eaux souterraines. En revanche, la forêt urbaine a sensiblement abaissé le niveau des eaux souterraines dans la partie sud-ouest de la zone d'étude."
+      ]
+    },
+    "impactTreePlanting2": {
+      "title": "Impact des scenarios de plantation d’arbres sur les niveaux d’eau souterraine – Scénario 2",
+      "photo": "story/impact_tree_planting_2_fr.png",
+      "paragraphs": [
+        "Le scénario 2 consistait également à planter 100 000 arbres dans le centre de Nouakchott (avec les mêmes conditions que le scénario 1), mais incluait également l'ajout d'une forêt urbaine dans la partie nord-est de la zone d'étude, correspondant à un emplacement potentiel de la Grande Muraille Verte (capacité de transpiration = 2 mm/j).",
+        "L'ajout d'une forêt urbaine dans la partie nord-est de la zone d'étude a entraîné une baisse limitée du niveau des eaux souterraines, mais les impacts se sont étendus vers le centre-ville et une des zones qui présente actuellement un risque élevé d'inondation."
+      ]
+    },
+    "impactTreePlanting3": {
+      "title": "Impact des scenarios de plantation d’arbres sur les niveaux d’eau souterraine – Scénario 3",
+      "photo": "story/impact_tree_planting_3_fr.png",
+      "paragraphs": [
+        "Le scénario 3 consistait également à planter 100 000 arbres dans le centre de Nouakchott (avec les mêmes conditions que les scénarios 1 et 2), mais incluait en plus l'ajout d'une forêt urbaine dans la partie nord-est de la zone d'étude, correspondant à un emplacement potentiel de la Grande Muraille Verte. Cette forêt urbaine a une étendue plus limitée que dans le scénario 2 (capacité de transpiration = 2 mm/j). En outre, une zone de plantation d'arbres d'étendue limitée a été ajoutée le long du littoral dans la partie ouest de la zone d'étude afin de protéger le cordon dunaire sur le littoral (capacité de transpiration = 1 mm/j).",
+        "L'ajout d'une forêt urbaine dans la partie nord-est de la zone d'étude a entraîné une baisse limitée du niveau des eaux souterraines, mais les impacts se sont étendus vers le centre-ville et des zones qui présentent actuellement un risque élevé d'inondation. La plantation de protection du cordon dunaire a eu peu d'impact sur les niveaux des eaux souterraines."
+      ]
+    },
+    "finalWorkshop": {
+      "title": "Atelier de restitution à Nouakchott",
 
+      "paragraphs": [
+        "Le 2 mai 2024, un atelier présentant les principaux résultats du projet a été organisé à la Région de Nouakchott. L'atelier a été organisé dans le but de fournir aux participants une image globale de la plantation d'arbres dans la ville et des impacts et co-bénéfices associés. Après une introduction officielle de l'atelier par le Président de la Région de Nouakchott, le Professeur Paolo Perona a présenté les concepts derrière la plantation d'arbres comme une solution naturelle pour augmenter la résilience aux inondations dans la ville.",
+        "Deux conférenciers invités ont fait des présentations sur la dynamique des eaux souterraines et l'expérience des citoyens avec les arbres urbains à Nouakchott. Ensuite, les quatre étudiants en master de l'Université de Nouakchott ont présenté leurs principaux résultats. Dr Emmanuel Dubois a présenté l'analyse de la détection des inondations basée sur l'imagerie satellitaire réalisée par Montana Marshall au PL-LCH EPFL, ainsi que la simulation de l'impact des scénarios de plantation d'arbres sur les inondations dans la ville. Les participants ont ensuite été invités à visiter des jardins pour voir les capteurs de flux de sève utilisés, discuter des différentes espèces d’arbres qui pourraient être utilisées dans les programmes de plantation à l'échelle de la ville, et voir un exemple de jardin qui est protégé des inondations en raison de la forte densité d'arbres."
+      ]
+    },
+    "finalWorkshop2": {
+      "title": "Atelier de restitution à Nouakchott",
+
+      "paragraphs": [
+        "L’atelier a été présenté aux informations de la chaîne nationale."
+      ]
+    },
     "references": "Références",
     "enacResearchDay": {
       "title": "Présentation du projet au ",

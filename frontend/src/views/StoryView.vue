@@ -16,11 +16,25 @@ const options = {
     "hydrogeologicalContext",
     "floodingSchema",
     "projectDescription",
+    "treePlanting",
+    "swotStrengthWeakness",
+    "swotOpportunitiesThreats",
     "projectObjectives",
     "firstFieldCampain",
     "groundwaterMonitoring",
     "targetedTreeSpecies",
     "transpirationMonitoring",
+    "treeCoverage",
+    "nouakchottEvapotranspiration",
+    "nouakchottAssessmentTreePlanting",
+    "nouakchottSoilSalinity",
+    "simulationGroundwaterFlow",
+    "syntheticTreePlantingScenarios",
+    "impactTreePlanting1",
+    "impactTreePlanting2",
+    "impactTreePlanting3",
+    "finalWorkshop",
+    "finalWorkshop2",
     "references",
     "enacResearchDay",
     "interactiveMap",
@@ -36,7 +50,7 @@ const options = {
 
 const colorsFloodingSchema = ["#5b9bd5", "#52cab8", "#49bf64", "#70ad47"];
 
-const { smAndDown, mdAndDown } = useDisplay();
+const { smAndDown, mdAndDown, lgAndDown } = useDisplay();
 
 const partnerItems: { key: string; url?: string }[] = [
   {
@@ -199,7 +213,7 @@ const getSrcset = (baseSrc: string) => {
             md="7"
             xxl="5"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.nouakchottMauritania.title") }}
               </div>
@@ -287,7 +301,7 @@ const getSrcset = (baseSrc: string) => {
             order="1"
             order-md="2"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.floodingIssues.title") }}
               </div>
@@ -310,8 +324,8 @@ const getSrcset = (baseSrc: string) => {
     <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <v-row class="justify-center h-100">
-          <v-col class="h-100 align-center d-flex" cols="12" md="4" xxl="6">
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+          <v-col class="align-center d-flex" cols="12" md="4" xxl="6">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.floodingOrigin.title") }}
               </div>
@@ -401,7 +415,7 @@ const getSrcset = (baseSrc: string) => {
             order="1"
             order-md="2"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.hydrogeologicalContext.title") }}
               </div>
@@ -558,7 +572,7 @@ const getSrcset = (baseSrc: string) => {
             order="1"
             order-md="2"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.projectDescription.title") }}
               </div>
@@ -579,11 +593,133 @@ const getSrcset = (baseSrc: string) => {
       </v-container>
     </div>
     <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="12" md="6" xxl="5">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.treePlanting.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.treePlanting.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.treePlanting.photo')"
+              :srcset="getSrcset($t('story.treePlanting.photo'))"
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.swotStrengthWeakness.title") }}
+              </div>
+            </v-sheet>
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.swotStrengthWeakness.photo')"
+              :srcset="getSrcset($t('story.swotStrengthWeakness.photo'))"
+              width="100%"
+            />
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <div class="text-h6 text-xxl-h6">
+              <p
+                v-for="(paragraph, index) in $tm(
+                  'story.swotStrengthWeakness.paragraphs'
+                )"
+                :key="index"
+                class="pt-2 pt-lg-6 pt-xxl-8"
+              >
+                {{ $rt(paragraph) }}
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.swotOpportunitiesThreats.title") }}
+              </div>
+            </v-sheet>
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.swotOpportunitiesThreats.photo')"
+              :srcset="getSrcset($t('story.swotOpportunitiesThreats.photo'))"
+              width="100%"
+            />
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <div class="text-h6 text-xxl-h6">
+              <p
+                v-for="(paragraph, index) in $tm(
+                  'story.swotOpportunitiesThreats.paragraphs'
+                )"
+                :key="index"
+                class="pt-2 pt-lg-6 pt-xxl-8"
+              >
+                {{ $rt(paragraph) }}
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
       <v-container class="d-flex flex-column justify-space-around" fluid>
         <div class="text-h2">{{ $t("story.projectObjectives.title") }}</div>
         <v-timeline
-          :side="mdAndDown ? 'end' : undefined"
-          :style="mdAndDown ? { 'align-self': 'flex-start' } : undefined"
+          :side="lgAndDown ? 'end' : undefined"
+          :style="lgAndDown ? { 'align-self': 'flex-start' } : undefined"
           :direction="smAndDown ? 'vertical' : 'horizontal'"
         >
           <v-timeline-item
@@ -668,7 +804,7 @@ const getSrcset = (baseSrc: string) => {
             order="1"
             order-md="2"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.firstFieldCampain.title") }}
               </div>
@@ -740,7 +876,7 @@ const getSrcset = (baseSrc: string) => {
             order="1"
             order-md="2"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.secondFieldCampain.title") }}
               </div>
@@ -950,7 +1086,7 @@ const getSrcset = (baseSrc: string) => {
             order="1"
             order-md="2"
           >
-            <v-sheet class="pl-6 text-left overflow-y-auto">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
               <div class="text-h2">
                 {{ $t("story.transpirationMonitoring.title") }}
               </div>
@@ -970,7 +1106,465 @@ const getSrcset = (baseSrc: string) => {
         </v-row>
       </v-container>
     </div>
-
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="12" md="5">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.treeCoverage.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.treeCoverage.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="7"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.treeCoverage.photo')"
+              :srcset="getSrcset($t('story.treeCoverage.photo'))"
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="12" md="5">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.nouakchottEvapotranspiration.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.nouakchottEvapotranspiration.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="7"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.nouakchottEvapotranspiration.photo')"
+              :srcset="
+                getSrcset($t('story.nouakchottEvapotranspiration.photo'))
+              "
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="12" md="5">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.nouakchottAssessmentTreePlanting.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.nouakchottAssessmentTreePlanting.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="7"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.nouakchottAssessmentTreePlanting.photo')"
+              :srcset="
+                getSrcset($t('story.nouakchottAssessmentTreePlanting.photo'))
+              "
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col class="h-100 align-center d-flex" cols="12" md="5">
+            <v-sheet class="pa-6 text-left overflow-y-auto">
+              <div class="text-h2">
+                {{ $t("story.nouakchottSoilSalinity.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.nouakchottSoilSalinity.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="7"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.nouakchottSoilSalinity.photo')"
+              :srcset="getSrcset($t('story.nouakchottSoilSalinity.photo'))"
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.simulationGroundwaterFlow.title") }}
+              </div>
+            </v-sheet>
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.simulationGroundwaterFlow.photo')"
+              :srcset="getSrcset($t('story.simulationGroundwaterFlow.photo'))"
+              width="100%"
+            />
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <div class="text-h6 text-xxl-h6">
+              <p
+                v-for="(paragraph, index) in $tm(
+                  'story.simulationGroundwaterFlow.paragraphs'
+                )"
+                :key="index"
+                class="pt-2 pt-lg-6 pt-xxl-8"
+              >
+                {{ $rt(paragraph) }}
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.syntheticTreePlantingScenarios.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.syntheticTreePlantingScenarios.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.syntheticTreePlantingScenarios.photo')"
+              :srcset="
+                getSrcset($t('story.syntheticTreePlantingScenarios.photo'))
+              "
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.impactTreePlanting1.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.impactTreePlanting1.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.impactTreePlanting1.photo')"
+              :srcset="getSrcset($t('story.impactTreePlanting1.photo'))"
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.impactTreePlanting2.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.impactTreePlanting2.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.impactTreePlanting2.photo')"
+              :srcset="getSrcset($t('story.impactTreePlanting2.photo'))"
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.impactTreePlanting3.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.impactTreePlanting3.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-img
+              class="flex-1-1"
+              :src="$t('story.impactTreePlanting3.photo')"
+              :srcset="getSrcset($t('story.impactTreePlanting3.photo'))"
+              width="100%"
+            />
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.finalWorkshop.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.finalWorkshop.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <v-carousel cycle height="100%" show-arrows="hover">
+              <v-carousel-item
+                v-for="(item, index) in [1, 2, 3, 4, 5, 6, 7, 8]"
+                :key="index"
+                :src="'story/final_workshop_' + item + '.jpeg'"
+                :sizes="sizes"
+                :srcset="getSrcset('story/final_workshop_' + item + '.jpeg')"
+              ></v-carousel-item>
+            </v-carousel>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <div class="section fp-auto-height-responsive">
+      <v-container fluid>
+        <v-row class="justify-center h-100 overflow-y-auto">
+          <v-col
+            class="align-center h-100 justify-space-around d-flex flex-column"
+            cols="12"
+            md="6"
+            xxl="5"
+          >
+            <v-sheet class="pa-6 text-left">
+              <div class="text-h2">
+                {{ $t("story.finalWorkshop2.title") }}
+              </div>
+              <div class="text-h6 text-xxl-h6">
+                <p
+                  v-for="(paragraph, index) in $tm(
+                    'story.finalWorkshop2.paragraphs'
+                  )"
+                  :key="index"
+                  class="pt-2 pt-lg-6 pt-xxl-8"
+                >
+                  {{ $rt(paragraph) }}
+                </p>
+              </div>
+            </v-sheet>
+            <v-img
+              class="flex-1-1"
+              src="story/final_workshop_group.jpeg"
+              :srcset="getSrcset('story/final_workshop_group.jpeg')"
+              width="100%"
+            />
+          </v-col>
+          <v-col
+            cols="12"
+            md="6"
+            xxl="6"
+            class="align-center h-100 justify-space-around d-flex flex-column"
+          >
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/x3FOjEtB9Q8?start=1133"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer;
+              autoplay; clipboard-write; encrypted-media; gyroscope;
+              picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
     <div class="section fp-auto-height-responsive">
       <v-container fluid>
         <div class="text-h2">{{ $t("story.references") }}</div>
@@ -1002,6 +1596,26 @@ const getSrcset = (baseSrc: string) => {
 
           <a href="https://doi.org/10.1093/treephys/21.9.589" target="_">
             https://doi.org/10.1093/treephys/21.9.589
+          </a>
+        </p>
+        <p class="text-h6 my-10">
+          Dubois, E., Cherif, S. M. A., Abidine, M. M., Bah, M. F. O., Chenal,
+          J., Marshall, M., Oumarou, W., Grossiord, C., & Perona, P. (2024).
+          Nature-based solution enhances resilience to flooding and catalyzes
+          multi-benefits in coastal cities in the Global South. Science of The
+          Total Environment, 928, 172282.
+          <a href="https://doi.org/10.1016/j.scitotenv.2024.172282" target="_">
+            https://doi.org/10.1016/j.scitotenv.2024.172282
+          </a>
+        </p>
+        <p class="text-h6 my-10">
+          Rossetto, R., De Filippis, G., Borsi, I., Foglia, L., Cannata, M.,
+          Criollo, R., & Vázquez-Suñé, E. (2018). Integrating free and open
+          source tools and distributed modelling codes in GIS environment for
+          data-based groundwater management. Environmental Modelling & Software,
+          107, 210–230.
+          <a href="https://doi.org/10.1016/j.envsoft.2018.06.007" target="_">
+            https://doi.org/10.1016/j.envsoft.2018.06.007
           </a>
         </p>
       </v-container>
@@ -1247,14 +1861,6 @@ const getSrcset = (baseSrc: string) => {
 </template>
 
 <style scoped>
-.text-h6 {
-  font-size: 1rem !important;
-  line-height: 1.25rem !important;
-}
-.text-h2 {
-  font-size: 2.75rem !important;
-  line-height: 3rem !important;
-}
 .v-sheet {
   background: none;
 }
@@ -1272,6 +1878,11 @@ const getSrcset = (baseSrc: string) => {
   .section .text-h2 {
     padding-bottom: 0.6em;
   }
+
+  .section .v-container {
+    padding-bottom: calc(64px + 3em);
+  }
+
   /* Fixes the v-timeline problem when horizontal + all on one side */
   :deep()
     .v-timeline--horizontal.v-timeline
@@ -1296,6 +1907,14 @@ const getSrcset = (baseSrc: string) => {
   .section .v-container {
     height: 90vh;
     padding-top: 64px;
+  }
+  .text-h6 {
+    font-size: calc(0.5rem + 0.6vw) !important;
+    line-height: calc(0.75rem + 0.65vw) !important;
+  }
+  .text-h2 {
+    font-size: calc(1rem + 1.5vw) !important;
+    line-height: calc(1rem + 1.75vw) !important;
   }
 }
 

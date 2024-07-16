@@ -135,6 +135,31 @@
         "This work consists of a joint interdisciplinary ecohydrology and plant physiology approach and aims to quantify the transpiration of tree species found locally to simulate tree-planting scenarios in the city to develop an integrated and sustainable tree-planting strategy for Nouakchott. In addition to increasing the city’s resilience to flooding, tree-planting in the city could have positive impacts by enhancing the provision of sustainable services for the people and the economy."
       ]
     },
+    "treePlanting": {
+      "title": "The idea of tree-planting as a Nature-based solution to enhance urban resilience to flooding and catalyze multiple benefits",
+      "photo": "story/tree_planting_nature_based_en.png",
+      "paragraphs": [
+        "A transdisciplinary analysis has shown that in addition to increasing urban resilience to flooding in coastal cities, tree-planting programs have significant potential to catalyze multiple benefits. These programs represent long-term solutions, sustained by environmental factors, that are complementary to conventional engineering solutions. The multi-benefit nature of such Nature-based solutions (NBSs) and their expected positive environmental, economic, and social outcomes make them particularly promising. Wide social acceptance was identified as a crucial requirement for the long-term success of tree-planting programs, as the social factor plays a major role in addressing many of the threats and weaknesses of the solution.",
+        "This analysis is presented in the first article from the project team and is published in an international scientific journal (in english; Dubois et al., 2024)."
+      ]
+    },
+    "swotStrengthWeakness": {
+      "title": "A SWOT analysis based on scientific literature",
+      "photo": "story/swot_strength_weakness_en.png",
+      "paragraphs": [
+        "This transdisciplinary analysis was supported by a SWOT analysis (Strengths, Weaknesses, Opportunities, Threats), in which strengths and opportunities correspond to the positive aspects of urban tree-planting programs. Strengths are related to the technical aspects and assets, and opportunities are related to the implementation and other external factors. Alternatively, weaknesses and threats correspond to the negative aspects of urban tree-planting programs are related to the limiting factors and disadvantages.",
+        "Strengths of tree-planting solutions in coastal cities include the large availability of water for tree roots, the presence of native species adapted to the local hydro-pedo-climatic conditions, the rainfall interception capacity of trees that further minimizes rainfall infiltration to the soil, and the multidisciplinary approach that encompasses the points of view that are necessary for implementation of the project.",
+        "Weaknesses of tree-planting solutions include the space needed to plant the trees, and that tree-planting is typically a partial solution and generally needs to be paired with other NBSs and/or conventional engineering solutions to fully address flooding problems. Additionally, tree roots have the potential to damage urban infrastructure, which then requires preventative measures. While it is important to grow and maintain mature trees to maximize the reduction of flood risk, tree growth in urban environments can present challenges. Finally, there is a risk of introducing invasive species, and such species should not be considered."
+      ]
+    },
+    "swotOpportunitiesThreats": {
+      "title": "A SWOT analysis based on scientific literature",
+      "photo": "story/swot_opportunities_threats_en.png",
+      "paragraphs": [
+        "Opportunities of tree-planting programs include the environmental benefits provided by urban trees that lead to many ecosystem services, from air purification to removal of soil pollutants. Urban trees are also associated with economic benefits stemming from food and wood production, and the potential for reducing energy consumption in areas where air cooling systems are used. Social benefits from trees are linked to employment generation, mental health support, support for the academic success of students, and opportunities for inclusion of disadvantaged communities. Finally, international opportunities for funding of tree-planting programs exist, both from non-profit and private organizations.",
+        "The threats linked to tree-planting programs include the long-term mainenance needed to ensure sustainability of the program. Urban trees are also vulnerable to environmental threats that could hinder their long-term survival. And finally, like any top-down initiative, there is a risk of refusal of tree-planting programs by citizens. As such, particular attention should be paid to the social acceptance of the program to guarantee its long-term success. "
+      ]
+    },
     "projectObjectives": {
       "title": "Project Objectives",
       "paragraphs": [
@@ -176,7 +201,86 @@
         "Quantification of tree transpiration using sap flow meters (based on the heat ratio method; Burgess et al., 2001), powered by solar panels."
       ]
     },
+    "treeCoverage": {
+      "title": "Knowledge development: tree coverage in Nouakchott",
+      "photo": "story/tree_coverage_en.png",
+      "paragraphs": [
+        "Four master’s students at the University of Nouakchott conducted research projects related to tree-planting solutions.",
+        "Mariem Zeine El Abidine Abdoullah mapped the tree coverage in the city and recorded the main tree species. These field observations identified more than 80 tree species found on both public and private lands, with the main species being Prosopis juliflora (18%), Azadirachta indica (16%), Washingtonia Robusta (9%), Phoenix dactylifera (8%), and Ficus rubiginosa (8%). A non-supervised classification, based on a high resolution satellite image, showed that trees cover 5% of Nouakchott’s center, representing approximatively 100 000 trees."
+      ]
+    },
+    "nouakchottEvapotranspiration": {
+      "title": "Knowledge development: Nouakchott evapotranspiration",
+      "paragraphs": [
+        "Chayea Ntahah used sap flow measurements from five tree species in Nouakchott to study transpiration and showed that there were large discrepancies in tree transpiration rates between the different species, mostly correlated to trunk size. This research found that daily transpiration rates could vary between 200 L/d for a large Azadaricta indica (trunk diameter = 64 cm) to a few liters per day for small palm trees."
+      ]
+    },
+    "nouakchottAssessmentTreePlanting": {
+      "title": "Knowledge development: assessment of a tree-planting project in Nouakchott",
+      "paragraphs": [
+        "Salma Mohameden Sow performed field measurements on the trees that were planted during the 2017-2021 tree-planting program along the airport road. These measurements consisted of identification of the tree species, measurement of the tree height and the trunk diameter, and observations of the overall health of the trees. The two main tree species are Conocarpus erectus (53%) and Eucalyptus camaldulensus (37%). The average height was found to be 1.5m and the average trunk diameter was found to be 3.5cm. Only 28/ XXXXX? % of the trees were observed to be dead."
+      ]
+    },
+    "nouakchottSoilSalinity": {
+      "title": "Knowledge development: soil salinity in Nouakchott",
+      "paragraphs": [
+        "Zahra Ahmed Beddi mapped the soil salinity in the City of Nouakchott based on 105 samples that were taken throughout the center of the city. The subsequent laboratory analysis showed that the western neighborhoods have highly saline soil and the concentration tends to decrease in the eastern (inland) direction."
+      ]
+    },
+    "simulationGroundwaterFlow": {
+      "title": "Simulation of groundwater flow in Nouakchott",
+      "paragraphs": [
+        "A simple three-dimensional numerical model was created for simulating groundwater flow in Nouakchott. The model was created using FREEWAT (Rossetto et al., 2018) based on the MODFLOW code.",
+        "The model covers a portion of Nouakchott, has a spatial resolution of 250 m x 250 m, and is run in a steady-state condition (equivalent to an average situation throughout the year). The western boundary condition of the model was set to have a constant head boundary (meaning the groundwater level is set and does not vary), representing the seawater intrusion. The southeastern boundary was also set to have a constant head boundary, representing the almost-constant groundwater depth measured in the south-easternmost observation well. The northeastern and southwestern boundary conditions were set as “no flow” boundaries, therefore assuming that there was no groundwater flow perpendicular to these boundaries. Groundwater recharge was set to match the approximate estimate of the incoming daily domestic water supply (180 000 m3/d) and was distributed with decreasing volume from the center of the city to the outskirts. The model was calibrated using groundwater depth measurements."
+      ],
+      "photo": "story/simulation_groundwater_flow_en.png"
+    },
+    "syntheticTreePlantingScenarios": {
+      "title": "Synthetic tree-planting scenarios",
+      "photo": "story/synthetic_tree_planting_scenarios.png",
+      "paragraphs": [
+        "Using the preliminary results of in-situ tree transpiration from Dubois et al. (2024), an average tree transpiration of 25 L/d was estimated for trees that are approximately 20 years old and more than 50 L/d for trees older than 35 years. Using these values, the model was further utilized to simulate the impact of city-scale tree-planting programs on the groundwater levels. The goal of this exercise was to assess the potential of planting trees for lowering the groundwater levels, thus reducing the flood risk. However, these scenarios have not yet been optimized to fit the geographic constraints found in situ. More detailed scenarios will be performed in the future with the next model iteration."
+      ]
+    },
+    "impactTreePlanting1": {
+      "title": "Impact of tree-planting on groundwater levels",
+      "photo": "story/impact_tree_planting_1_en.png",
+      "paragraphs": [
+        "Scenario 1 consisted of planting 100 000 trees in the center of Nouakchott, which corresponds to the addition of one tree every 25 m in the old center of the city and one tree every 35 m outside of it. An urban forest, corresponding to a zone covered by trees (transpiration capacity = 4 mm/d) was also added in the Mina region.",
+        "The addition of trees in the center of the city had little impact on the groundwater levels. However, the urban forest noticeably lowered the groundwater levels in the southwest part of the study area."
+      ]
+    },
+    "impactTreePlanting2": {
+      "title": "Impact of tree-planting scenarios on groundwater levels – Scenario 2",
+      "photo": "story/impact_tree_planting_2_en.png",
+      "paragraphs": [
+        "Scenario 2 also consisted of planting 100 000 trees in the center of Nouakchott (with the same conditions as Scenario 1), but also included the addition of an urban forest in the northeast part of the study area, corresponding to a potential location of the Great Green Wall (transpiration capacity = 2 mm/d).",
+        "The addition of an urban forest to in the northeast portion of the study area caused limited lowering of the groundwater levels, but the impacts extended towards the city center and one of the areas that currently has a high risk of flooding."
+      ]
+    },
+    "impactTreePlanting3": {
+      "title": "Impact of tree-planting scenarios on groundwater levels – Scenario 3",
+      "photo": "story/impact_tree_planting_3_en.png",
+      "paragraphs": [
+        "Scenario 3 also consisted of planting 100 000 trees in the center of Nouakchott (with the same conditions as Scenarios 1 and 2), but also included the addition of an urban forest in the northeast part of the study area, corresponding to a potential location of the Great Green Wall. This urban forest has a more limited extent than in Scenario 2 (transpiration capacity = 2 mm/d). Additionally, a tree-planting area with limited extent was added along the shoreline in the western part of the study area to protect the dune ridge on the shoreline (transpiration capacity = 1 mm/d).",
+        "The addition of an urban forest in the northeast portion of the study area caused limited lowering of the groundwater levels, but the impacts extended towards the city center and areas that currently have a high risk of flooding. The dune ridge protection planting had little impact on the groundwater levels."
+      ]
+    },
+    "finalWorkshop": {
+      "title": "Final workshop at the Region de Nouakchott",
 
+      "paragraphs": [
+        "On May 2nd, 2024, a workshop presenting the main results of the project was given at the Region de Nouakchott. The workshop was organized for the purpose of providing attendees with a global picture on tree-planting within the city and the associated impacts and co-benefits. After an official introduction of the workshop by the President of the Region de Nouakchott, Professor Paolo Perona introduced the concepts behind tree-planting as a Nature-based solution for increasing flooding resilience in the city.",
+        "Two invited speakers gave presentations on the groundwater dynamics and the citizen experience with urban trees in Nouakchott. Next, the four master’s students from University of Nouakchott presented their main results. Dr. Emmanuel Dubois presented the flood detection analysis based on satellite imagery performed by Montana Marshall at PL-LCH EPFL, and about the simulation of the impact of tree-planting scenarios on flooding in the city. The participants were then invited to visit nearby gardens to see the installed sap flow meters, discuss the different species that could be used in citywide tree-planting programs, and see an example of a garden that is protected from flooding due to the high density of trees."
+      ]
+    },
+    "finalWorkshop2": {
+      "title": "Final workshop at the Region de Nouakchott",
+
+      "paragraphs": [
+        "The workshop was presented on the news of the national TV news (in french)."
+      ]
+    },
     "references": "References",
     "enacResearchDay": {
       "title": "Project presentation at",
