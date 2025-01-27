@@ -13,6 +13,6 @@ jobs:
     secrets:
       token: ${{ secrets.CD_TOKEN }}
     with:
-      org: epfl-luts # your org
-      repo: app-test # your app name, usual convention is name of your repository
+      org: epfl-enac # your org
+      repo: eira # your app name, usual convention is name of your repository
       build_context: '["./frontend"]'
