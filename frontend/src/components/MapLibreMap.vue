@@ -7,15 +7,8 @@ import { geocoderApi } from "@/utils/geocoder";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import MaplibreGeocoder from "@maplibre/maplibre-gl-geocoder";
 
-import {
-  area,
-  bbox,
-  intersect,
-  union,
-  type Feature,
-  type MultiPolygon,
-  type Polygon,
-} from "@turf/turf";
+import { area, bbox, intersect, union } from "@turf/turf";
+import type { Feature, MultiPolygon, Polygon } from "geojson";
 import * as maplibregl from "maplibre-gl";
 import {
   FullscreenControl,
