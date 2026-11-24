@@ -36,4 +36,9 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+  // wtx gives each worktree its own port. The main checkout keeps 5173.
+  server: {
+    port: Number(process.env.FRONTEND_PORT) || 5173,
+    strictPort: !!process.env.FRONTEND_PORT,
+  },
 });
