@@ -20,14 +20,14 @@
     "lodash": "^4.17.21",
     "maplibre-gl": "^6.19.0",
     "pinia": "^2.0.28",
-    "vue": "^3.4.31",
+    "vue": "^3.5.46",
     "vue-fullpage.js": "^0.2.15",
-    "vue-i18n": "^9.14.5",
+    "vue-i18n": "^11.4.23",
     "vue-router": "^4.1.6",
-    "vuetify": "^3.6.11"
+    "vuetify": "~3.7.19"
   },
   "devDependencies": {
-    "@intlify/unplugin-vue-i18n": "^6.0.8",
+    "@intlify/unplugin-vue-i18n": "^11.2.8",
     "@mdi/js": "^7.1.96",
     "@rushstack/eslint-patch": "^1.1.4",
     "@tsconfig/node24": "^24.0.6",
