@@ -16,20 +16,37 @@ import {
   type MultiPolygon,
   type Polygon,
 } from "@turf/turf";
+import * as maplibregl from "maplibre-gl";
 import {
   FullscreenControl,
   GeolocateControl,
   Map,
-  Marker,
   NavigationControl,
   Popup,
   ScaleControl,
+  setWorkerUrl,
   type IControl,
   type LngLatBoundsLike,
   type LngLatLike,
+  type MapEventType,
   type StyleSpecification,
 } from "maplibre-gl";
+import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { onMounted, ref, watch } from "vue";
+
+// maplibre-gl 6 loads its worker from a separate file, Vite must give its URL.
+setWorkerUrl(workerUrl);
+
+// mapbox-gl-draw still uses the old mapboxgl-* class names, MapLibre removed them in v3.
+// MapboxDraw.constants exists at run time but is not in @types/mapbox__mapbox-gl-draw.
+const drawClasses = (
+  MapboxDraw as unknown as { constants: { classes: Record<string, string> } }
+).constants.classes;
+drawClasses.CANVAS = "maplibregl-canvas";
+drawClasses.CONTROL_BASE = "maplibregl-ctrl";
+drawClasses.CONTROL_PREFIX = "maplibregl-ctrl-";
+drawClasses.CONTROL_GROUP = "maplibregl-ctrl-group";
+drawClasses.ATTRIBUTION = "maplibregl-ctrl-attrib";
 
 defineExpose({ drawPolygon, drawTrash });
 
@@ -93,7 +110,7 @@ onMounted(() => {
     map.addControl(draw as unknown as IControl);
     map.addControl(
       new MaplibreGeocoder(geocoderApi, {
-        maplibregl: { Marker },
+        maplibregl,
         showResultsWhileTyping: true,
       }),
       "top-left"
@@ -103,9 +120,10 @@ onMounted(() => {
   map.once("load", () => {
     filterLayer(props.filterIds);
   });
-  map.on("draw.create", updateArea);
-  map.on("draw.delete", updateArea);
-  map.on("draw.update", updateArea);
+  // The draw.* events are not in the typed MapLibre event list.
+  map.on("draw.create" as keyof MapEventType, updateArea);
+  map.on("draw.delete" as keyof MapEventType, updateArea);
+  map.on("draw.update" as keyof MapEventType, updateArea);
 
   props.popupLayerIds.forEach((layerId) => {
     const popup = new Popup({
@@ -237,5 +255,39 @@ function drawTrash() {
 <style scoped>
 .maplibregl-map {
   height: 100%;
+}
+</style>
+
+<style>
+/* mapbox-gl-draw cursors, mapped to the maplibregl-* classes (from the MapLibre example) */
+.maplibregl-map.mouse-pointer
+  .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: pointer;
+}
+.maplibregl-map.mouse-move .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: move;
+}
+.maplibregl-map.mouse-add .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: crosshair;
+}
+.maplibregl-map.mouse-move.mode-direct_select
+  .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: grab;
+}
+.maplibregl-map.mode-direct_select.feature-vertex.mouse-move
+  .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: move;
+}
+.maplibregl-map.mode-direct_select.feature-midpoint.mouse-pointer
+  .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: cell;
+}
+.maplibregl-map.mode-direct_select.feature-feature.mouse-move
+  .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: move;
+}
+.maplibregl-map.mode-static.mouse-pointer
+  .maplibregl-canvas-container.maplibregl-interactive {
+  cursor: grab;
 }
 </style>
