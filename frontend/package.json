@@ -16,7 +16,7 @@
     "@maplibre/maplibre-gl-geocoder": "^1.5.0",
     "@turf/turf": "^6.5.0",
     "events": "^3.3.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.18.1",
     "maplibre-gl": "^2.4.0",
     "pinia": "^2.0.28",
     "vue": "^3.4.31",
