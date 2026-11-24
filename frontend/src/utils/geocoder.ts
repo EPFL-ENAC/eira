@@ -1,3 +1,9 @@
+import type {
+  CarmenGeojsonFeature,
+  MaplibreGeocoderApi,
+  MaplibreGeocoderApiConfig,
+  MaplibreGeocoderFeatureResults,
+} from "@maplibre/maplibre-gl-geocoder";
 import { LngLatBounds } from "maplibre-gl";
 
 const nouakchottBounds = new LngLatBounds([-16.2, 17.886], [-15.781, 18.393]);
@@ -6,9 +12,11 @@ const [[x1, y1], [x2, y2]] = nouakchottBounds.toArray();
 /**
  * https://maplibre.org/maplibre-gl-js-docs/example/geocoder/
  */
-export const geocoderApi = {
-  forwardGeocode: async (config: { query: string }) => {
-    const features = [];
+export const geocoderApi: MaplibreGeocoderApi = {
+  forwardGeocode: async (
+    config: MaplibreGeocoderApiConfig
+  ): Promise<MaplibreGeocoderFeatureResults> => {
+    const features: CarmenGeojsonFeature[] = [];
     try {
       const request =
         "https://nominatim.openstreetmap.org/search?q=" +
@@ -17,11 +25,11 @@ export const geocoderApi = {
       const response = await fetch(request);
       const geojson = await response.json();
       for (const feature of geojson.features) {
-        const center = [
+        const center: [number, number] = [
           feature.bbox[0] + (feature.bbox[2] - feature.bbox[0]) / 2,
           feature.bbox[1] + (feature.bbox[3] - feature.bbox[1]) / 2,
         ];
-        const point = {
+        const point: CarmenGeojsonFeature = {
           type: "Feature",
           geometry: {
             type: "Point",
@@ -39,6 +47,7 @@ export const geocoderApi = {
       console.error(`Failed to forwardGeocode with error: ${e}`);
     }
     return {
+      type: "FeatureCollection",
       features: features,
     };
   },
